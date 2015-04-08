@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.media.Image;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ public class DragDropProba extends Activity {
 
     @InjectView(R.id.slika) ImageView slika;
     @InjectView(R.id.tekst) TextView tekst;
+    @InjectView(R.id.rectangle) View rectangle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +48,13 @@ public class DragDropProba extends Activity {
             ImageView fruit = (ImageView) v;
             //Toast.makeText(DragDropProba.this, "Text long clicked - " + fruit.getText(), Toast.LENGTH_SHORT).show();
 
-            View.DragShadowBuilder myShadowBuilder = new MyShadowBuilder(v);
+            //View.DragShadowBuilder myShadowBuilder = new MyShadowBuilder(v);
+            v.getLayoutParams().height = 100;
+            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+
 
             ClipData data = ClipData.newPlainText("", "");
-            v.startDrag(data, myShadowBuilder, fruit, 0);
+            v.startDrag(data, shadowBuilder, fruit, 0);
 
             return true;
         }
@@ -68,11 +73,15 @@ public class DragDropProba extends Activity {
             {
                 case DragEvent.ACTION_DRAG_ENTERED:
                     tekst.setTextColor(Color.GREEN);
+                    GradientDrawable bgRectangle = (GradientDrawable)rectangle.getBackground();
+                    bgRectangle.setStroke(2, Color.BLACK);
                     //dropText.setTextColor(Color.GREEN);
                     break;
 
                 case DragEvent.ACTION_DRAG_EXITED:
                     tekst.setTextColor(Color.RED);
+                    GradientDrawable bgRectangle1 = (GradientDrawable)rectangle.getBackground();
+                    bgRectangle1.setStroke(2, Color.GREEN);
                     //dropText.setTextColor(Color.RED);
                     break;
 
