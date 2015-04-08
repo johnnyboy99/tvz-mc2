@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -13,14 +14,39 @@ import butterknife.OnClick;
 
 public class GlavniIzbornik extends ActionBarActivity {
 
+    ImageButton zastavaBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_glavni_izbornik);
         ButterKnife.inject(this);
+
+        zastavaBtn = (ImageButton)findViewById(R.id.zastava);
+        zastavaBtn.setTag("eng");
+        zastavaBtn.setOnClickListener(imgButtonHandler);
+
     }
 
-    @OnClick(R.id.btnProba)
+
+    View.OnClickListener imgButtonHandler = new View.OnClickListener()
+    {
+        public void onClick(View v)
+        {
+            if (zastavaBtn.getTag() == "eng")
+            {
+                zastavaBtn.setImageResource(R.drawable.cro);
+                zastavaBtn.setTag("cro");
+            }
+
+            else
+            {
+                zastavaBtn.setImageResource(R.drawable.eng);
+                zastavaBtn.setTag("eng");
+            }
+        }
+    };
+
     public void klikNaProbu(View v){
         Intent intent = new Intent(GlavniIzbornik.this, DragDropProba.class);
         startActivity(intent);
