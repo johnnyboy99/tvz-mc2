@@ -5,6 +5,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 
 public class GlavniIzbornik extends ActionBarActivity {
@@ -13,6 +17,11 @@ public class GlavniIzbornik extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_glavni_izbornik);
+        ButterKnife.inject(this);
+    }
+
+    @OnClick(R.id.btnProba)
+    public void klikNaProbu(View v){
         Intent intent = new Intent(GlavniIzbornik.this, DragDropProba.class);
         startActivity(intent);
     }
