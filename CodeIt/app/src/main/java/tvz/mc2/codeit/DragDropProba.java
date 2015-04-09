@@ -15,12 +15,14 @@ import android.view.DragEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.Optional;
 
 
 public class DragDropProba extends Activity {
@@ -28,6 +30,7 @@ public class DragDropProba extends Activity {
     @InjectView(R.id.slika) ImageView slika;
     @InjectView(R.id.tekst) TextView tekst;
     @InjectView(R.id.rectangle) View rectangle;
+    @InjectView(R.id.buttonProba) Button gumbNovi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +38,7 @@ public class DragDropProba extends Activity {
         setContentView(R.layout.activity_drag_drop_proba);
         ButterKnife.inject(this);
         slika.setOnLongClickListener(longListener);
-        tekst.setOnDragListener(dragListener);
+        rectangle.setOnDragListener(dragListener);
         //slika.setOnDragListener(dragListener);
     }
 
@@ -67,7 +70,7 @@ public class DragDropProba extends Activity {
         public boolean onDrag(View v, DragEvent event)
         {
             int dragEvent = event.getAction();
-            TextView dropText = (TextView) v;
+            //TextView dropText = (TextView) v;
 
             switch(dragEvent)
             {
@@ -87,7 +90,10 @@ public class DragDropProba extends Activity {
 
                 case DragEvent.ACTION_DROP:
                     //TextView draggedText = (TextView)event.getLocalState();
-                    dropText.setText("promjena");
+                   // dropText.setText("promjena");
+                    //rectangle.setBackgroundResource(R.drawable.cro);
+                    rectangle.setVisibility(View.GONE);
+                    gumbNovi.setVisibility(View.VISIBLE);
                     //tekst.setText("promjena");
                     break;
             }

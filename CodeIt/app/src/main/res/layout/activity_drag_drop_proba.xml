@@ -33,4 +33,11 @@
         android:layout_height="50dp"
         android:background="@drawable/rectangle"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="New Button"
+        android:id="@+id/buttonProba" />
+
 </LinearLayout>
