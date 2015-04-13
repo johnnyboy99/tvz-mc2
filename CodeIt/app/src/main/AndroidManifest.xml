@@ -8,25 +8,30 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="tvz.mc2.codeit.GlavniIzbornik"
+            android:name=".GlavniIzbornik"
             android:label="@string/app_name"
-            android:parentActivityName="tvz.mc2.codeit.Splash">
+            android:parentActivityName=".Splash" >
         </activity>
         <activity
-            android:name="tvz.mc2.codeit.DragDropProba"
+            android:name=".DragDropProba"
             android:label="@string/title_activity_drag_drop_proba"
-            android:parentActivityName="tvz.mc2.codeit.GlavniIzbornik" >
+            android:parentActivityName=".GlavniIzbornik" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tvz.mc2.codeit.GlavniIzbornik" />
         </activity>
         <activity
-            android:name="tvz.mc2.codeit.Splash"
+            android:name=".Splash"
             android:noHistory="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MenuProba"
+            android:label="@string/title_activity_menu_proba" >
         </activity>
     </application>
 

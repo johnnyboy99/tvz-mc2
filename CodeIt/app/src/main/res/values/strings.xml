@@ -6,5 +6,6 @@
     <string name="pozdrav">Pozdrav Kika i Bok!!!i!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_drag_drop_proba">DragDropProba</string>
+    <string name="title_activity_menu_proba">MenuProba</string>
 
 </resources>

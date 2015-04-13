@@ -52,6 +52,11 @@ public class GlavniIzbornik extends ActionBarActivity {
         startActivity(intent);
     }
 
+    public void klikNaMenu(View v){
+        Intent intent = new Intent(GlavniIzbornik.this, MenuProba.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
