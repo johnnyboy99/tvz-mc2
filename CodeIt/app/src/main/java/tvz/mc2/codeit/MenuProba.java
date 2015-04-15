@@ -5,14 +5,26 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 
 public class MenuProba extends Activity {
+
+    HorizontalScrollView hsv;
+    ImageView arrowl, arrowr;
+    int maxScrollX;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_proba);
+        hsv = (HorizontalScrollView) findViewById(R.id.horizontalScrollView);
+        arrowl = (ImageView) findViewById(R.id.arrowl);
+        arrowr = (ImageView) findViewById(R.id.arrowr);
     }
 
 
@@ -36,5 +48,43 @@ public class MenuProba extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        // TODO Auto-generated method stub
+        super.onWindowFocusChanged(hasFocus);
+
+        maxScrollX = hsv.getChildAt(0).getMeasuredWidth()-hsv.getMeasuredWidth();
+
+        if (hsv.getScrollX() == 0)
+        {
+            arrowl.setVisibility(View.GONE);
+        }
+
+        hsv.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (v.getScrollX() != 0)
+                {
+                    arrowl.setVisibility(View.VISIBLE);
+                }
+
+                else
+                {
+                    arrowl.setVisibility(View.GONE);
+                }
+
+                if (v.getScrollX() == maxScrollX)
+                {
+                    arrowr.setVisibility(View.GONE);
+                }
+                else
+                {
+                    arrowr.setVisibility(View.VISIBLE);
+                }
+                return false;
+            }
+        });
     }
 }
