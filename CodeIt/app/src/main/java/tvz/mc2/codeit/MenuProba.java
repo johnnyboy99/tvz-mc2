@@ -55,11 +55,15 @@ public class MenuProba extends Activity {
         // TODO Auto-generated method stub
         super.onWindowFocusChanged(hasFocus);
 
-        maxScrollX = hsv.getChildAt(0).getMeasuredWidth()-hsv.getMeasuredWidth();
+        maxScrollX = hsv.getChildAt(0).getMeasuredWidth() - hsv.getMeasuredWidth();
 
-        if (hsv.getScrollX() == 0)
-        {
+        if (hsv.getScrollX() == 0) {
             arrowl.setVisibility(View.GONE);
+        }
+
+        if (hsv.getScrollX() == maxScrollX)
+        {
+            arrowr.setVisibility(View.GONE);
         }
 
         hsv.setOnTouchListener(new View.OnTouchListener() {
