@@ -33,6 +33,14 @@
             android:name=".MenuProba"
             android:label="@string/title_activity_menu_proba" >
         </activity>
+        <activity
+            android:name=".RazinaJedan"
+            android:label="@string/title_activity_razina_jedan"
+            android:parentActivityName=".GlavniIzbornik" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="tvz.mc2.codeit.GlavniIzbornik" />
+        </activity>
     </application>
 
 </manifest>

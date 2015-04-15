@@ -2,79 +2,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".GlavniIzbornik"
-    android:orientation="vertical"
-    android:weightSum="7">
+    android:weightSum="7"
+    tools:context=".GlavniIzbornik">
 
 
     <ImageButton
+        android:id="@+id/zastava"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/zastava"
-        android:src="@drawable/eng"
-        android:padding="0dp"
-        android:layout_weight="0.3"
         android:layout_gravity="right"
-        android:onClick="klikNaZastavu"/>
+        android:layout_weight="0.3"
+        android:onClick="klikNaZastavu"
+        android:padding="0dp"
+        android:src="@drawable/eng" />
 
     <Space
         android:layout_width="1dp"
         android:layout_height="30dp"
-        android:layout_weight="0.7"/>
+        android:layout_weight="0.7" />
 
     <Button
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Kreni"
         android:id="@+id/btnKreni"
-        android:layout_gravity="center"
-        android:layout_weight="1"/>
-
-    <Button
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Postavke"
-        android:id="@+id/btnPostavke"
-        android:layout_gravity="center"
-        android:layout_weight="1"/>
-
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Pomoć"
-        android:id="@+id/btnPomoć"
-        android:layout_gravity="center"
-        android:layout_weight="1"/>
-
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Nauči više"
-        android:id="@+id/btnNauciVise"
-        android:layout_gravity="center"
-        android:layout_weight="1"/>
-
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Proba"
-        android:id="@+id/btnProba"
-        android:onClick="klikNaProbu"
-        android:layout_gravity="center"
-        android:layout_weight="1"/>
-
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Menu"
-        android:id="@+id/btnProbaMenu"
         android:layout_gravity="center"
         android:layout_weight="1"
-        android:onClick="klikNaMenu"/>
+        android:text="Kreni" />
+
+    <Button
+        android:id="@+id/btnPostavke"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:text="Postavke" />
+
+    <Button
+        android:id="@+id/btnPomoć"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:text="Pomoć" />
+
+    <Button
+        android:id="@+id/btnNauciVise"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:text="Nauči više" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnRazinaJedan"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="Razina jedan" />
+
+
+        <Button
+            android:id="@+id/btnProba"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="Proba" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnProbaMenu"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:text="Menu" />
 
 
 </LinearLayout>

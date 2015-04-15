@@ -15,6 +15,7 @@ import android.util.TypedValue;
 import android.view.DragEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsoluteLayout;
@@ -47,8 +48,8 @@ public class DragDropProba extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drag_drop_proba);
         ButterKnife.inject(this);
-        slika.setOnLongClickListener(longListener);
-        slika2.setOnLongClickListener(longListener);
+        slika.setOnTouchListener(longListener);
+        //slika2.setOnLongClickListener(longListener);
         rectangle.setOnDragListener(dragListener);
         rectangle2.setOnDragListener(dragListener);
         //slika.setOnDragListener(dragListener);
@@ -64,49 +65,49 @@ public class DragDropProba extends Activity {
         Toast.makeText(getApplicationContext(), "klik222", Toast.LENGTH_SHORT).show();
     }
 
-    View.OnLongClickListener longListener = new View.OnLongClickListener()
-    {
-        @Override
-        public boolean onLongClick(View v)
-        {
+    View.OnTouchListener longListener = new View.OnTouchListener() {
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
 
-            String kojiGumb = v.getTag().toString();
+                String kojiGumb = view.getTag().toString();
 
-            if(kojiGumb.equals("gumb1")){
+                if (kojiGumb.equals("gumb1")) {
 
-                //Toast.makeText(getApplicationContext(), "gumb1111", Toast.LENGTH_SHORT).show();
-                //TextView fruit = (TextView) v;
-                ImageView fruit = (ImageView) v;
-                //Toast.makeText(getApplicationContext(), v.getTag().toString(), Toast.LENGTH_SHORT).show();
-                //Toast.makeText(DragDropProba.this, "Text long clicked - " + fruit.getText(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), "gumb1111", Toast.LENGTH_SHORT).show();
+                    //TextView fruit = (TextView) v;
+                    ImageView fruit = (ImageView) view;
+                    //Toast.makeText(getApplicationContext(), v.getTag().toString(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(DragDropProba.this, "Text long clicked - " + fruit.getText(), Toast.LENGTH_SHORT).show();
 
-                //View.DragShadowBuilder myShadowBuilder = new MyShadowBuilder(v);
+                    //View.DragShadowBuilder myShadowBuilder = new MyShadowBuilder(v);
 
-                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+                    View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
 
 
-                ClipData data = ClipData.newPlainText("", "");
-                v.startDrag(data, shadowBuilder, fruit, 0);
-            }
+                    ClipData data = ClipData.newPlainText("", "");
+                    view.startDrag(data, shadowBuilder, fruit, 0);
+                } else if (kojiGumb.equals("gumb2")) {
 
-            else if(kojiGumb.equals("gumb2")) {
+                    //Toast.makeText(getApplicationContext(), "gumb222", Toast.LENGTH_SHORT).show();
+                    //TextView fruit = (TextView) v;
+                    ImageView fruit = (ImageView) view;
+                    //Toast.makeText(DragDropProba.this, "Text long clicked - " + fruit.getText(), Toast.LENGTH_SHORT).show();
 
-                //Toast.makeText(getApplicationContext(), "gumb222", Toast.LENGTH_SHORT).show();
-                //TextView fruit = (TextView) v;
-                ImageView fruit = (ImageView) v;
-                //Toast.makeText(DragDropProba.this, "Text long clicked - " + fruit.getText(), Toast.LENGTH_SHORT).show();
+                    //View.DragShadowBuilder myShadowBuilder = new MyShadowBuilder(v);
 
-                //View.DragShadowBuilder myShadowBuilder = new MyShadowBuilder(v);
-
-                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+                    View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
 
 
-                ClipData data = ClipData.newPlainText("", "");
-                v.startDrag(data, shadowBuilder, fruit, 0);
+                    ClipData data = ClipData.newPlainText("", "");
+                    view.startDrag(data, shadowBuilder, fruit, 0);
+                }
+
+
             }
 
             return true;
         }
+
 
     };
 

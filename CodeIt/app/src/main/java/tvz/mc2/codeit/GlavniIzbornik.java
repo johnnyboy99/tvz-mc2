@@ -47,13 +47,21 @@ public class GlavniIzbornik extends ActionBarActivity {
         }
     };
 
+    @OnClick(R.id.btnProba)
     public void klikNaProbu(View v){
         Intent intent = new Intent(GlavniIzbornik.this, DragDropProba.class);
         startActivity(intent);
     }
 
+    @OnClick(R.id.btnProbaMenu)
     public void klikNaMenu(View v){
         Intent intent = new Intent(GlavniIzbornik.this, MenuProba.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.btnRazinaJedan)
+    public void klikNaRazinaJedan(View v){
+        Intent intent = new Intent(GlavniIzbornik.this, RazinaJedan.class);
         startActivity(intent);
     }
 
