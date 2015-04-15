@@ -11,26 +11,36 @@ import android.graphics.drawable.GradientDrawable;
 import android.media.Image;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.DragEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsoluteLayout;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
 import butterknife.Optional;
 
 
 public class DragDropProba extends Activity {
 
     @InjectView(R.id.slika) ImageView slika;
+    @InjectView(R.id.slika2) ImageView slika2;
     @InjectView(R.id.tekst) TextView tekst;
     @InjectView(R.id.rectangle) View rectangle;
+    @InjectView(R.id.rectangle2) View rectangle2;
     @InjectView(R.id.buttonProba) Button gumbNovi;
+    @InjectView(R.id.buttonProba2) Button gumbNovi2;
+    @InjectView(R.id.dragDropLayout) ViewGroup grupa;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +48,20 @@ public class DragDropProba extends Activity {
         setContentView(R.layout.activity_drag_drop_proba);
         ButterKnife.inject(this);
         slika.setOnLongClickListener(longListener);
+        slika2.setOnLongClickListener(longListener);
         rectangle.setOnDragListener(dragListener);
+        rectangle2.setOnDragListener(dragListener);
         //slika.setOnDragListener(dragListener);
+    }
+
+    @OnClick(R.id.buttonProba)
+    public void klikNaProbu(View v){
+        Toast.makeText(getApplicationContext(), "klikkkk", Toast.LENGTH_SHORT).show();
+    }
+
+    @OnClick(R.id.buttonProba2)
+    public void klikNaProbu2(View v){
+        Toast.makeText(getApplicationContext(), "klik222", Toast.LENGTH_SHORT).show();
     }
 
     View.OnLongClickListener longListener = new View.OnLongClickListener()
@@ -47,17 +69,41 @@ public class DragDropProba extends Activity {
         @Override
         public boolean onLongClick(View v)
         {
-            //TextView fruit = (TextView) v;
-            ImageView fruit = (ImageView) v;
-            //Toast.makeText(DragDropProba.this, "Text long clicked - " + fruit.getText(), Toast.LENGTH_SHORT).show();
 
-            //View.DragShadowBuilder myShadowBuilder = new MyShadowBuilder(v);
-            v.getLayoutParams().height = 100;
-            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+            String kojiGumb = v.getTag().toString();
+
+            if(kojiGumb.equals("gumb1")){
+
+                //Toast.makeText(getApplicationContext(), "gumb1111", Toast.LENGTH_SHORT).show();
+                //TextView fruit = (TextView) v;
+                ImageView fruit = (ImageView) v;
+                //Toast.makeText(getApplicationContext(), v.getTag().toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(DragDropProba.this, "Text long clicked - " + fruit.getText(), Toast.LENGTH_SHORT).show();
+
+                //View.DragShadowBuilder myShadowBuilder = new MyShadowBuilder(v);
+
+                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
 
 
-            ClipData data = ClipData.newPlainText("", "");
-            v.startDrag(data, shadowBuilder, fruit, 0);
+                ClipData data = ClipData.newPlainText("", "");
+                v.startDrag(data, shadowBuilder, fruit, 0);
+            }
+
+            else if(kojiGumb.equals("gumb2")) {
+
+                //Toast.makeText(getApplicationContext(), "gumb222", Toast.LENGTH_SHORT).show();
+                //TextView fruit = (TextView) v;
+                ImageView fruit = (ImageView) v;
+                //Toast.makeText(DragDropProba.this, "Text long clicked - " + fruit.getText(), Toast.LENGTH_SHORT).show();
+
+                //View.DragShadowBuilder myShadowBuilder = new MyShadowBuilder(v);
+
+                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+
+
+                ClipData data = ClipData.newPlainText("", "");
+                v.startDrag(data, shadowBuilder, fruit, 0);
+            }
 
             return true;
         }
@@ -69,22 +115,55 @@ public class DragDropProba extends Activity {
         @Override
         public boolean onDrag(View v, DragEvent event)
         {
+            //Toast.makeText(getApplicationContext(), v.getTag().toString(), Toast.LENGTH_SHORT).show();
             int dragEvent = event.getAction();
+            String viewRectangleTag = v.getTag().toString();
+
+            //Toast.makeText(getApplicationContext(), viewRectangleTag, Toast.LENGTH_SHORT).show();
+
+            View viewGumb = (View) event.getLocalState();
+            String viewGumbTag = viewGumb.getTag().toString();
+
+
             //TextView dropText = (TextView) v;
 
             switch(dragEvent)
             {
                 case DragEvent.ACTION_DRAG_ENTERED:
+
+                    //Toast.makeText(getApplicationContext(), viewRectangleTag, Toast.LENGTH_SHORT).show();
+                    if(viewGumbTag.equals("gumb1") && viewRectangleTag.equals("rectangle1")){
+                        GradientDrawable bgRectangle = (GradientDrawable)rectangle.getBackground();
+                        //bgRectangle.setStroke(2, Color.GREEN);
+                        GradientDrawable bgRectangle2 = (GradientDrawable)rectangle2.getBackground();
+                        int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
+                        bgRectangle2.setStroke(height, Color.BLACK);
+                    }
+                    else if(viewGumbTag.equals("gumb2") && viewRectangleTag.equals("rectangle2")){
+                        Toast.makeText(getApplicationContext(), "tuuuu", Toast.LENGTH_SHORT).show();
+                        GradientDrawable bgRectangle2 = (GradientDrawable)rectangle2.getBackground();
+                        bgRectangle2.setStroke(2, Color.GREEN);
+                    }
                     tekst.setTextColor(Color.GREEN);
-                    GradientDrawable bgRectangle = (GradientDrawable)rectangle.getBackground();
-                    bgRectangle.setStroke(2, Color.BLACK);
+
                     //dropText.setTextColor(Color.GREEN);
                     break;
 
                 case DragEvent.ACTION_DRAG_EXITED:
+                    if(viewGumbTag.equals("gumb1") && viewRectangleTag.equals("rectangle1")){
+                        GradientDrawable bgRectangle = (GradientDrawable)rectangle.getBackground();
+                        bgRectangle.setStroke(2, Color.RED);
+                        GradientDrawable bgRectangle2 = (GradientDrawable)rectangle2.getBackground();
+                        bgRectangle2.setStroke(2, Color.BLACK);
+                    }
+                    else if(viewGumbTag.equals("gumb2") && viewRectangleTag.equals("rectangle2")){
+                        GradientDrawable bgRectangle2 = (GradientDrawable)rectangle2.getBackground();
+                        bgRectangle2.setStroke(2, Color.RED);
+                        GradientDrawable bgRectangle = (GradientDrawable)rectangle.getBackground();
+                        bgRectangle.setStroke(2, Color.BLACK);
+                    }
                     tekst.setTextColor(Color.RED);
-                    GradientDrawable bgRectangle1 = (GradientDrawable)rectangle.getBackground();
-                    bgRectangle1.setStroke(2, Color.GREEN);
+
                     //dropText.setTextColor(Color.RED);
                     break;
 
@@ -92,9 +171,48 @@ public class DragDropProba extends Activity {
                     //TextView draggedText = (TextView)event.getLocalState();
                    // dropText.setText("promjena");
                     //rectangle.setBackgroundResource(R.drawable.cro);
-                    rectangle.setVisibility(View.GONE);
-                    gumbNovi.setVisibility(View.VISIBLE);
-                    //tekst.setText("promjena");
+
+                    if(viewGumbTag.equals("gumb1") && viewRectangleTag.equals("rectangle1")){
+                        rectangle.setVisibility(View.GONE);
+                        gumbNovi.setVisibility(View.VISIBLE);
+                        GradientDrawable bgRectangle2 = (GradientDrawable)rectangle2.getBackground();
+                        int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
+                        bgRectangle2.setStroke(height, Color.BLACK);
+                        //slika.getLayoutParams().height = 100;
+                        //slika.getLayoutParams().width = 100;
+                        //final float scale = getResources().getDisplayMetrics().density;
+                        //int pixels = (int) (100 * scale + 0.5f);
+
+                        //TODO koristit ovo za pretvaranje px u dp
+                        int height2 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics());
+
+
+                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(height2, height2);
+                        slika.setLayoutParams(layoutParams);
+                        slika.requestLayout();
+                        grupa.invalidate();
+                    }
+                    else if(viewGumbTag.equals("gumb2") && viewRectangleTag.equals("rectangle2")){
+                        rectangle2.setVisibility(View.GONE);
+                        gumbNovi2.setVisibility(View.VISIBLE);
+                        GradientDrawable bgRectangle = (GradientDrawable)rectangle.getBackground();
+                        bgRectangle.setStroke(2, Color.BLACK);
+                        //slika.getLayoutParams().height = 100;
+                        //slika.getLayoutParams().width = 100;
+                        //final float scale = getResources().getDisplayMetrics().density;
+                        //int pixels = (int) (100 * scale + 0.5f);
+
+                        //TODO koristit ovo za pretvaranje px u dp
+                        int height2 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics());
+
+
+                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(height2, height2);
+                        slika2.setLayoutParams(layoutParams);
+                        slika2.requestLayout();
+                        grupa.invalidate();
+                    }
+
+
                     break;
             }
 
@@ -123,13 +241,13 @@ public class DragDropProba extends Activity {
         public void onProvideShadowMetrics(Point shadowSize, Point shadowTouchPoint)
         {
             int height, width;
-            height = (int) getView().getHeight()/2;
-            width = (int) getView().getHeight()/2;
+            height = (int) getView().getHeight();
+            width = (int) getView().getHeight();
 
             shadow.setBounds(0, 0, width, height);
 
             shadowSize.set(width, height);
-            shadowTouchPoint.set(width/2, height/2);
+            shadowTouchPoint.set(width, height);
         }
 
     }
