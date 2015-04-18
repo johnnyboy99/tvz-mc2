@@ -19,12 +19,19 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-
+/**
+ * Prikazuje listu razina.
+ *
+ * @author Kristina Marinić
+ * @date 2015-04-18
+ */
 public class Razine extends Activity {
 
+    /** GUI objekt koji prikazuje listu. */
     @InjectView(R.id.expandableListView) ExpandableListView expListView;
-    ExpandableListAdapter listAdapter;
+    /** Lista razina. */
     List<String> listaRazina;
+    /** Lista podrazina. */
     List<List<String>> listaPodrazina;
 
     @Override
@@ -49,6 +56,9 @@ public class Razine extends Activity {
         expListView.setAdapter(adapter);
     }
 
+    /**
+     * Popunjava listu razina i listu podrazina s podacima. 
+     */
     private void popuniListe() {
         listaRazina = Arrays.asList(getResources().getStringArray(R.array.razine));
         listaPodrazina = new ArrayList<>();

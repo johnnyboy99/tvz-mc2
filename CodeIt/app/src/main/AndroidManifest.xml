@@ -61,6 +61,10 @@
             android:name="tvz.mc2.codeit.ExpandableListAdapter"
             android:label="@string/title_activity_expandable_list_adapter" >
         </activity>
+        <activity
+            android:name="tvz.mc2.codeit.Zvjezdice"
+            android:label="@string/title_activity_zvjezdice" >
+        </activity>
     </application>
 
 </manifest>

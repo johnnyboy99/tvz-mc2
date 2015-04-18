@@ -16,19 +16,16 @@
         <item>Podrazina 2</item>
         <item>Podrazina 3</item>
     </string-array>
-
     <string-array name="podrazine2">
         <item>Podrazina 1</item>
         <item>Podrazina 2</item>
         <item>Podrazina 3</item>
     </string-array>
-
     <string-array name="podrazine3">
         <item>Podrazina 1</item>
         <item>Podrazina 2</item>
         <item>Podrazina 3</item>
     </string-array>
-
     <string-array name="razine">
         <item>Razina 1</item>
         <item>Razina 2</item>
@@ -36,5 +33,6 @@
     </string-array>
 
     <string name="title_activity_expandable_list_adapter">ExpandableListAdapter</string>
+    <string name="title_activity_zvjezdice">Zvjezdice</string>
 
 </resources>

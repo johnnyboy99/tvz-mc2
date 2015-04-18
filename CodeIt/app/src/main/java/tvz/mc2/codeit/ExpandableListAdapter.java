@@ -11,13 +11,25 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
-
+/**
+ * Koristi se u klasi Razine. Služi za punjenje ExpandableListView-a podacima.
+ * @author Kristina Marinić
+ * @date 2015-04-18
+ */
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
-
+    /** Application environment */
     private Context kontekst;
-    private List<String> listaRazina; // naziv razina
-    private List<List<String>> listaPodrazina; //u formatu broj razine, naziv podrazina
+    /** Lista u koju se spremaju nazivi razina. */
+    private List<String> listaRazina;
+    /** Pozicija unutar liste označava razinu, a vrijednost na poziciji je lista podrazine. */
+    private List<List<String>> listaPodrazina;
 
+    /**
+     *  Konstruktor.
+     * @param context app environment
+     * @param listDataHeader lista razina
+     * @param listChildData lista podrazina
+     */
     public ExpandableListAdapter(Context context, List<String> listDataHeader,
                                  List<List<String>> listChildData) {
         this.kontekst = context;
