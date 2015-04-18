@@ -8,6 +8,33 @@
     <string name="title_activity_drag_drop_proba">DragDropProba</string>
     <string name="title_activity_menu_proba">MenuProba</string>
     <string name="title_activity_razina_jedan">RazinaJedan</string>
+    <string name="title_activity_razine">Razine</string>
     <string name="title_activity_tutorial">Tutorial</string>
+
+    <string-array name="podrazine1">
+        <item>Podrazina 1</item>
+        <item>Podrazina 2</item>
+        <item>Podrazina 3</item>
+    </string-array>
+
+    <string-array name="podrazine2">
+        <item>Podrazina 1</item>
+        <item>Podrazina 2</item>
+        <item>Podrazina 3</item>
+    </string-array>
+
+    <string-array name="podrazine3">
+        <item>Podrazina 1</item>
+        <item>Podrazina 2</item>
+        <item>Podrazina 3</item>
+    </string-array>
+
+    <string-array name="razine">
+        <item>Razina 1</item>
+        <item>Razina 2</item>
+        <item>Razina 3</item>
+    </string-array>
+
+    <string name="title_activity_expandable_list_adapter">ExpandableListAdapter</string>
 
 </resources>

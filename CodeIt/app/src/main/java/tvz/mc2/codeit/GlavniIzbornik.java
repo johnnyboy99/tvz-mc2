@@ -70,6 +70,11 @@ public class GlavniIzbornik extends ActionBarActivity {
         Intent intent = new Intent(GlavniIzbornik.this, Tutorial.class);
         startActivity(intent);
     }
+    @OnClick(R.id.btnKreni)
+    public void klikNaRazine(View v){
+        Intent intent = new Intent(GlavniIzbornik.this, Razine.class);
+        startActivity(intent);
+    }
 
 
     @Override
