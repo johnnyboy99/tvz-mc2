@@ -65,6 +65,12 @@ public class GlavniIzbornik extends ActionBarActivity {
         startActivity(intent);
     }
 
+    @OnClick(R.id.btnNauciVise)
+    public void klikNaNauciVise(View v){
+        Intent intent = new Intent(GlavniIzbornik.this, Tutorial.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -41,6 +41,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tvz.mc2.codeit.GlavniIzbornik" />
         </activity>
+        <activity
+            android:name=".Tutorial"
+            android:label="@string/title_activity_tutorial"
+            android:parentActivityName=".GlavniIzbornik" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="tvz.mc2.codeit.GlavniIzbornik" />
+        </activity>
     </application>
 
 </manifest>

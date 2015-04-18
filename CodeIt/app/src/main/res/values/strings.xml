@@ -8,5 +8,6 @@
     <string name="title_activity_drag_drop_proba">DragDropProba</string>
     <string name="title_activity_menu_proba">MenuProba</string>
     <string name="title_activity_razina_jedan">RazinaJedan</string>
+    <string name="title_activity_tutorial">Tutorial</string>
 
 </resources>
