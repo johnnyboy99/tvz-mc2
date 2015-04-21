@@ -41,9 +41,10 @@ public class RazinaJedan extends Activity {
     @InjectView(R.id.okvirGumbRazinaJedan) View okvirGumbRazinaJedan;
     @InjectView(R.id.gumbRazinaJedan) Button gumbRazinaJedan;
     @InjectView(R.id.dragDropLayoutRazinaJedan) ViewGroup dragLayoutRazinaJedan;
+    @InjectView(R.id.arrowlRazinaJedan) ImageView arrowl;
+    @InjectView(R.id.arrowrRazinaJedan) ImageView arrowr;
+    @InjectView(R.id.horizontalScrollViewRazinaJedan) HorizontalScrollView hsv;
 
-    HorizontalScrollView hsv;
-    ImageView arrowl, arrowr;
     int maxScrollX;
 
     @Override
@@ -56,9 +57,6 @@ public class RazinaJedan extends Activity {
         okvirGradientGumbaJedan.setStroke(visinaRuba, Color.BLACK);
         slikaGumbRazinaJedan.setOnTouchListener(touchListener);
         okvirGumbRazinaJedan.setOnDragListener(dragListener);
-        hsv = (HorizontalScrollView) findViewById(R.id.horizontalScrollViewRazinaJedan);
-        arrowl = (ImageView) findViewById(R.id.arrowlRazinaJedan);
-        arrowr = (ImageView) findViewById(R.id.arrowrRazinaJedan);
     }
 
     View.OnTouchListener touchListener = new View.OnTouchListener() {

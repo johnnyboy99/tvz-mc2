@@ -41,12 +41,11 @@ public class Razine extends Activity {
         ButterKnife.inject(this);
 
         popuniListe();
-        expListView = (ExpandableListView) findViewById(R.id.expandableListView);
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition,
                                         int childPosition, long id) {
-                Intent intent = new Intent(Razine.this, RazinaJedan.class);
+                Intent intent = new Intent(Razine.this, Zvjezdice.class);
                 startActivity(intent);
                 return false;
             }
@@ -57,7 +56,7 @@ public class Razine extends Activity {
     }
 
     /**
-     * Popunjava listu razina i listu podrazina s podacima. 
+     * Popunjava listu razina i listu podrazina s podacima.
      */
     private void popuniListe() {
         listaRazina = Arrays.asList(getResources().getStringArray(R.array.razine));
