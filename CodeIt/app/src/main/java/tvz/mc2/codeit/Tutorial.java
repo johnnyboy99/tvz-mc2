@@ -6,6 +6,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,6 +28,7 @@ public class Tutorial extends Activity {
     @InjectView(R.id.tekstObjasnjenjeTutorial) TextView tekstObjasnjenjeTutorial;
     @InjectView(R.id.okvirGumbTutorail) View okvirGumbTutorial;
     @InjectView(R.id.krugZaRadnuPlohuTutorial) View krugZaRadnuPlohu;
+    @InjectView(R.id.izbornikElemenataLayoutTutorial) RelativeLayout izbornikElemanataLayoutTutorial;
 
     Handler handler = new Handler();
     private static int VRIJEME_ANIMACIJE = 2000;
@@ -39,6 +41,13 @@ public class Tutorial extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial);
         ButterKnife.inject(this);
+
+        int visinaRuba = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
+        GradientDrawable okvirGradientGumbaJedan = (GradientDrawable) okvirGumbTutorial.getBackground();
+        okvirGradientGumbaJedan.setStroke(visinaRuba, Color.BLACK);
+
+
+        prviRender();
         animacije();
     }
 
@@ -48,6 +57,26 @@ public class Tutorial extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_tutorial, menu);
         return true;
+    }
+
+    private void prviRender(){
+
+        fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+
+        //cekaj prije rendera na sivu
+        handler.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                fadeIn.setDuration(500);
+                izbornikElemanataLayoutTutorial.setAnimation(fadeIn);
+                okvirGumbTutorial.setAnimation(fadeIn);
+                izbornikElemanataLayoutTutorial.setBackgroundColor(getResources().getColor(R.color.svjetloSiva));
+                GradientDrawable bgRectangle = (GradientDrawable)okvirGumbTutorial.getBackground();
+                bgRectangle.setStroke(2, Color.WHITE);
+            }
+
+        }, CEKANJE_ZA_PRVU_ANIMACIJU);
     }
 
     private void animacije(){
