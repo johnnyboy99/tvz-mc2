@@ -1,6 +1,8 @@
 package tvz.mc2.codeit;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.widget.DrawerLayout;
@@ -123,13 +125,14 @@ public class MenuProba extends Activity implements AdapterView.OnItemClickListen
         switch (position)
         {
             case 0:
-                Toast.makeText(this, "Ovdje bude popup za tekst zadatka", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Ovdje bude popup za tekst zadatka", Toast.LENGTH_SHORT).show();
+                dialogZadatak();
                 break;
             case 1:
-                restart();
+                dialogRestart();
                 break;
             case 2:
-                izlaz();
+                dialogIzlaz();
                 break;
             default:
                 break;
@@ -153,5 +156,64 @@ public class MenuProba extends Activity implements AdapterView.OnItemClickListen
         Intent intent = new Intent(MenuProba.this, GlavniIzbornik.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+    }
+
+    public void dialogRestart()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Ponovno pokretanje");
+        builder.setMessage("Želiš li ponovno pokrenuti razinu?");
+
+        builder.setPositiveButton("Da", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                restart();
+            }
+        })
+        .setNegativeButton("Ne", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id)
+            {
+                //ništa
+            }
+        });
+        builder.create().show();
+    }
+
+    public void dialogIzlaz()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Izlaz");
+        builder.setMessage("Želiš li izaći na glavni izbornik?");
+
+        builder.setPositiveButton("Da", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                izlaz();
+            }
+             })
+                .setNegativeButton("Ne", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id)
+                    {
+                        //ništa
+                    }
+                });
+        builder.create().show();
+    }
+
+    public void dialogZadatak()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Zadatak:");
+        builder.setMessage("Neki tekst zadatka");
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                //ništa
+            }
+        });
+        builder.create().show();
     }
 }
