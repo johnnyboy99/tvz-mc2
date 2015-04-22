@@ -137,6 +137,7 @@ public class MenuProba extends Activity implements AdapterView.OnItemClickListen
             default:
                 break;
         }
+        drawerLayout.closeDrawer(mDrawerList);
         selectItem(position);
     }
 
