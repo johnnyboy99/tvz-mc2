@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -20,11 +22,16 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,17 +42,25 @@ import butterknife.OnClick;
 
 //TODO da promjeni velicinu sjene
 
-public class RazinaJedan extends Activity {
+public class RazinaJedan extends Activity implements AdapterView.OnItemClickListener {
+
+    int maxScrollX;
+    private String [] izborArray;
 
     @InjectView(R.id.slikaGumbRazinaJedan) ImageView slikaGumbRazinaJedan;
     @InjectView(R.id.okvirGumbRazinaJedan) View okvirGumbRazinaJedan;
     @InjectView(R.id.gumbRazinaJedan) Button gumbRazinaJedan;
-    @InjectView(R.id.dragDropLayoutRazinaJedan) ViewGroup dragLayoutRazinaJedan;
+    //@InjectView(R.id.dragDropLayoutRazinaJedan) ViewGroup dragLayoutRazinaJedan;
     @InjectView(R.id.arrowlRazinaJedan) ImageView arrowl;
     @InjectView(R.id.arrowrRazinaJedan) ImageView arrowr;
     @InjectView(R.id.horizontalScrollViewRazinaJedan) HorizontalScrollView hsv;
+    //@InjectView(R.id.drawerGumb) ImageButton drawerGumb;
+    @InjectView(R.id.frameLayoutRazinaJedan) FrameLayout frameLayoutRazinaJedan;
+    @InjectView(R.id.drawerListRazinaJedan) ListView drawerListRazinaJedan;
+    @InjectView(R.id.drawerLayoutRazinaJedan) DrawerLayout drawerLayoutRazinaJedan;
 
-    int maxScrollX;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +72,16 @@ public class RazinaJedan extends Activity {
         okvirGradientGumbaJedan.setStroke(visinaRuba, Color.BLACK);
         slikaGumbRazinaJedan.setOnTouchListener(touchListener);
         okvirGumbRazinaJedan.setOnDragListener(dragListener);
+
+        izborArray = getResources().getStringArray(R.array.izbor);
+        drawerListRazinaJedan.setAdapter(new ArrayAdapter<>(this, R.layout.unsimple_list_item, izborArray));
+        drawerListRazinaJedan.setOnItemClickListener(this);
+    }
+
+    @OnClick(R.id.drawerGumb)
+    public void onClick (View v)
+    {
+        drawerLayoutRazinaJedan.openDrawer(drawerListRazinaJedan);
     }
 
     View.OnTouchListener touchListener = new View.OnTouchListener() {
@@ -132,7 +157,7 @@ public class RazinaJedan extends Activity {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(visinaSlike, visinaSlike);
                     slikaGumbRazinaJedan.setLayoutParams(layoutParams);
                     slikaGumbRazinaJedan.requestLayout();
-                    dragLayoutRazinaJedan.invalidate();
+                    //dragLayoutRazinaJedan.invalidate();
 
                     return unutarOkvira;
             }
@@ -223,6 +248,11 @@ public class RazinaJedan extends Activity {
         maxScrollX = hsv.getChildAt(0).getMeasuredWidth()-hsv.getMeasuredWidth();
 
         //TODO promjenit da ne prikazuje!!!
+
+        arrowl.setVisibility(View.VISIBLE);
+        arrowr.setVisibility(View.VISIBLE);
+
+        /*
         if (hsv.getScrollX() == 0) {
             arrowl.setVisibility(View.GONE);
             arrowr.setVisibility(View.GONE);
@@ -232,7 +262,9 @@ public class RazinaJedan extends Activity {
         {
             arrowr.setVisibility(View.GONE);
         }
+        */
 
+        /*
         hsv.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -257,5 +289,43 @@ public class RazinaJedan extends Activity {
                 return false;
             }
         });
+        */
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        switch (position)
+        {
+            case 0:
+                Toast.makeText(this, "Ovdje bude popup za tekst zadatka", Toast.LENGTH_SHORT).show();
+                break;
+            case 1:
+                restart();
+                break;
+            case 2:
+                izlaz();
+                break;
+            default:
+                break;
+        }
+        selectItem(position);
+    }
+
+    public void selectItem(int position) {
+        drawerListRazinaJedan.setItemChecked(position, true);
+    }
+
+    public void restart()
+    {
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
+    }
+
+    public void izlaz()
+    {
+        Intent intent = new Intent(RazinaJedan.this, GlavniIzbornik.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }

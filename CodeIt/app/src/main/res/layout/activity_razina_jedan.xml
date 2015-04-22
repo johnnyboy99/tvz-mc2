@@ -1,15 +1,138 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/dragDropLayoutRazinaJedan"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawerLayoutRazinaJedan"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="tvz.mc2.codeit.RazinaJedan">
+    android:layout_height="match_parent">
+<!--
+    <LinearLayout
+        android:id="@+id/dragDropLayoutRazinaJedan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="tvz.mc2.codeit.RazinaJedan">
+        -->
 
+        <FrameLayout
+            android:id="@+id/frameLayoutRazinaJedan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/menuElementiRazinaJedan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#f44336"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <ImageButton
+                        android:id="@+id/drawerGumb"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1.5"
+                        android:background="@drawable/border"
+                        android:paddingLeft="0dp"
+                        android:paddingRight="0dp"
+                        android:src="@drawable/ic_drawer" />
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8.5">
+
+
+                        <HorizontalScrollView
+                            android:id="@+id/horizontalScrollViewRazinaJedan"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fadingEdgeLength="20dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                android:padding="20dp">
+
+                                <ImageView
+                                    android:id="@+id/slikaGumbRazinaJedan"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:src="@drawable/gumb1"
+                                    android:tag="gumb1" />
+
+                            </LinearLayout>
+                        </HorizontalScrollView>
+
+                        <ImageView
+                            android:id="@+id/arrowlRazinaJedan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/arrowl" />
+
+                        <ImageView
+                            android:id="@+id/arrowrRazinaJedan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/arrowr" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/menuElementiRazinaJedan"
+                    android:layout_gravity="center"
+                    android:background="#BDBDBD"
+                    android:gravity="center">
+
+                    <View
+                        android:id="@+id/okvirGumbRazinaJedan"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@drawable/okvir"
+                        android:tag="okvirGumbRazinaJedan" />
+
+                    <Button
+                        android:id="@+id/gumbRazinaJedan"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:text="New Button"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+            </RelativeLayout>
+        </FrameLayout>
+
+        <ListView
+            android:id="@+id/drawerListRazinaJedan"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="#f44336"
+            android:divider="#FFFFFF"
+            android:dividerHeight="3dp" />
+
+
+</android.support.v4.widget.DrawerLayout>
+
+    <!--
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#d3d3d3">
+
+
 
         <View
             android:id="@+id/krug"
@@ -66,28 +189,7 @@
 
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:background="#BDBDBD"
-        android:gravity="center">
-
-        <View
-            android:id="@+id/okvirGumbRazinaJedan"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/okvir"
-            android:tag="okvirGumbRazinaJedan" />
-
-        <Button
-            android:id="@+id/gumbRazinaJedan"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:text="New Button"
-            android:visibility="gone" />
+    -->
 
 
-    </LinearLayout>
 
-</LinearLayout>
