@@ -2,126 +2,142 @@
     android:id="@+id/drawerLayoutRazinaJedan"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<!--
-    <LinearLayout
-        android:id="@+id/dragDropLayoutRazinaJedan"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context="tvz.mc2.codeit.RazinaJedan">
-        -->
 
-        <FrameLayout
-            android:id="@+id/frameLayoutRazinaJedan"
+    <FrameLayout
+        android:id="@+id/frameLayoutRazinaJedan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <RelativeLayout
+            <LinearLayout
+                android:id="@+id/menuRazinaJedan"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:background="#f44336"
+                android:orientation="horizontal"
+                android:weightSum="10">
 
-                <LinearLayout
-                    android:id="@+id/menuElementiRazinaJedan"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                <ImageButton
+                    android:id="@+id/drawerGumbRazinaJedan"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1.5"
+                    android:background="@drawable/border"
+                    android:src="@drawable/ic_drawer" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
                     android:background="#f44336"
-                    android:orientation="horizontal"
-                    android:weightSum="10">
+                    android:id="@+id/menuElementiRazinaJedan"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8.5">
 
-                    <ImageButton
-                        android:id="@+id/drawerGumb"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1.5"
-                        android:background="@drawable/border"
-                        android:paddingLeft="0dp"
-                        android:paddingRight="0dp"
-                        android:src="@drawable/ic_drawer" />
 
-                    <RelativeLayout
-                        android:layout_width="0dp"
+                    <HorizontalScrollView
+                        android:id="@+id/horizontalScrollViewRazinaJedan"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="8.5">
+                        android:fadingEdgeLength="20dp">
 
-
-                        <HorizontalScrollView
-                            android:id="@+id/horizontalScrollViewRazinaJedan"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fadingEdgeLength="20dp">
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:padding="20dp">
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:gravity="center"
-                                android:orientation="horizontal"
-                                android:padding="20dp">
+                            <ImageView
+                                android:id="@+id/slikaGumbRazinaJedan"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/gumb1"
+                                android:tag="gumb1" />
 
-                                <ImageView
-                                    android:id="@+id/slikaGumbRazinaJedan"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:src="@drawable/gumb1"
-                                    android:tag="gumb1" />
+                        </LinearLayout>
+                    </HorizontalScrollView>
 
-                            </LinearLayout>
-                        </HorizontalScrollView>
+                    <ImageView
+                        android:id="@+id/arrowLRazinaJedan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/arrowl" />
 
-                        <ImageView
-                            android:id="@+id/arrowlRazinaJedan"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentLeft="true"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/arrowl" />
+                    <ImageView
+                        android:id="@+id/arrowRRazinaJedan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/arrowr" />
 
-                        <ImageView
-                            android:id="@+id/arrowrRazinaJedan"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/arrowr" />
+                </RelativeLayout>
 
-                    </RelativeLayout>
-                </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@+id/menuElementiRazinaJedan"
-                    android:layout_gravity="center"
-                    android:background="#BDBDBD"
-                    android:gravity="center">
+            </LinearLayout>
 
-                    <View
-                        android:id="@+id/okvirGumbRazinaJedan"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:background="@drawable/okvir"
-                        android:tag="okvirGumbRazinaJedan" />
 
-                    <Button
-                        android:id="@+id/gumbRazinaJedan"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:text="New Button"
-                        android:visibility="gone" />
 
-                </LinearLayout>
-            </RelativeLayout>
-        </FrameLayout>
 
-        <ListView
-            android:id="@+id/drawerListRazinaJedan"
-            android:layout_width="200dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:background="#f44336"
-            android:divider="#FFFFFF"
-            android:dividerHeight="3dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/menuRazinaJedan"
+                android:id="@+id/radnaPlohaRazinaJedan"
+                android:layout_gravity="center"
+                android:background="#BDBDBD"
+                android:gravity="center">
+
+                <View
+                    android:id="@+id/okvirGumbRazinaJedan"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/okvir"
+                    android:tag="okvirGumbRazinaJedan" />
+
+                <Button
+                    android:id="@+id/gumbRazinaJedan"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:text="New Button"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/prazanKrugZaMenuDrawerPlohuRazinaJedan"
+            android:layout_alignParentTop="true"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="-52dp"
+            android:layout_marginTop="-28dp"
+            android:clipChildren="false"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:background="@drawable/prazan_krug" />
+
+
+
+
+    </FrameLayout>
+
+    <ListView
+        android:id="@+id/drawerListRazinaJedan"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#f44336"
+        android:divider="#FFFFFF"
+        android:dividerHeight="3dp" />
 
 
 </android.support.v4.widget.DrawerLayout>

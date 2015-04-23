@@ -11,6 +11,7 @@ import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -22,6 +23,8 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -32,6 +35,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,15 +54,25 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
     @InjectView(R.id.slikaGumbRazinaJedan) ImageView slikaGumbRazinaJedan;
     @InjectView(R.id.okvirGumbRazinaJedan) View okvirGumbRazinaJedan;
     @InjectView(R.id.gumbRazinaJedan) Button gumbRazinaJedan;
-    //@InjectView(R.id.dragDropLayoutRazinaJedan) ViewGroup dragLayoutRazinaJedan;
-    @InjectView(R.id.arrowlRazinaJedan) ImageView arrowl;
-    @InjectView(R.id.arrowrRazinaJedan) ImageView arrowr;
+    @InjectView(R.id.arrowLRazinaJedan) ImageView arrowl;
+    @InjectView(R.id.arrowRRazinaJedan) ImageView arrowr;
     @InjectView(R.id.horizontalScrollViewRazinaJedan) HorizontalScrollView hsv;
-    //@InjectView(R.id.drawerGumb) ImageButton drawerGumb;
     @InjectView(R.id.frameLayoutRazinaJedan) FrameLayout frameLayoutRazinaJedan;
     @InjectView(R.id.drawerListRazinaJedan) ListView drawerListRazinaJedan;
     @InjectView(R.id.drawerLayoutRazinaJedan) DrawerLayout drawerLayoutRazinaJedan;
+    @InjectView(R.id.menuElementiRazinaJedan) RelativeLayout menuElementiRazinaJedan;
+    @InjectView(R.id.radnaPlohaRazinaJedan) LinearLayout radnaPlohaRazinaJedan;
+    @InjectView(R.id.prazanKrugZaMenuDrawerPlohuRazinaJedan) View prazanKrugZaMenuDrawerPlohuRazinaJedan;
+    @InjectView(R.id.menuRazinaJedan) LinearLayout menuRazinaJedan;
+    @InjectView(R.id.drawerGumbRazinaJedan) ImageButton drawerGumbRazinaJedan;
 
+    Handler handler = new Handler();
+
+    private static int VRIJEME_ANIMACIJE = 2000;
+    private static int CEKANJE_ZA_PRVU_ANIMACIJU = 1000;
+
+    Animation fadeIn;
+    Animation fadeOut;
 
 
 
@@ -67,19 +81,27 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_razina_jedan);
         ButterKnife.inject(this);
+
         int visinaRuba = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
         GradientDrawable okvirGradientGumbaJedan = (GradientDrawable) okvirGumbRazinaJedan.getBackground();
         okvirGradientGumbaJedan.setStroke(visinaRuba, Color.BLACK);
-        slikaGumbRazinaJedan.setOnTouchListener(touchListener);
-        okvirGumbRazinaJedan.setOnDragListener(dragListener);
+
 
         izborArray = getResources().getStringArray(R.array.izbor);
         drawerListRazinaJedan.setAdapter(new ArrayAdapter<>(this, R.layout.unsimple_list_item, izborArray));
         drawerListRazinaJedan.setOnItemClickListener(this);
+
+        //start animacija
+        prvaAnimacijaSveUSivo();
+
+
+
+        slikaGumbRazinaJedan.setOnTouchListener(touchListener);
+        okvirGumbRazinaJedan.setOnDragListener(dragListener);
     }
 
-    @OnClick(R.id.drawerGumb)
-    public void onClick (View v)
+    @OnClick(R.id.drawerGumbRazinaJedan)
+    public void onKlikNaDrawerMenu (View v)
     {
         drawerLayoutRazinaJedan.openDrawer(drawerListRazinaJedan);
     }
@@ -170,6 +192,12 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
             GradientDrawable okvirGradientGumbaJedan = (GradientDrawable) okvirGumbRazinaJedan.getBackground();
             int visinaRuba = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
             okvirGradientGumbaJedan.setStroke(visinaRuba, Color.BLACK);
+        }
+        else {
+            okvirGumbRazinaJedan.setVisibility(View.GONE);
+            GradientDrawable bgRectangle = (GradientDrawable)okvirGumbRazinaJedan.getBackground();
+            bgRectangle.setStroke(0, Color.WHITE);
+            drawerLayoutRazinaJedan.invalidate();
         }
     }
 
@@ -327,5 +355,79 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         Intent intent = new Intent(RazinaJedan.this, GlavniIzbornik.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+    }
+
+    private void prvaAnimacijaSveUSivo(){
+
+        fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+
+        //cekaj prije rendera na sivu
+        handler.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+
+                fadeIn.setDuration(1000);
+
+                menuElementiRazinaJedan.setBackgroundColor(getResources().getColor(R.color.tamnoSiva));
+                drawerGumbRazinaJedan.setBackgroundColor(getResources().getColor(R.color.tamnoSiva));
+                menuRazinaJedan.setBackgroundColor(getResources().getColor(R.color.tamnoSiva));
+                radnaPlohaRazinaJedan.setBackgroundColor(getResources().getColor(R.color.svjetloSiva));
+                GradientDrawable bgRectangle = (GradientDrawable)okvirGumbRazinaJedan.getBackground();
+                bgRectangle.setStroke(2, Color.WHITE);
+
+                menuElementiRazinaJedan.setAnimation(fadeIn);
+                radnaPlohaRazinaJedan.setAnimation(fadeIn);
+                okvirGumbRazinaJedan.setAnimation(fadeIn);
+                prazanKrugZaMenuDrawerPlohuRazinaJedan.setAnimation(fadeIn);
+
+            }
+
+        }, CEKANJE_ZA_PRVU_ANIMACIJU);
+
+        fadeIn.setAnimationListener(new Animation.AnimationListener() {
+
+            @Override
+            public void onAnimationStart(Animation animation) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                drugaAnimacijaDrawerMenu();
+            }
+
+        });
+    }
+
+    private void drugaAnimacijaDrawerMenu(){
+
+        fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+
+        //prva animacija, cekaj vrijeme prije pokretanja prve animacije
+        handler.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                fadeIn.setDuration(VRIJEME_ANIMACIJE);
+
+                prazanKrugZaMenuDrawerPlohuRazinaJedan.setVisibility(View.VISIBLE);
+                drawerGumbRazinaJedan.setBackgroundColor(getResources().getColor(R.color.crvenaPozadina));
+                menuRazinaJedan.setBackgroundColor(getResources().getColor(R.color.crvenaPozadinaSvjetlije));
+
+                prazanKrugZaMenuDrawerPlohuRazinaJedan.setAnimation(fadeIn);
+                drawerGumbRazinaJedan.setAnimation(fadeIn);
+                menuRazinaJedan.setAnimation(fadeIn);
+
+            }
+
+        }, CEKANJE_ZA_PRVU_ANIMACIJU);
     }
 }
