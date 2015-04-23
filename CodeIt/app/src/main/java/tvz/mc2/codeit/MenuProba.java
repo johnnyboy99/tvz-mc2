@@ -45,6 +45,8 @@ public class MenuProba extends Activity implements AdapterView.OnItemClickListen
         setContentView(R.layout.activity_menu_proba);
         ButterKnife.inject(this);
         izborArray = getResources().getStringArray(R.array.izbor);
+        View v = View.inflate(this, R.layout.list_header, null);
+        mDrawerList.addHeaderView(v, "Header", false);
         mDrawerList.setAdapter(new ArrayAdapter<>(this, R.layout.unsimple_list_item, izborArray));
         mDrawerList.setOnItemClickListener(this);
     }
@@ -124,14 +126,13 @@ public class MenuProba extends Activity implements AdapterView.OnItemClickListen
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (position)
         {
-            case 0:
-                //Toast.makeText(this, "Ovdje bude popup za tekst zadatka", Toast.LENGTH_SHORT).show();
+            case 1:
                 dialogZadatak();
                 break;
-            case 1:
+            case 2:
                 dialogRestart();
                 break;
-            case 2:
+            case 3:
                 dialogIzlaz();
                 break;
             default:

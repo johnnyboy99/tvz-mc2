@@ -1,5 +1,6 @@
 package tvz.mc2.codeit;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -12,9 +13,9 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-public class GlavniIzbornik extends ActionBarActivity {
+public class GlavniIzbornik extends Activity {
 
-    ImageButton zastavaBtn;
+    //ImageButton zastavaBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,14 +23,14 @@ public class GlavniIzbornik extends ActionBarActivity {
         setContentView(R.layout.activity_glavni_izbornik);
         ButterKnife.inject(this);
 
-        zastavaBtn = (ImageButton)findViewById(R.id.zastava);
-        zastavaBtn.setTag("eng");
-        zastavaBtn.setOnClickListener(imgButtonHandler);
+       // zastavaBtn = (ImageButton)findViewById(R.id.zastava);
+        //zastavaBtn.setTag("eng");
+        //zastavaBtn.setOnClickListener(imgButtonHandler);
 
     }
 
 
-    View.OnClickListener imgButtonHandler = new View.OnClickListener()
+    /*View.OnClickListener imgButtonHandler = new View.OnClickListener()
     {
         public void onClick(View v)
         {
@@ -46,30 +47,20 @@ public class GlavniIzbornik extends ActionBarActivity {
             }
         }
     };
+    }*/
 
-    @OnClick(R.id.btnProba)
-    public void klikNaProbu(View v){
-        Intent intent = new Intent(GlavniIzbornik.this, DragDropProba.class);
-        startActivity(intent);
-    }
-
-    @OnClick(R.id.btnProbaMenu)
+    @OnClick(R.id.btnPomoc)
     public void klikNaMenu(View v){
         Intent intent = new Intent(GlavniIzbornik.this, MenuProba.class);
         startActivity(intent);
     }
 
-    @OnClick(R.id.btnRazinaJedan)
+    @OnClick(R.id.btnNauciVise)
     public void klikNaRazinaJedan(View v){
         Intent intent = new Intent(GlavniIzbornik.this, RazinaJedan.class);
         startActivity(intent);
     }
 
-    @OnClick(R.id.btnNauciVise)
-    public void klikNaNauciVise(View v){
-        Intent intent = new Intent(GlavniIzbornik.this, Tutorial.class);
-        startActivity(intent);
-    }
     @OnClick(R.id.btnKreni)
     public void klikNaRazine(View v){
         Intent intent = new Intent(GlavniIzbornik.this, Razine.class);

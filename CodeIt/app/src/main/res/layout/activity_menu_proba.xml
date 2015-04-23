@@ -108,11 +108,11 @@
 
     <ListView
         android:id="@+id/navList"
-        android:layout_width="200dp"
+        android:layout_width="240dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="#f44336"
-        android:divider="#FFFFFF"
-        android:dividerHeight="3dp"/>
+        android:divider="@null"
+        />
 
 </android.support.v4.widget.DrawerLayout>
