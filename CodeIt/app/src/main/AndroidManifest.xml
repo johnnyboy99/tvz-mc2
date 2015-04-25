@@ -66,8 +66,25 @@
             android:label="@string/title_activity_zvjezdice" >
         </activity>
         <activity
+
             android:name=".RazinaDva"
-            android:label="@string/title_activity_razina_dva" >
+            android:label="@string/title_activity_razina_dva"
+            android:parentActivityName=".Razine" >
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="tvz.mc2.codeit.Razine" />
+        </activity>
+
+        <activity
+
+            android:name=".RazinaTest"
+            android:label="@string/title_activity_razina_test"
+            android:parentActivityName=".Razine" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="tvz.mc2.codeit.Razine" />
+
         </activity>
     </application>
 
