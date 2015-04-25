@@ -4,15 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:text="CodeIt"
-        android:textSize="50dp"
-        android:textStyle="bold"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:gravity="center_horizontal"
-        android:textColor="@android:color/white"/>
+        android:src="@drawable/codeit_tekst"
+        android:scaleType="fitCenter"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:background="#616161"/>
 
 </LinearLayout>

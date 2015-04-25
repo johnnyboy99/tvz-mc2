@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:weightSum="6"
-    android:background="#FF5252"
+    android:background="#616161"
     tools:context=".GlavniIzbornik">
 
 
@@ -51,8 +51,9 @@
         android:background="#f44336"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        android:textSize="20dp"
-        android:text="Kreni" />
+        android:textSize="20sp"
+        android:text="Kreni"
+        android:textAllCaps="false"/>
 
     <Space
         android:layout_width="match_parent"
@@ -68,8 +69,9 @@
         android:background="#f44336"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        android:textSize="20dp"
-        android:text="Postavke" />
+        android:textSize="20sp"
+        android:text="Postavke"
+        android:textAllCaps="false"/>
 
     <Space
         android:layout_width="match_parent"
@@ -85,8 +87,9 @@
         android:background="#f44336"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        android:textSize="20dp"
-        android:text="Pomoć" />
+        android:textSize="20sp"
+        android:text="Pomoć"
+        android:textAllCaps="false"/>
 
     <Space
         android:layout_width="match_parent"
@@ -102,7 +105,9 @@
         android:background="#f44336"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        android:textSize="20dp"
-        android:text="Nauči više" />
+        android:textSize="20sp"
+        android:text="Nauči više"
+        android:textAllCaps="false"
+        />
 
 </LinearLayout>
