@@ -1,5 +1,7 @@
 package tvz.mc2.codeit;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ClipData;
@@ -65,15 +67,30 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
     @InjectView(R.id.prazanKrugZaMenuDrawerPlohuRazinaJedan) View prazanKrugZaMenuDrawerPlohuRazinaJedan;
     @InjectView(R.id.menuRazinaJedan) LinearLayout menuRazinaJedan;
     @InjectView(R.id.drawerGumbRazinaJedan) ImageButton drawerGumbRazinaJedan;
+    @InjectView(R.id.krugZaElementeRazinaJedan) View krugZaElementeRazinaJedan;
+    @InjectView(R.id.krugZaRadnuPlohuRazinaJedan) View krugZaRadnuPlohuRazinaJedan;
+    @InjectView(R.id.okvirPrividniGumbRazinaJedan) View okvirPrividniGumbRazinaJedan;
+    @InjectView(R.id.opisniTekstUzAnimaciju) TextView opisniTekstUzAnimaciju;
 
     Handler handler = new Handler();
 
-    private static int VRIJEME_ANIMACIJE = 2000;
+    //cekanja na animacije
+    private static int VRIJEME_ANIMACIJE = 3000;
+    private static int VRIJEME_ANIMACIJE_DUZE = 4000;
+    private static int VRIJEME_MJENJANJA_BOJA = 2000;
     private static int CEKANJE_ZA_PRVU_ANIMACIJU = 1000;
+    private static int CEKANJE_NA_ANIMACIJU_KRATKO = 500;
 
     Animation fadeIn;
     Animation fadeOut;
+    Animation fadeInDuzi;
 
+    //boje
+    Integer tamnoSiva;
+    Integer svjetloSiva;
+    Integer sivaPozadina;
+    Integer crvenaPozadina;
+    Integer crvenaPozadinaSvjetlije;
 
 
     @Override
@@ -86,18 +103,18 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         GradientDrawable okvirGradientGumbaJedan = (GradientDrawable) okvirGumbRazinaJedan.getBackground();
         okvirGradientGumbaJedan.setStroke(visinaRuba, Color.BLACK);
 
-
         izborArray = getResources().getStringArray(R.array.izbor);
         drawerListRazinaJedan.setAdapter(new ArrayAdapter<>(this, R.layout.unsimple_list_item, izborArray));
         drawerListRazinaJedan.setOnItemClickListener(this);
 
+        tamnoSiva = getResources().getColor(R.color.tamnoSiva);
+        svjetloSiva = getResources().getColor(R.color.svjetloSiva);
+        sivaPozadina = getResources().getColor(R.color.sivaPozadina);
+        crvenaPozadina = getResources().getColor(R.color.crvenaPozadina);
+        crvenaPozadinaSvjetlije = getResources().getColor(R.color.crvenaPozadinaSvjetlije);
+
         //start animacija
         prvaAnimacijaSveUSivo();
-
-
-
-        slikaGumbRazinaJedan.setOnTouchListener(touchListener);
-        okvirGumbRazinaJedan.setOnDragListener(dragListener);
     }
 
     @OnClick(R.id.drawerGumbRazinaJedan)
@@ -212,7 +229,6 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         @Override
         public void onDrawShadow(Canvas canvas) {
             canvas.scale(10000, 10000);
-
             shadow.draw(canvas);
         }
 
@@ -221,7 +237,6 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
             int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics());
 
             shadow.setBounds(0, 0, 10000, 10000);
-
 
             shadowSize.set(10000, 10000);
             shadowTouchPoint.set(10000, 10000);
@@ -369,10 +384,10 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
 
                 fadeIn.setDuration(1000);
 
-                menuElementiRazinaJedan.setBackgroundColor(getResources().getColor(R.color.tamnoSiva));
-                drawerGumbRazinaJedan.setBackgroundColor(getResources().getColor(R.color.tamnoSiva));
-                menuRazinaJedan.setBackgroundColor(getResources().getColor(R.color.tamnoSiva));
-                radnaPlohaRazinaJedan.setBackgroundColor(getResources().getColor(R.color.svjetloSiva));
+                menuElementiRazinaJedan.setBackgroundColor(tamnoSiva);
+                drawerGumbRazinaJedan.setBackgroundColor(tamnoSiva);
+                menuRazinaJedan.setBackgroundColor(tamnoSiva);
+                radnaPlohaRazinaJedan.setBackgroundColor(svjetloSiva);
                 GradientDrawable bgRectangle = (GradientDrawable)okvirGumbRazinaJedan.getBackground();
                 bgRectangle.setStroke(2, Color.WHITE);
 
@@ -382,28 +397,22 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
                 prazanKrugZaMenuDrawerPlohuRazinaJedan.setAnimation(fadeIn);
 
             }
-
         }, CEKANJE_ZA_PRVU_ANIMACIJU);
 
         fadeIn.setAnimationListener(new Animation.AnimationListener() {
 
             @Override
             public void onAnimationStart(Animation animation) {
-                // TODO Auto-generated method stub
-
             }
 
             @Override
             public void onAnimationRepeat(Animation animation) {
-                // TODO Auto-generated method stub
-
             }
 
             @Override
             public void onAnimationEnd(Animation animation) {
                 drugaAnimacijaDrawerMenu();
             }
-
         });
     }
 
@@ -419,15 +428,246 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
                 fadeIn.setDuration(VRIJEME_ANIMACIJE);
 
                 prazanKrugZaMenuDrawerPlohuRazinaJedan.setVisibility(View.VISIBLE);
-                drawerGumbRazinaJedan.setBackgroundColor(getResources().getColor(R.color.crvenaPozadina));
-                menuRazinaJedan.setBackgroundColor(getResources().getColor(R.color.crvenaPozadinaSvjetlije));
+                drawerGumbRazinaJedan.setBackgroundColor(crvenaPozadina);
+                menuRazinaJedan.setBackgroundColor(crvenaPozadinaSvjetlije);
 
+                opisniTekstUzAnimaciju.setText(getResources().getString(R.string.tekstZaDrawerMenu));
+
+                opisniTekstUzAnimaciju.setAnimation(fadeIn);
                 prazanKrugZaMenuDrawerPlohuRazinaJedan.setAnimation(fadeIn);
                 drawerGumbRazinaJedan.setAnimation(fadeIn);
                 menuRazinaJedan.setAnimation(fadeIn);
 
             }
-
         }, CEKANJE_ZA_PRVU_ANIMACIJU);
+
+        fadeIn.setAnimationListener(new Animation.AnimationListener() {
+
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                trecaAnimacijaMenuElementi();
+            }
+        });
+    }
+
+    private void trecaAnimacijaMenuElementi(){
+
+        fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+        fadeOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
+        fadeInDuzi= AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+
+        //prva animacija, cekaj vrijeme prije pokretanja prve animacije
+        handler.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+
+                fadeIn.setDuration(VRIJEME_ANIMACIJE);
+                fadeInDuzi.setDuration(VRIJEME_ANIMACIJE_DUZE);
+                fadeOut.setDuration(CEKANJE_NA_ANIMACIJU_KRATKO);
+
+                ValueAnimator colorAnimationTamnoSivaUCrvenu = ValueAnimator.ofObject(new ArgbEvaluator(), tamnoSiva, crvenaPozadina);
+                colorAnimationTamnoSivaUCrvenu.setDuration(VRIJEME_MJENJANJA_BOJA);
+                colorAnimationTamnoSivaUCrvenu.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator animator) {
+                        menuElementiRazinaJedan.setBackgroundColor((Integer)animator.getAnimatedValue());
+                    }
+                });
+                colorAnimationTamnoSivaUCrvenu.start();
+
+                ValueAnimator colorAnimationCrvenaUTamnoSivu = ValueAnimator.ofObject(new ArgbEvaluator(), crvenaPozadina, tamnoSiva);
+                colorAnimationCrvenaUTamnoSivu.setDuration(VRIJEME_MJENJANJA_BOJA);
+                colorAnimationCrvenaUTamnoSivu.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator animator) {
+                        drawerGumbRazinaJedan.setBackgroundColor((Integer)animator.getAnimatedValue());
+                        menuRazinaJedan.setBackgroundColor((Integer)animator.getAnimatedValue());
+                    }
+                });
+                colorAnimationCrvenaUTamnoSivu.start();
+
+
+
+
+                opisniTekstUzAnimaciju.setText(getResources().getString(R.string.tekstZaIzbornikElemenata));
+                opisniTekstUzAnimaciju.setAnimation(fadeInDuzi);
+
+                prazanKrugZaMenuDrawerPlohuRazinaJedan.setVisibility(View.GONE);
+                krugZaElementeRazinaJedan.setVisibility(View.VISIBLE);
+
+                //animacije
+                prazanKrugZaMenuDrawerPlohuRazinaJedan.setAnimation(fadeOut);
+                krugZaElementeRazinaJedan.setAnimation(fadeIn);
+
+            }
+        }, CEKANJE_ZA_PRVU_ANIMACIJU);
+
+        fadeIn.setAnimationListener(new Animation.AnimationListener() {
+
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                cetvrtaAnimacijaRadnaPovrsina();
+            }
+        });
+    }
+
+    private void cetvrtaAnimacijaRadnaPovrsina() {
+
+        fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+        fadeOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
+
+        //prva animacija, cekaj vrijeme prije pokretanja prve animacije
+        handler.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+
+                fadeIn.setDuration(VRIJEME_ANIMACIJE);
+                fadeOut.setDuration(CEKANJE_NA_ANIMACIJU_KRATKO);
+
+                int visinaRuba = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
+
+                GradientDrawable okvirGradientPrividniGumb = (GradientDrawable) okvirPrividniGumbRazinaJedan.getBackground();
+                okvirGradientPrividniGumb.setStroke(visinaRuba, Color.WHITE);
+
+                ValueAnimator colorAnimationCrvenaUTamnoSivu = ValueAnimator.ofObject(new ArgbEvaluator(), crvenaPozadina, tamnoSiva);
+                colorAnimationCrvenaUTamnoSivu.setDuration(VRIJEME_MJENJANJA_BOJA);
+                colorAnimationCrvenaUTamnoSivu.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator animator) {
+                        menuElementiRazinaJedan.setBackgroundColor((Integer)animator.getAnimatedValue());
+                    }
+                });
+                colorAnimationCrvenaUTamnoSivu.start();
+
+                ValueAnimator colorAnimationTamnoSivaUSivuPozadinu = ValueAnimator.ofObject(new ArgbEvaluator(), svjetloSiva, sivaPozadina);
+                colorAnimationTamnoSivaUSivuPozadinu.setDuration(VRIJEME_MJENJANJA_BOJA);
+                colorAnimationTamnoSivaUSivuPozadinu.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator animator) {
+                        krugZaRadnuPlohuRazinaJedan.setBackgroundColor((Integer)animator.getAnimatedValue());
+                    }
+                });
+                colorAnimationTamnoSivaUSivuPozadinu.start();
+
+                opisniTekstUzAnimaciju.setText(getResources().getString(R.string.tekstZaRadnuPlohu));
+                opisniTekstUzAnimaciju.setAnimation(fadeIn);
+
+                krugZaElementeRazinaJedan.setVisibility(View.GONE);
+                krugZaRadnuPlohuRazinaJedan.setVisibility(View.VISIBLE);
+                okvirPrividniGumbRazinaJedan.setVisibility(View.VISIBLE);
+
+                //animacije
+                krugZaElementeRazinaJedan.setAnimation(fadeOut);
+                okvirPrividniGumbRazinaJedan.setAnimation(fadeIn);
+
+            }
+        }, CEKANJE_ZA_PRVU_ANIMACIJU);
+
+        fadeIn.setAnimationListener(new Animation.AnimationListener() {
+
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                petaAnimacijaStartAplikacije();
+            }
+        });
+    }
+
+    private void petaAnimacijaStartAplikacije() {
+
+        fadeOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
+
+        //prva animacija, cekaj vrijeme prije pokretanja prve animacije
+        handler.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+
+                fadeOut.setDuration(CEKANJE_NA_ANIMACIJU_KRATKO);
+
+                ValueAnimator colorAnimationTamnoSivaUCrvenuPozadinu = ValueAnimator.ofObject(new ArgbEvaluator(), tamnoSiva, crvenaPozadina);
+                colorAnimationTamnoSivaUCrvenuPozadinu.setDuration(VRIJEME_MJENJANJA_BOJA);
+                colorAnimationTamnoSivaUCrvenuPozadinu.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator animator) {
+                        menuRazinaJedan.setBackgroundColor((Integer)animator.getAnimatedValue());
+                        menuElementiRazinaJedan.setBackgroundColor((Integer)animator.getAnimatedValue());
+                        drawerGumbRazinaJedan.setBackgroundColor((Integer)animator.getAnimatedValue());
+                    }
+
+                });
+                colorAnimationTamnoSivaUCrvenuPozadinu.start();
+
+                ValueAnimator colorAnimationSvjetloSivaUSivuPozadinu = ValueAnimator.ofObject(new ArgbEvaluator(), svjetloSiva, sivaPozadina);
+                colorAnimationSvjetloSivaUSivuPozadinu.setDuration(VRIJEME_MJENJANJA_BOJA);
+                colorAnimationSvjetloSivaUSivuPozadinu.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator animator) {
+                        radnaPlohaRazinaJedan.setBackgroundColor((Integer)animator.getAnimatedValue());
+                    }
+
+                });
+                colorAnimationSvjetloSivaUSivuPozadinu.start();
+
+                opisniTekstUzAnimaciju.setText(getResources().getString(R.string.tekstKreni));
+                opisniTekstUzAnimaciju.setAnimation(fadeIn);
+
+                krugZaRadnuPlohuRazinaJedan.setVisibility(View.GONE);
+                okvirPrividniGumbRazinaJedan.setVisibility(View.GONE);
+
+                //animacije
+                krugZaRadnuPlohuRazinaJedan.setAnimation(fadeOut);
+                okvirPrividniGumbRazinaJedan.setAnimation(fadeOut);
+
+            }
+        }, CEKANJE_ZA_PRVU_ANIMACIJU);
+
+        fadeOut.setAnimationListener(new Animation.AnimationListener() {
+
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                slikaGumbRazinaJedan.setOnTouchListener(touchListener);
+                okvirGumbRazinaJedan.setOnDragListener(dragListener);
+            }
+        });
     }
 }

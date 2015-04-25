@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="tamnoSiva">#BDBDBD</color>
-    <color name="svjetloSiva">#d3d3d3</color>
-    <color name="crvenaPozadina">#f44336</color>
+    <color name="tamnoSiva">#616161</color>
+    <color name="svjetloSiva">#9e9e9e</color>
+    <color name="sivaPozadina">#BDBDBD</color>
+    <color name="crvenaPozadina">#FF5252</color>
     <color name="crvenaPozadinaSvjetlije">#F59896</color>
 
 </resources>
