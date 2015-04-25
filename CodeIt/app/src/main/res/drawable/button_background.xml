@@ -3,7 +3,7 @@
     <item android:state_pressed="true" >
         <shape>
             <solid
-                android:color="#B71C1C" />
+                android:color="@color/gumbPressedCrvena" />
             <!--<stroke
                 android:width="2dp"
                 android:color="#FFFFFF" /> -->
@@ -13,7 +13,7 @@
     </item>
     <item>
         <shape>
-            <solid android:color="#FF4436" />
+            <solid android:color="@color/crvenaPozadina" />
             <stroke
                 android:width="2dp"
                 android:color="#FFFFFF" />

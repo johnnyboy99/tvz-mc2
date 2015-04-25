@@ -6,5 +6,6 @@
     <color name="sivaPozadina">#BDBDBD</color>
     <color name="crvenaPozadina">#FF5252</color>
     <color name="crvenaPozadinaSvjetlije">#F59896</color>
+    <color name="gumbPressedCrvena">#B71C1C</color>
 
 </resources>
