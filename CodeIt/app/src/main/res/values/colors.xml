@@ -7,5 +7,10 @@
     <color name="crvenaPozadina">#FF5252</color>
     <color name="crvenaPozadinaSvjetlije">#F59896</color>
     <color name="gumbPressedCrvena">#B71C1C</color>
+    <color name="plava">#40C4FF</color>
+    <color name="zelena">#69F0AE</color>
+    <color name="ljubicasta">#E040FB</color>
+    <color name="bijela">#FFFFFF</color>
+
 
 </resources>

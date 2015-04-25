@@ -45,7 +45,7 @@ public class Razine extends Activity {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition,
                                         int childPosition, long id) {
-                Intent intent = new Intent(Razine.this, Zvjezdice.class);
+                Intent intent = new Intent(Razine.this, RazinaJedan.class);
                 startActivity(intent);
                 return false;
             }

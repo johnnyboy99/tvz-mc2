@@ -43,4 +43,11 @@
     <string name="title_activity_razina_test">RazinaTest</string>
     <string name="title_activity_razina_dva">RazinaDva</string>
 
+    <string-array name="dialog_boje">
+        <item>Crvena</item>
+        <item>Plava</item>
+        <item>Zelena</item>
+        <item>Ljubičasta</item>
+    </string-array>
+
 </resources>

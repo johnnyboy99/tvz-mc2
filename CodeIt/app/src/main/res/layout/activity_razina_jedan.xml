@@ -113,7 +113,10 @@
                         android:id="@+id/gumbRazinaJedan"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:text="New Button"
+                        android:text="Gumb"
+                        android:textAllCaps="false"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
                         android:visibility="gone" />
 
                 </LinearLayout>

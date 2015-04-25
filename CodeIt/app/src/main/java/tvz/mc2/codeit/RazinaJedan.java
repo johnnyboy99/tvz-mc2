@@ -14,6 +14,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Handler;
+import android.preference.DialogPreference;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -91,6 +92,10 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
     Integer sivaPozadina;
     Integer crvenaPozadina;
     Integer crvenaPozadinaSvjetlije;
+    Integer plava;
+    Integer zelena;
+    Integer ljubicasta;
+    Integer bijela;
 
 
     @Override
@@ -112,6 +117,11 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         sivaPozadina = getResources().getColor(R.color.sivaPozadina);
         crvenaPozadina = getResources().getColor(R.color.crvenaPozadina);
         crvenaPozadinaSvjetlije = getResources().getColor(R.color.crvenaPozadinaSvjetlije);
+        plava = getResources().getColor(R.color.plava);
+        zelena = getResources().getColor(R.color.zelena);
+        ljubicasta = getResources().getColor(R.color.ljubicasta);
+        bijela = getResources().getColor(R.color.bijela);
+
 
         //start animacija
         prvaAnimacijaSveUSivo();
@@ -192,7 +202,6 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
 
                     okvirGumbRazinaJedan.setVisibility(View.GONE);
                     gumbRazinaJedan.setVisibility(View.VISIBLE);
-
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(visinaSlike, visinaSlike);
                     slikaGumbRazinaJedan.setLayoutParams(layoutParams);
                     slikaGumbRazinaJedan.requestLayout();
@@ -243,24 +252,54 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         }
     }
 
+    public void pozivZadatka() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(RazinaJedan.this);
+        builder.setTitle("Upute")
+                .setMessage("Povuci gumb na radnu plohu te ga nakon toga pritisni")
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                })
+                .show();
+    }
     @OnClick(R.id.gumbRazinaJedan)
     public void klikNaGumbRazinaJedan(View view) {
-        final EditText input = new EditText(this);
-        new AlertDialog.Builder(RazinaJedan.this)
-                .setTitle("Promjeni tekst")
-                .setMessage("Odaberi tekst za gumb")
-                .setView(input)
-                .setPositiveButton("Promjeni", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        gumbRazinaJedan.setText(input.getText());
+        AlertDialog.Builder builder = new AlertDialog.Builder(RazinaJedan.this);
+        builder.setTitle("Odaberi boju")
+                .setItems(R.array.dialog_boje, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case 0:
+                                gumbRazinaJedan.setBackgroundColor(crvenaPozadina);
+                                gumbRazinaJedan.setTextColor(bijela);
+                                break;
+                            case 1:
+                                gumbRazinaJedan.setBackgroundColor(plava);
+                                gumbRazinaJedan.setTextColor(bijela);
+                                break;
+                            case 2:
+                                gumbRazinaJedan.setBackgroundColor(zelena);
+                                gumbRazinaJedan.setTextColor(bijela);
+                                break;
+                            case 3:
+                                gumbRazinaJedan.setBackgroundColor(ljubicasta);
+                                gumbRazinaJedan.setTextColor(bijela);
+                                break;
+                        }
                     }
-                }).setNegativeButton("Natrag", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                // Do nothing.
-            }
-        }).show();
+                })
+                .setNegativeButton("Natrag", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                })
+                .show();
     }
 
+    // .setView(input)
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -667,6 +706,7 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
             public void onAnimationEnd(Animation animation) {
                 slikaGumbRazinaJedan.setOnTouchListener(touchListener);
                 okvirGumbRazinaJedan.setOnDragListener(dragListener);
+                pozivZadatka();
             }
         });
     }
