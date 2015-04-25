@@ -41,5 +41,6 @@
     <string name="title_activity_expandable_list_adapter">ExpandableListAdapter</string>
     <string name="title_activity_zvjezdice">Zvjezdice</string>
     <string name="title_activity_razina_test">RazinaTest</string>
+    <string name="title_activity_razina_dva">RazinaDva</string>
 
 </resources>
