@@ -31,11 +31,15 @@ public class Zvjezdice extends Activity {
     /**
      * Milisekunde do micanja ekrana.
      */
-    private static final long SPLASHTIME = 4000;
+    private static final long SPLASHTIME = 2000;
     /**
      * Osigurava da se glavni prozor stvori samo jednom.
      */
     private boolean flag = false;
+    /**
+     * Poruka korisniku o tome sto je naucio.
+     */
+    private String poruka = "";
     /**
      * Handler za timeout ovog ekrana.
      */
@@ -61,7 +65,8 @@ public class Zvjezdice extends Activity {
         splashHandler.sendMessageDelayed(msg, SPLASHTIME);
         zvijezda1.setImageResource(R.drawable.star);
         zvijezda2.setImageResource(R.drawable.star);
-        zvijezda3.setImageResource(R.drawable.star_half);
+        zvijezda3.setImageResource(R.drawable.star);
+        poruka = getIntent().getExtras().getString("poruka");
     }
 
     /**
@@ -71,7 +76,7 @@ public class Zvjezdice extends Activity {
      */
     private void mjenjanjeEkrana(){
         if (flag == false) {
-            textView2.setText("Naučio si: sve o gumbu");
+            textView2.setText("Naučio si: "+ poruka);
             textView.setVisibility(View.VISIBLE);
             zvijezda1.setVisibility(View.VISIBLE);
             zvijezda2.setVisibility(View.VISIBLE);

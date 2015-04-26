@@ -3,6 +3,54 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+        <item name="android:alertDialogTheme">@style/customAD</item>
+        <item name="android:alertDialogStyle">@style/customADStyle</item>
+
+    </style>
+    <style name="customAD">
+        <item name="android:textColorPrimary">@color/bijela</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
+        <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
+        <item name="android:windowTitleStyle">@style/dialog_boje</item>
+        <item name="android:windowTitleBackgroundStyle">@style/dialog_boje</item>
+        <item name="android:textAppearanceMedium">@style/dialog_boje2</item>
+        <item name="android:borderlessButtonStyle">@style/dialog_boje</item>
+        <item name="android:buttonBarStyle">@style/dialog_boje</item>
+        <item name="android:textColorAlertDialogListItem">@color/bijela</item>
+    </style>
+
+    <style name="customADStyle">
+        <item name="android:bottomBright">@color/crvenaPozadina</item>
+        <item name="android:bottomDark">@color/crvenaPozadina</item>
+        <item name="android:bottomMedium">@color/crvenaPozadina</item>
+        <item name="android:centerBright">@color/crvenaPozadina</item>
+        <item name="android:centerDark">@color/crvenaPozadina</item>
+        <item name="android:centerMedium">@color/crvenaPozadina</item>
+        <item name="android:fullBright">@color/crvenaPozadina</item>
+        <item name="android:fullDark">@color/crvenaPozadina</item>
+        <item name="android:topBright">@color/crvenaPozadina</item>
+        <item name="android:topDark">@color/crvenaPozadina</item>
+    </style>
+    <style name="dialog_boje">
+        <item name="android:textColor">@color/bijela</item>
+        <item name="android:background">@color/crvenaPozadina</item>
+        <item name="android:itemTextAppearance">@color/bijela</item>
+    </style>
+    <style name="dialog_boje2" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/bijela</item>
+        <item name="android:background">@color/crvenaPozadina</item>
+        <item name="android:itemTextAppearance">@color/bijela</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="dialog_boje3" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/bijela</item>
+        <item name="android:background">@drawable/pritisnuto_boja</item>
+        <item name="android:itemTextAppearance">@color/bijela</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
 </resources>

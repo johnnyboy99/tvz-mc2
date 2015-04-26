@@ -20,6 +20,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.util.TypedValue;
+import android.view.ContextThemeWrapper;
 import android.view.DragEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -72,6 +73,7 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
     @InjectView(R.id.krugZaRadnuPlohuRazinaJedan) View krugZaRadnuPlohuRazinaJedan;
     @InjectView(R.id.okvirPrividniGumbRazinaJedan) View okvirPrividniGumbRazinaJedan;
     @InjectView(R.id.opisniTekstUzAnimaciju) TextView opisniTekstUzAnimaciju;
+    @InjectView(R.id.gumb_go) ImageButton gumb_go;
 
     Handler handler = new Handler();
 
@@ -256,21 +258,33 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
 
     //dovde
 
+    /**
+     * Pozivanje dijaloga s tekstom zadatka.
+     */
     public void pozivZadatka() {
         AlertDialog.Builder builder = new AlertDialog.Builder(RazinaJedan.this);
+        AlertDialog dialog =
         builder.setTitle("Upute")
                 .setMessage("Povuci gumb na radnu plohu te ga nakon toga pritisni")
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-
                     }
                 })
                 .show();
+        dialog.findViewById(dialog.getContext().getResources()
+                .getIdentifier("android:id/titleDivider", null, null))
+                .setBackgroundColor(getResources().getColor(R.color.bijela));
+
     }
+
+    /**
+     * Pozivanje dijaloga za promjenu boje teksta. Odabirom elementa liste mijenja se boja.
+     */
     @OnClick(R.id.gumbRazinaJedan)
-    public void klikNaGumbRazinaJedan(View view) {
+    public void klikNaGumbRazinaJedan() {
         AlertDialog.Builder builder = new AlertDialog.Builder(RazinaJedan.this);
+        AlertDialog dialog =
         builder.setTitle("Odaberi boju")
                 .setItems(R.array.dialog_boje, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -292,6 +306,7 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
                                 gumbRazinaJedan.setTextColor(bijela);
                                 break;
                         }
+                        gumb_go.setVisibility(View.VISIBLE);
                     }
                 })
                 .setNegativeButton("Natrag", new DialogInterface.OnClickListener() {
@@ -301,6 +316,15 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
                     }
                 })
                 .show();
+        dialog.findViewById(dialog.getContext().getResources()
+                .getIdentifier("android:id/titleDivider", null, null))
+                .setBackgroundColor(getResources().getColor(R.color.bijela));
+    }
+    @OnClick(R.id.gumb_go)
+    public void onGoClick() {
+        Intent intent = new Intent(RazinaJedan.this, Zvjezdice.class);
+        intent.putExtra("poruka", "mijenjati boju gumba");
+        startActivity(intent);
     }
 
     // .setView(input)

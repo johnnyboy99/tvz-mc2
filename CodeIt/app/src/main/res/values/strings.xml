@@ -10,16 +10,14 @@
     <string name="title_activity_razina_jedan">RazinaJedan</string>
     <string name="title_activity_razine">Razine</string>
     <string name="title_activity_tutorial">Tutorial</string>
-
-    <string name="zadatakDva">
-        U izborniku se nalazi labela. Ona služi za ispisivanje željenog teksta na ekran.
-        Povuci labelu na radnu plohu, te joj promjeni tekst i boju
-    </string>
+    <string name="zadatakDva">        U izborniku se nalazi labela. Ona služi za ispisivanje željenog teksta na ekran.
+        Povuci labelu na radnu plohu, te joj promjeni tekst i boju</string>
 
     <string-array name="podrazine1">
         <item>Podrazina 1</item>
         <item>Podrazina 2</item>
         <item>Podrazina 3</item>
+        <item>Test</item>
     </string-array>
     <string-array name="podrazine2">
         <item>Podrazina 1</item>
@@ -36,7 +34,6 @@
         <item>Razina 2</item>
         <item>Razina 3</item>
     </string-array>
-
     <string-array name="racunskeOperacije">
         <item>+</item>
         <item>-</item>
@@ -61,5 +58,7 @@
         <item>Zelena</item>
         <item>Ljubičasta</item>
     </string-array>
+
+    <string name="title_activity_podrazina3">Podrazina3</string>
 
 </resources>
