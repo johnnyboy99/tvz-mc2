@@ -67,6 +67,11 @@ public class GlavniIzbornik extends Activity {
         startActivity(intent);
     }
 
+    @OnClick(R.id.btnPostavke)
+    public void klikNaPostavke(View v) {
+        Intent intent = new Intent(GlavniIzbornik.this, RazinaTest.class);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

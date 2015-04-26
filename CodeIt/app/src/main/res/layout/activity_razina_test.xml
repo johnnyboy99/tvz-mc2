@@ -1,12 +1,263 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="tvz.mc2.codeit.RazinaTest">
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawerLayoutRazinaTest"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:screenOrientation="portrait">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <FrameLayout
+        android:id="@+id/frameLayoutRazinaTest"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</RelativeLayout>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context="tvz.mc2.codeit.RazinaTest">
+
+            <LinearLayout
+                android:id="@+id/menuRazinaTest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/crvenaPozadina"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <ImageButton
+                    android:id="@+id/drawerGumbRazinaTest"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="2"
+                    android:background="@drawable/border"
+                    android:src="@drawable/ic_drawer" />
+
+                <RelativeLayout
+                    android:id="@+id/menuElementiRazinaTest"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="8"
+                    android:background="@color/crvenaPozadina">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <HorizontalScrollView
+                            android:id="@+id/horizontalScrollViewRazinaTest"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fadingEdgeLength="20dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="90dp"
+                                android:orientation="horizontal"
+                                android:padding="20dp">
+
+                                <ImageView
+                                    android:id="@+id/slikaGumbPrviBrojRazinaTest"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/gumb1"
+                                    android:tag="slikaGumbPrviBrojRazinaTest" />
+
+                                <ImageView
+                                    android:id="@+id/slikaGumbDrugiBrojRazinaTest"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/gumb1"
+                                    android:tag="slikaGumbDrugiBrojRazinaTest" />
+
+                                <ImageView
+                                    android:id="@+id/slikaGumbRacOperacijeRazinaTest"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/gumb1"
+                                    android:tag="slikaGumbRacOperacijeRazinaTest" />
+
+                                <ImageView
+                                    android:id="@+id/slikaGumbJednakoRazinaTest"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/gumb1"
+                                    android:tag="slikaGumbJednakoRazinaTest" />
+
+                                <ImageView
+                                    android:id="@+id/slikaGumbRezultatRazinaTest"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:src="@drawable/gumb1"
+                                    android:tag="slikaGumbRezultatRazinaTest" />
+
+
+
+                            </LinearLayout>
+                        </HorizontalScrollView>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/arrowLRazinaTest"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/arrowl" />
+
+                    <ImageView
+                        android:id="@+id/arrowRRazinaTest"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/arrowr" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/radnaPlohaRazinaTest"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/sivaPozadina"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:weightSum="10">
+
+                <View
+                    android:id="@+id/okvirEditTextPrviBrojRazinaTest"
+                    android:layout_width="200dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/okvir"
+                    android:tag="okvirEditTextPrviBrojRazinaTest"
+                    android:visibility="visible" />
+
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/editTextPrviBrojRazinaTest"
+                    android:hint="@string/labelPrviBroj"
+                    android:inputType="numberDecimal"
+                    android:visibility="gone" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5" />
+
+                <View
+                    android:id="@+id/okvirSpinnerRazinaTest"
+                    android:layout_width="200dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/okvir"
+                    android:tag="okvirSpinnerRazinaTest"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:layout_width="200dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/spinnerRacunskeOperacijeRazinaTest"
+                    android:entries="@array/racunskeOperacije"
+                    android:visibility="gone"></Spinner>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5" />
+
+
+                <View
+                    android:id="@+id/okvirEditTextDrugiBrojRazinaTest"
+                    android:layout_width="200dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/okvir"
+                    android:tag="okvirEditTextDrugiBrojRazinaTest"
+                    android:visibility="visible" />
+
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/editTextDrugiBrojRazinaTest"
+                    android:hint="@string/labelDrugiBroj"
+                    android:inputType="numberDecimal"
+                    android:visibility="gone" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5" />
+
+                <View
+                    android:id="@+id/okvirBtnJednakoRazinaTest"
+                    android:layout_width="200dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/okvir"
+                    android:tag="okvirBtnJednakoRazinaTest"
+                    android:visibility="visible" />
+
+
+                <Button
+                    android:layout_width="200dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/btnJednakoRazinaTest"
+                    android:text="@string/znakJednako"
+                    android:textAlignment="center"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5" />
+
+
+                <View
+                    android:id="@+id/okvirEditTextRezultatRazinaTest"
+                    android:layout_width="200dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/okvir"
+                    android:tag="okvirEditTextRezultatRazinaTest"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:id="@+id/textViewRezultatRazinaTest"
+                    android:text="@string/labelRezultat"
+                    android:textSize="40sp"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <ListView
+        android:id="@+id/drawerListRazinaTest"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/crvenaPozadina"
+        android:divider="@null" />
+
+</android.support.v4.widget.DrawerLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="znakJednako">=</string>
+    <string name="labelPrviBroj">Prvi broj</string>
+    <string name="labelDrugiBroj">Drugi broj</string>
+    <string name="labelRezultat">Rezultat</string>
+
+</resources>

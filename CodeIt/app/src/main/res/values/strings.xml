@@ -32,6 +32,13 @@
         <item>Razina 3</item>
     </string-array>
 
+    <string-array name="racunskeOperacije">
+        <item>+</item>
+        <item>-</item>
+        <item>*</item>
+        <item>/</item>
+    </string-array>
+
     <array name="izbor">
         <item>Zadatak</item>
         <item>Ponovno pokretanje</item>
