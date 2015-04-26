@@ -122,14 +122,14 @@
                 </LinearLayout>
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="40dp"
-                    android:layout_centerHorizontal="true"
-                    android:gravity="center_horizontal"
-                    android:id="@+id/opisniTekstUzAnimaciju"
-                    android:textSize="30sp" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="40dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal"
+                android:id="@+id/opisniTekstUzAnimaciju"
+                android:textSize="30sp" />
 
                 <View
                     android:id="@+id/krugZaRadnuPlohuRazinaJedan"

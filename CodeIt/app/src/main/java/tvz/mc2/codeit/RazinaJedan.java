@@ -133,6 +133,8 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         drawerLayoutRazinaJedan.openDrawer(drawerListRazinaJedan);
     }
 
+    //Drag odavde
+
     View.OnTouchListener touchListener = new View.OnTouchListener() {
         public boolean onTouch(View view, MotionEvent motionEvent) {
 
@@ -251,6 +253,8 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
             shadowTouchPoint.set(10000, 10000);
         }
     }
+
+    //dovde
 
     public void pozivZadatka() {
         AlertDialog.Builder builder = new AlertDialog.Builder(RazinaJedan.this);

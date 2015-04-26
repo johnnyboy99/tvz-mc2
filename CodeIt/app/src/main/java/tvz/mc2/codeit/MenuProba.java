@@ -57,6 +57,13 @@ public class MenuProba extends Activity implements AdapterView.OnItemClickListen
         drawerLayout.openDrawer(mDrawerList);
     }
 
+    @OnClick(R.id.gumb2Level)
+    public void naKlik (View v)
+    {
+        Intent intent = new Intent(MenuProba.this, RazinaDva.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

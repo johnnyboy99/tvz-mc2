@@ -15,7 +15,7 @@
         <shape>
             <solid android:color="@color/crvenaPozadina" />
             <stroke
-                android:width="2dp"
+                android:width="1dp"
                 android:color="#FFFFFF" />
            <!-- <corners
                 android:radius="7dp" /> -->

@@ -13,7 +13,6 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingBottom="@dimen/activity_vertical_margin"
             android:orientation="vertical"
             tools:context="tvz.mc2.codeit.RazinaDva">
 
@@ -22,6 +21,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:background="@color/crvenaPozadina"
+                android:id="@+id/menuRazinaDva"
                 android:weightSum="10">
 
                 <ImageButton
@@ -30,8 +30,6 @@
                     android:src="@drawable/ic_drawer"
                     android:layout_gravity="center_vertical"
                     android:background="@drawable/border"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="0dp"
                     android:layout_weight="2"
                     android:id="@+id/drawerGumbRazinaDva"/>
 
@@ -41,29 +39,36 @@
                     android:layout_weight="8"
                     android:id="@+id/menuElementiRazinaDva">
 
-                    <HorizontalScrollView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fadingEdgeLength="20dp"
-                        android:id="@+id/horizontalScrollViewRazinaDva">
+                        android:orientation="horizontal"
+                        android:gravity="center">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
+                        <HorizontalScrollView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:padding="20dp"
-                            android:orientation="horizontal">
+                            android:fadingEdgeLength="20dp"
+                            android:id="@+id/horizontalScrollViewRazinaDva">
 
-                            <ImageView
-                                android:id="@+id/slikaGumbRazinaJedan"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
-                                android:src="@drawable/gumb1"
-                                android:tag="gumb1" />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="90dp"
+                                android:padding="20dp"
+                                android:orientation="horizontal">
 
-                        </LinearLayout>
+                                <ImageView
+                                    android:id="@+id/slikaLabelaRazinaDva"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:src="@drawable/gumb1"
+                                    android:tag="gumb1" />
 
-                    </HorizontalScrollView>
+                            </LinearLayout>
+
+                        </HorizontalScrollView>
+
+                    </LinearLayout>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -86,12 +91,57 @@
 
             </LinearLayout>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/menuRazinaDva">
+
+                <LinearLayout
+                    android:id="@+id/radnaPlohaRazinaDva"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@color/sivaPozadina"
+                    android:gravity="center">
+
+                    <View
+                        android:id="@+id/okvirLabelaRazinaDva"
+                        android:layout_width="160dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/okvir"
+                        android:tag="okvirLabelaRazinaDva"
+                        android:visibility="visible"/>
+
+                    <TextView
+                        android:id="@+id/labelaRazinaDva"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Labela"
+                        android:textSize="50sp"
+                        android:visibility="gone"
+                        />
+
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Dalje"
+                    android:textAllCaps="false"
+                    android:visibility="gone"/>
+
+            </RelativeLayout>
+
         </LinearLayout>
 
     </FrameLayout>
 
     <ListView
-        android:id="@+id/navList"
+        android:id="@+id/drawerListRazinaDva"
         android:layout_width="240dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"

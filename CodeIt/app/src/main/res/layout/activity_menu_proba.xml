@@ -44,6 +44,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fadingEdgeLength="20dp"
+                        android:gravity="center_horizontal"
                         android:id="@+id/horizontalScrollView">
 
                         <LinearLayout
@@ -53,9 +54,11 @@
                             android:orientation="horizontal">
 
                             <Button
+                                android:id="@+id/gumb2Level"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"/>
+                                android:layout_marginRight="10dp"
+                                android:text="Razina dva"/>
 
                             <Button
                                 android:layout_width="wrap_content"
@@ -77,7 +80,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginRight="10dp"/>
 
-                            </LinearLayout>
+                        </LinearLayout>
 
                     </HorizontalScrollView>
 
