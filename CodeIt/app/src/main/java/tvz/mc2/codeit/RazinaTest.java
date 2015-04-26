@@ -90,6 +90,20 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         drawerListRazinaTest.setAdapter(new ArrayAdapter<>(this, R.layout.unsimple_list_item, izborArrayRazinaTest));
         drawerListRazinaTest.setOnItemClickListener(this);
 
+        int visinaRuba = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
+
+        //inicijalno postavljanje boje na okvire
+        GradientDrawable okvirGradientEditTextPrviBrojRazinaTest = (GradientDrawable) okvirEditTextPrviBrojRazinaTest.getBackground();
+        okvirGradientEditTextPrviBrojRazinaTest.setStroke(visinaRuba, Color.BLACK);
+        GradientDrawable okvirGradientEditTextDrugiBrojRazinaTest = (GradientDrawable) okvirEditTextDrugiBrojRazinaTest.getBackground();
+        okvirGradientEditTextDrugiBrojRazinaTest.setStroke(visinaRuba, Color.BLACK);
+        GradientDrawable okvirGradientBtnJednakoRazinaTest = (GradientDrawable) okvirBtnJednakoRazinaTest.getBackground();
+        okvirGradientBtnJednakoRazinaTest.setStroke(visinaRuba, Color.BLACK);
+        GradientDrawable okvirGradientEditTextRezultatRazinaTest = (GradientDrawable) okvirEditTextRezultatRazinaTest.getBackground();
+        okvirGradientEditTextRezultatRazinaTest.setStroke(visinaRuba, Color.BLACK);
+        GradientDrawable okvirGradientSpinnerRazinaTest = (GradientDrawable) okvirSpinnerRazinaTest.getBackground();
+        okvirGradientSpinnerRazinaTest.setStroke(visinaRuba, Color.BLACK);
+
         //touch listeneri za slike
         slikaGumbPrviBrojRazinaTest.setOnTouchListener(touchListener);
         slikaGumbDrugiBrojRazinaTest.setOnTouchListener(touchListener);
@@ -177,37 +191,110 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
 
                 case DragEvent.ACTION_DRAG_ENTERED:
 
-                    unutarOkvira = true;
-                    //okvirGradientGumbaJedan.setStroke(visinaRuba, Color.GREEN);
+                    if(viewGumbTag.equals("slikaGumbPrviBrojRazinaTest") && viewOkvirTag.equals("okvirEditTextPrviBrojRazinaTest")){
+                        GradientDrawable okvirGradientEditTextPrviBrojRazinaTest = (GradientDrawable) okvirEditTextPrviBrojRazinaTest.getBackground();
+                        okvirGradientEditTextPrviBrojRazinaTest.setStroke(visinaRuba, Color.GREEN);
+                        unutarOkvira = true;
+                    }
+                    else if(viewGumbTag.equals("slikaGumbDrugiBrojRazinaTest") && viewOkvirTag.equals("okvirEditTextDrugiBrojRazinaTest")){
+                        GradientDrawable okvirGradientEditTextDrugiBrojRazinaTest = (GradientDrawable) okvirEditTextDrugiBrojRazinaTest.getBackground();
+                        okvirGradientEditTextDrugiBrojRazinaTest.setStroke(visinaRuba, Color.GREEN);
+                        unutarOkvira = true;
+                    }
+                    else if(viewGumbTag.equals("slikaGumbJednakoRazinaTest") && viewOkvirTag.equals("okvirBtnJednakoRazinaTest")){
+                        GradientDrawable okvirGradientBtnJednakoRazinaTest = (GradientDrawable) okvirBtnJednakoRazinaTest.getBackground();
+                        okvirGradientBtnJednakoRazinaTest.setStroke(visinaRuba, Color.GREEN);
+                        unutarOkvira = true;
+                    }
+                    else if(viewGumbTag.equals("slikaGumbRezultatRazinaTest") && viewOkvirTag.equals("okvirEditTextRezultatRazinaTest")){
+                        GradientDrawable okvirGradientEditTextRezultatRazinaTest = (GradientDrawable) okvirEditTextRezultatRazinaTest.getBackground();
+                        okvirGradientEditTextRezultatRazinaTest.setStroke(visinaRuba, Color.GREEN);
+                        unutarOkvira = true;
+                    }
+                    else if(viewGumbTag.equals("slikaGumbRacOperacijeRazinaTest") && viewOkvirTag.equals("okvirSpinnerRazinaTest")){
+                        GradientDrawable okvirGradientSpinnerRazinaTest = (GradientDrawable) okvirSpinnerRazinaTest.getBackground();
+                        okvirGradientSpinnerRazinaTest.setStroke(visinaRuba, Color.GREEN);
+                        unutarOkvira = true;
+                    }
 
                     break;
 
-                /*
 
                 case DragEvent.ACTION_DRAG_EXITED:
 
-                    unutarOkvira = false;
-                    okvirGradientGumbaJedan.setStroke(visinaRuba, Color.RED);
+                    if(viewGumbTag.equals("slikaGumbPrviBrojRazinaTest") && viewOkvirTag.equals("okvirEditTextPrviBrojRazinaTest")){
+                        zacrniSveOkvire();
+                        GradientDrawable okvirGradientEditTextPrviBrojRazinaTest = (GradientDrawable) okvirEditTextPrviBrojRazinaTest.getBackground();
+                        okvirGradientEditTextPrviBrojRazinaTest.setStroke(visinaRuba, Color.RED);
+                        unutarOkvira = false;
+                    }
+                    else if(viewGumbTag.equals("slikaGumbDrugiBrojRazinaTest") && viewOkvirTag.equals("okvirEditTextDrugiBrojRazinaTest")){
+                        zacrniSveOkvire();
+                        GradientDrawable okvirGradientEditTextDrugiBrojRazinaTest = (GradientDrawable) okvirEditTextDrugiBrojRazinaTest.getBackground();
+                        okvirGradientEditTextDrugiBrojRazinaTest.setStroke(visinaRuba, Color.RED);
+                        unutarOkvira = false;
+                    }
+                    else if(viewGumbTag.equals("slikaGumbJednakoRazinaTest") && viewOkvirTag.equals("okvirBtnJednakoRazinaTest")){
+                        zacrniSveOkvire();
+                        GradientDrawable okvirGradientBtnJednakoRazinaTest = (GradientDrawable) okvirBtnJednakoRazinaTest.getBackground();
+                        okvirGradientBtnJednakoRazinaTest.setStroke(visinaRuba, Color.RED);
+                        unutarOkvira = false;
+                    }
+                    else if(viewGumbTag.equals("slikaGumbRezultatRazinaTest") && viewOkvirTag.equals("okvirEditTextRezultatRazinaTest")){
+                        zacrniSveOkvire();
+                        GradientDrawable okvirGradientEditTextRezultatRazinaTest = (GradientDrawable) okvirEditTextRezultatRazinaTest.getBackground();
+                        okvirGradientEditTextRezultatRazinaTest.setStroke(visinaRuba, Color.RED);
+                        unutarOkvira = false;
+                    }
+                    else if(viewGumbTag.equals("slikaGumbRacOperacijeRazinaTest") && viewOkvirTag.equals("okvirSpinnerRazinaTest")){
+                        zacrniSveOkvire();
+                        GradientDrawable okvirGradientSpinnerRazinaTest = (GradientDrawable) okvirSpinnerRazinaTest.getBackground();
+                        okvirGradientSpinnerRazinaTest.setStroke(visinaRuba, Color.RED);
+                        unutarOkvira = false;
+                    }
 
                     break;
+
 
                 case DragEvent.ACTION_DRAG_ENDED:
 
-                    reportResult(event.getResult());
+                    reportResult(event.getResult(), viewOkvirTag, viewGumbTag);
                     break;
+
 
                 case DragEvent.ACTION_DROP:
 
-                    okvirGumbRazinaJedan.setVisibility(View.GONE);
-                    gumbRazinaJedan.setVisibility(View.VISIBLE);
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(visinaSlike, visinaSlike);
-                    slikaGumbRazinaJedan.setLayoutParams(layoutParams);
-                    slikaGumbRazinaJedan.requestLayout();
-                    //dragLayoutRazinaJedan.invalidate();
+                    if(viewGumbTag.equals("slikaGumbPrviBrojRazinaTest") && viewOkvirTag.equals("okvirEditTextPrviBrojRazinaTest")){
+                        okvirEditTextPrviBrojRazinaTest.setVisibility(View.GONE);
+                        editTextPrviBrojRazinaTest.setVisibility(View.VISIBLE);
+                        slikaGumbPrviBrojRazinaTest.setVisibility(View.GONE);
+                    }
+
+                    else if(viewGumbTag.equals("slikaGumbDrugiBrojRazinaTest") && viewOkvirTag.equals("okvirEditTextDrugiBrojRazinaTest")){
+                        okvirEditTextDrugiBrojRazinaTest.setVisibility(View.GONE);
+                        editTextDrugiBrojRazinaTest.setVisibility(View.VISIBLE);
+                        slikaGumbDrugiBrojRazinaTest.setVisibility(View.GONE);
+                    }
+
+                    else if(viewGumbTag.equals("slikaGumbJednakoRazinaTest") && viewOkvirTag.equals("okvirBtnJednakoRazinaTest")){
+                        okvirBtnJednakoRazinaTest.setVisibility(View.GONE);
+                        btnJednakoRazinaTest.setVisibility(View.VISIBLE);
+                        slikaGumbJednakoRazinaTest.setVisibility(View.GONE);
+                    }
+
+                    else if(viewGumbTag.equals("slikaGumbRezultatRazinaTest") && viewOkvirTag.equals("okvirEditTextRezultatRazinaTest")){
+                        okvirEditTextRezultatRazinaTest.setVisibility(View.GONE);
+                        textViewRezultatRazinaTest.setVisibility(View.VISIBLE);
+                        slikaGumbRezultatRazinaTest.setVisibility(View.GONE);
+                    }
+
+                    else if(viewGumbTag.equals("slikaGumbRacOperacijeRazinaTest") && viewOkvirTag.equals("okvirSpinnerRazinaTest")){
+                        okvirSpinnerRazinaTest.setVisibility(View.GONE);
+                        spinnerRacunskeOperacijeRazinaTest.setVisibility(View.VISIBLE);
+                        slikaGumbRacOperacijeRazinaTest.setVisibility(View.GONE);
+                    }
 
                     return unutarOkvira;
-
-                    */
             }
 
             return true;
@@ -215,22 +302,44 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
     };
 
 
-
-    /*
-    private void reportResult(final boolean result) {
+    private void reportResult(final boolean result, String viewOkvirTag, String viewGumbTag) {
         if(!result){
-            GradientDrawable okvirGradientGumbaJedan = (GradientDrawable) okvirGumbRazinaJedan.getBackground();
-            int visinaRuba = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
-            okvirGradientGumbaJedan.setStroke(visinaRuba, Color.BLACK);
+            zacrniSveOkvire();
         }
         else {
-            okvirGumbRazinaJedan.setVisibility(View.GONE);
-            GradientDrawable bgRectangle = (GradientDrawable)okvirGumbRazinaJedan.getBackground();
-            bgRectangle.setStroke(0, Color.WHITE);
-            drawerLayoutRazinaJedan.invalidate();
+
+            if(viewGumbTag.equals("slikaGumbPrviBrojRazinaTest") && viewOkvirTag.equals("okvirEditTextPrviBrojRazinaTest")){
+                okvirEditTextPrviBrojRazinaTest.setVisibility(View.GONE);
+                editTextPrviBrojRazinaTest.setVisibility(View.VISIBLE);
+                slikaGumbPrviBrojRazinaTest.setVisibility(View.GONE);
+            }
+
+            else if(viewGumbTag.equals("slikaGumbDrugiBrojRazinaTest") && viewOkvirTag.equals("okvirEditTextDrugiBrojRazinaTest")){
+                okvirEditTextDrugiBrojRazinaTest.setVisibility(View.GONE);
+                editTextDrugiBrojRazinaTest.setVisibility(View.VISIBLE);
+                slikaGumbDrugiBrojRazinaTest.setVisibility(View.GONE);
+            }
+
+            else if(viewGumbTag.equals("slikaGumbJednakoRazinaTest") && viewOkvirTag.equals("okvirBtnJednakoRazinaTest")){
+                okvirBtnJednakoRazinaTest.setVisibility(View.GONE);
+                btnJednakoRazinaTest.setVisibility(View.VISIBLE);
+                slikaGumbJednakoRazinaTest.setVisibility(View.GONE);
+            }
+
+            else if(viewGumbTag.equals("slikaGumbRezultatRazinaTest") && viewOkvirTag.equals("okvirEditTextRezultatRazinaTest")){
+                okvirEditTextRezultatRazinaTest.setVisibility(View.GONE);
+                textViewRezultatRazinaTest.setVisibility(View.VISIBLE);
+                slikaGumbRezultatRazinaTest.setVisibility(View.GONE);
+            }
+
+            else if(viewGumbTag.equals("slikaGumbRacOperacijeRazinaTest") && viewOkvirTag.equals("okvirSpinnerRazinaTest")){
+                okvirSpinnerRazinaTest.setVisibility(View.GONE);
+                spinnerRacunskeOperacijeRazinaTest.setVisibility(View.VISIBLE);
+                slikaGumbRacOperacijeRazinaTest.setVisibility(View.GONE);
+            }
         }
     }
-    */
+
 
     private class MyShadowBuilder extends View.DragShadowBuilder {
         private Drawable shadow;
@@ -248,13 +357,28 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
 
         @Override
         public void onProvideShadowMetrics(Point shadowSize, Point shadowTouchPoint) {
-            int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics());
 
             shadow.setBounds(0, 0, 10000, 10000);
 
             shadowSize.set(10000, 10000);
             shadowTouchPoint.set(10000, 10000);
         }
+    }
+
+    private void zacrniSveOkvire() {
+
+        int visinaRuba = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
+
+        GradientDrawable okvirGradientEditTextPrviBrojRazinaTest = (GradientDrawable) okvirEditTextPrviBrojRazinaTest.getBackground();
+        okvirGradientEditTextPrviBrojRazinaTest.setStroke(visinaRuba, Color.BLACK);
+        GradientDrawable okvirGradientEditTextDrugiBrojRazinaTest = (GradientDrawable) okvirEditTextDrugiBrojRazinaTest.getBackground();
+        okvirGradientEditTextDrugiBrojRazinaTest.setStroke(visinaRuba, Color.BLACK);
+        GradientDrawable okvirGradientBtnJednakoRazinaTest = (GradientDrawable) okvirBtnJednakoRazinaTest.getBackground();
+        okvirGradientBtnJednakoRazinaTest.setStroke(visinaRuba, Color.BLACK);
+        GradientDrawable okvirGradientEditTextRezultatRazinaTest = (GradientDrawable) okvirEditTextRezultatRazinaTest.getBackground();
+        okvirGradientEditTextRezultatRazinaTest.setStroke(visinaRuba, Color.BLACK);
+        GradientDrawable okvirGradientSpinnerRazinaTest = (GradientDrawable) okvirSpinnerRazinaTest.getBackground();
+        okvirGradientSpinnerRazinaTest.setStroke(visinaRuba, Color.BLACK);
     }
 
     @Override
