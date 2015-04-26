@@ -6,23 +6,26 @@
         android:allowBackup="true"
         android:icon="@mipmap/logo_codeit"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".GlavniIzbornik"
             android:label="@string/app_name"
-            android:parentActivityName=".Splash" >
+            android:parentActivityName=".Splash"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".DragDropProba"
             android:label="@string/title_activity_drag_drop_proba"
-            android:parentActivityName=".GlavniIzbornik" >
+            android:parentActivityName=".GlavniIzbornik"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tvz.mc2.codeit.GlavniIzbornik" />
         </activity>
         <activity
             android:name=".Splash"
-            android:noHistory="true" >
+            android:noHistory="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,11 +34,13 @@
         </activity>
         <activity
             android:name=".MenuProba"
-            android:label="@string/title_activity_menu_proba" >
+            android:label="@string/title_activity_menu_proba"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".RazinaJedan"
             android:label="@string/title_activity_razina_jedan"
+            android:screenOrientation="portrait"
             android:parentActivityName=".GlavniIzbornik" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -44,6 +49,7 @@
         <activity
             android:name=".Razine"
             android:label="@string/title_activity_razine"
+            android:screenOrientation="portrait"
             android:parentActivityName=".GlavniIzbornik" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -52,21 +58,21 @@
         <activity
             android:name=".Tutorial"
             android:label="@string/title_activity_tutorial"
+            android:screenOrientation="portrait"
             android:parentActivityName=".GlavniIzbornik" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tvz.mc2.codeit.GlavniIzbornik" />
         </activity>
-        <activity
-            android:name=".ExpandableListAdapter"
-            android:label="@string/title_activity_expandable_list_adapter" >
-        </activity>
+
         <activity
             android:name=".Zvjezdice"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_zvjezdice" >
         </activity>
         <activity
             android:name=".RazinaTest"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_razina_test"
             android:parentActivityName=".Razine" >
             <meta-data
@@ -75,6 +81,7 @@
         </activity>
         <activity
             android:name=".RazinaDva"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_razina_dva"
             android:parentActivityName=".Razine" >
             <meta-data

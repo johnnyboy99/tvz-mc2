@@ -154,6 +154,19 @@
                     android:tag="okvirPrividniGumbRazinaJedan"
                     android:visibility="gone" />
 
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/gumb_go"
+                    android:src="@drawable/strelica2"
+                    android:background="@drawable/sve_skupa"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="13dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="25dp" />
+
             </RelativeLayout>
         </RelativeLayout>
 
