@@ -53,4 +53,14 @@
         <item name="android:textSize">20sp</item>
     </style>
 
+    <style name="spinner_style" parent="android:Widget.Spinner.DropDown">
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:popupBackground">#d3d3d3</item>
+    </style>
+
 </resources>

@@ -5,5 +5,7 @@
     <string name="labelPrviBroj">Prvi broj</string>
     <string name="labelDrugiBroj">Drugi broj</string>
     <string name="labelRezultat">Rezultat</string>
+    <string name="tekstZadatkaTestRazina">Povuci sve elemente na svoju poziciju!
+                (Imaš 2 EditTexta, Spinner, Gumb i Labelu!)</string>
 
 </resources>

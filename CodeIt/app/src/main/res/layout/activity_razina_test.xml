@@ -9,246 +9,266 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:context="tvz.mc2.codeit.RazinaTest">
+            android:layout_height="match_parent">
 
-            <LinearLayout
-                android:id="@+id/menuRazinaTest"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/crvenaPozadina"
-                android:orientation="horizontal"
-                android:weightSum="10">
-
-                <ImageButton
-                    android:id="@+id/drawerGumbRazinaTest"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="2"
-                    android:background="@drawable/border"
-                    android:src="@drawable/ic_drawer" />
-
-                <RelativeLayout
-                    android:id="@+id/menuElementiRazinaTest"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:background="@color/crvenaPozadina">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <HorizontalScrollView
-                            android:id="@+id/horizontalScrollViewRazinaTest"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fadingEdgeLength="20dp">
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="90dp"
-                                android:orientation="horizontal"
-                                android:padding="20dp">
-
-                                <ImageView
-                                    android:id="@+id/slikaGumbPrviBrojRazinaTest"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_marginRight="10dp"
-                                    android:src="@drawable/gumb1"
-                                    android:tag="slikaGumbPrviBrojRazinaTest" />
-
-                                <ImageView
-                                    android:id="@+id/slikaGumbDrugiBrojRazinaTest"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_marginRight="10dp"
-                                    android:src="@drawable/gumb1"
-                                    android:tag="slikaGumbDrugiBrojRazinaTest" />
-
-                                <ImageView
-                                    android:id="@+id/slikaGumbRacOperacijeRazinaTest"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_marginRight="10dp"
-                                    android:src="@drawable/gumb1"
-                                    android:tag="slikaGumbRacOperacijeRazinaTest" />
-
-                                <ImageView
-                                    android:id="@+id/slikaGumbJednakoRazinaTest"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:layout_marginRight="10dp"
-                                    android:src="@drawable/gumb1"
-                                    android:tag="slikaGumbJednakoRazinaTest" />
-
-                                <ImageView
-                                    android:id="@+id/slikaGumbRezultatRazinaTest"
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:src="@drawable/gumb1"
-                                    android:tag="slikaGumbRezultatRazinaTest" />
-
-
-
-                            </LinearLayout>
-                        </HorizontalScrollView>
-
-                    </LinearLayout>
-
-                    <ImageView
-                        android:id="@+id/arrowLRazinaTest"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/arrowl" />
-
-                    <ImageView
-                        android:id="@+id/arrowRRazinaTest"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/arrowr" />
-
-                </RelativeLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/radnaPlohaRazinaTest"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:background="@color/sivaPozadina"
-                android:gravity="center"
                 android:orientation="vertical"
-                android:weightSum="10">
+                tools:context="tvz.mc2.codeit.RazinaTest">
 
-                <View
-                    android:id="@+id/okvirEditTextPrviBrojRazinaTest"
-                    android:layout_width="200dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/okvir"
-                    android:tag="okvirEditTextPrviBrojRazinaTest"
-                    android:visibility="visible" />
-
-                <EditText
-                    android:layout_width="200dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:id="@+id/editTextPrviBrojRazinaTest"
-                    android:hint="@string/labelPrviBroj"
-                    android:inputType="numberDecimal"
-                    android:visibility="gone" />
-
-                <Space
+                <LinearLayout
+                    android:id="@+id/menuRazinaTest"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.5" />
+                    android:layout_height="wrap_content"
+                    android:background="@color/crvenaPozadina"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
 
-                <View
-                    android:id="@+id/okvirSpinnerRazinaTest"
-                    android:layout_width="200dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/okvir"
-                    android:tag="okvirSpinnerRazinaTest"
-                    android:visibility="visible" />
+                    <ImageButton
+                        android:id="@+id/drawerGumbRazinaTest"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:src="@drawable/ic_drawer" />
 
-                <Spinner
-                    android:layout_width="200dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:id="@+id/spinnerRacunskeOperacijeRazinaTest"
-                    android:entries="@array/racunskeOperacije"
-                    android:visibility="gone"></Spinner>
+                    <RelativeLayout
+                        android:id="@+id/menuElementiRazinaTest"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:background="@color/crvenaPozadina">
 
-                <Space
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <HorizontalScrollView
+                                android:id="@+id/horizontalScrollViewRazinaTest"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fadingEdgeLength="20dp">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="90dp"
+                                    android:orientation="horizontal"
+                                    android:padding="20dp">
+
+                                    <ImageView
+                                        android:id="@+id/slikaGumbPrviBrojRazinaTest"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginRight="10dp"
+                                        android:src="@drawable/gumb1"
+                                        android:tag="slikaGumbPrviBrojRazinaTest" />
+
+                                    <ImageView
+                                        android:id="@+id/slikaGumbDrugiBrojRazinaTest"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginRight="10dp"
+                                        android:src="@drawable/gumb1"
+                                        android:tag="slikaGumbDrugiBrojRazinaTest" />
+
+                                    <ImageView
+                                        android:id="@+id/slikaGumbRacOperacijeRazinaTest"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginRight="10dp"
+                                        android:src="@drawable/gumb1"
+                                        android:tag="slikaGumbRacOperacijeRazinaTest" />
+
+                                    <ImageView
+                                        android:id="@+id/slikaGumbJednakoRazinaTest"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_marginRight="10dp"
+                                        android:src="@drawable/gumb1"
+                                        android:tag="slikaGumbJednakoRazinaTest" />
+
+                                    <ImageView
+                                        android:id="@+id/slikaGumbRezultatRazinaTest"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:src="@drawable/gumb1"
+                                        android:tag="slikaGumbRezultatRazinaTest" />
+
+
+                                </LinearLayout>
+                            </HorizontalScrollView>
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/arrowLRazinaTest"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/arrowl" />
+
+                        <ImageView
+                            android:id="@+id/arrowRRazinaTest"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/arrowr" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/radnaPlohaRazinaTest"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.5" />
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@color/sivaPozadina"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:weightSum="10">
+
+                    <View
+                        android:id="@+id/okvirEditTextPrviBrojRazinaTest"
+                        android:layout_width="200dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/okvir"
+                        android:tag="okvirEditTextPrviBrojRazinaTest"
+                        android:visibility="visible" />
+
+                    <EditText
+                        android:id="@+id/editTextPrviBrojRazinaTest"
+                        android:layout_width="200dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:hint="@string/labelPrviBroj"
+                        android:inputType="numberDecimal|numberSigned"
+                        android:visibility="gone" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.5" />
+
+                    <View
+                        android:id="@+id/okvirSpinnerRazinaTest"
+                        android:layout_width="200dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/okvir"
+                        android:tag="okvirSpinnerRazinaTest"
+                        android:visibility="visible" />
+
+                    <Spinner
+                        android:id="@+id/spinnerRacunskeOperacijeRazinaTest"
+                        android:layout_width="200dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        style="@style/spinner_style"
+                        android:entries="@array/racunskeOperacije"
+                        android:visibility="gone"></Spinner>
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.5" />
 
 
-                <View
-                    android:id="@+id/okvirEditTextDrugiBrojRazinaTest"
-                    android:layout_width="200dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/okvir"
-                    android:tag="okvirEditTextDrugiBrojRazinaTest"
-                    android:visibility="visible" />
+                    <View
+                        android:id="@+id/okvirEditTextDrugiBrojRazinaTest"
+                        android:layout_width="200dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/okvir"
+                        android:tag="okvirEditTextDrugiBrojRazinaTest"
+                        android:visibility="visible" />
 
-                <EditText
-                    android:layout_width="200dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:id="@+id/editTextDrugiBrojRazinaTest"
-                    android:hint="@string/labelDrugiBroj"
-                    android:inputType="numberDecimal"
-                    android:visibility="gone" />
+                    <EditText
+                        android:id="@+id/editTextDrugiBrojRazinaTest"
+                        android:layout_width="200dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:hint="@string/labelDrugiBroj"
+                        android:inputType="numberDecimal|numberSigned"
+                        android:visibility="gone" />
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.5" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.5" />
 
-                <View
-                    android:id="@+id/okvirBtnJednakoRazinaTest"
-                    android:layout_width="200dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/okvir"
-                    android:tag="okvirBtnJednakoRazinaTest"
-                    android:visibility="visible" />
-
-
-                <Button
-                    android:layout_width="200dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:id="@+id/btnJednakoRazinaTest"
-                    android:text="@string/znakJednako"
-                    android:textAlignment="center"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
-                    android:visibility="gone" />
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.5" />
+                    <View
+                        android:id="@+id/okvirBtnJednakoRazinaTest"
+                        android:layout_width="200dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/okvir"
+                        android:tag="okvirBtnJednakoRazinaTest"
+                        android:visibility="visible" />
 
 
-                <View
-                    android:id="@+id/okvirEditTextRezultatRazinaTest"
-                    android:layout_width="200dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/okvir"
-                    android:tag="okvirEditTextRezultatRazinaTest"
-                    android:visibility="visible" />
+                    <Button
+                        android:id="@+id/btnJednakoRazinaTest"
+                        android:layout_width="200dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/znakJednako"
+                        android:textAlignment="center"
+                        android:textSize="25sp"
+                        style="@style/Base.Widget.AppCompat.Button"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:id="@+id/textViewRezultatRazinaTest"
-                    android:text="@string/labelRezultat"
-                    android:textSize="40sp"
-                    android:visibility="gone" />
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.5" />
 
+
+                    <View
+                        android:id="@+id/okvirEditTextRezultatRazinaTest"
+                        android:layout_width="200dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/okvir"
+                        android:tag="okvirEditTextRezultatRazinaTest"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/textViewRezultatRazinaTest"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/labelRezultat"
+                        android:textSize="40sp"
+                        android:visibility="gone" />
+
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/gumbGoRazinaTest"
+                android:src="@drawable/strelica2"
+                android:background="@drawable/sve_skupa"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:padding="13dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="25dp"
+                android:visibility="invisible" />
+        </RelativeLayout>
 
     </FrameLayout>
 
