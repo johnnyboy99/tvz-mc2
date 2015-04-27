@@ -119,20 +119,25 @@
                         android:text="Labela"
                         android:textSize="50sp"
                         android:visibility="gone"
+                        android:textColor="#000000"
                         />
 
                 </LinearLayout>
 
-                <Button
+                <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/gumb_go_razina2"
+                    android:src="@drawable/strelica2"
+                    android:background="@drawable/sve_skupa"
+                    android:gravity="center_vertical|center_horizontal"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Dalje"
-                    android:textAllCaps="false"
-                    android:visibility="gone"/>
+                    android:padding="13dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="25dp"
+                    android:visibility="invisible"
+                    android:onClick="klikZaDalje"/>
 
             </RelativeLayout>
 

@@ -66,6 +66,16 @@
         <item>Ljubičasta</item>
     </string-array>
 
+    <string-array name="labela_boje">
+        <item>------</item>
+        <item>Crna</item>
+        <item>Crvena</item>
+        <item>Plava</item>
+        <item>Zelena</item>
+        <item>Žuta</item>
+        <item>Ljubičasta</item>
+    </string-array>
+
     <string name="title_activity_podrazina3">Podrazina3</string>
 
 </resources>

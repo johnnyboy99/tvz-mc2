@@ -31,6 +31,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -43,6 +44,7 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
     private String [] izborArray;
     String zadatak;
     static TextView labelaRazinaDva;
+    static ImageButton gumbGoRazina2;
 
     @InjectView(R.id.slikaLabelaRazinaDva) ImageView slikaLabelaRazinaDva;
     @InjectView(R.id.okvirLabelaRazinaDva) View okvirLabelaRazinaDva;
@@ -57,6 +59,7 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
     @InjectView(R.id.radnaPlohaRazinaDva) LinearLayout radnaPlohaRazinaDva;
     @InjectView(R.id.menuRazinaDva) LinearLayout menuRazinaDva;
     @InjectView(R.id.drawerGumbRazinaDva) ImageButton drawerGumbRazinaDva;
+    //@InjectView(R.id.gumb_go_razina2) ImageButton gumbGoRazina2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +68,7 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         ButterKnife.inject(this);
 
         labelaRazinaDva = (TextView) findViewById(R.id.labelaRazinaDva);
+        gumbGoRazina2 = (ImageButton) findViewById(R.id.gumb_go_razina2);
 
         int visinaRuba = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
         GradientDrawable okvirGradientLabelaDva = (GradientDrawable) okvirLabelaRazinaDva.getBackground();
@@ -87,6 +91,13 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
     public void onKlikNaDrawerMenu (View v)
     {
         drawerLayoutRazinaDva.openDrawer(drawerListRazinaDva);
+    }
+
+    public void klikZaDalje(View view)
+    {
+        Intent intent = new Intent(RazinaDva.this, Zvjezdice.class);
+        intent.putExtra("poruka", "Sve o labeli");
+        startActivity(intent);
     }
 
     @OnClick(R.id.labelaRazinaDva)
@@ -261,19 +272,6 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
 
     public void dialogSvojstvaLabele()
     {
-        /*AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Svojstva labele");
-        //builder.setMessage("Ovo su svojstva labele");
-        builder.setView(R.layout.dialog_svojstva_labele);
-
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int id) {
-                //ništa
-            }
-        });
-        builder.create().show();*/
-
         SvojstvaLabeleDialog dialog = new SvojstvaLabeleDialog();
         dialog.show(getFragmentManager(), "Svojstva labele");
     }
@@ -388,8 +386,49 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         }
     }
 
-    public static void promjeniSvojstva(String text) {
+    public static void promjeniSvojstva(String text, String boja, int velicina) {
+
+        if (!(text.equals("")))
         labelaRazinaDva.setText(text);
-        //labelaRazinaDva.setTextColor(boja);
+
+        switch (boja)
+        {
+            case "------":
+                labelaRazinaDva.setTextColor(labelaRazinaDva.getCurrentTextColor());
+                break;
+
+            case "Crvena":
+                labelaRazinaDva.setTextColor(Color.parseColor("#FF5252"));
+                break;
+
+            case "Plava":
+                labelaRazinaDva.setTextColor(Color.BLUE);
+                break;
+
+            case "Zelena":
+                labelaRazinaDva.setTextColor(Color.GREEN);
+                break;
+
+            case "Žuta":
+                labelaRazinaDva.setTextColor(Color.YELLOW);
+                break;
+
+            case "Ljubičasta":
+                labelaRazinaDva.setTextColor(Color.parseColor("#E040FB"));
+                break;
+
+            default:
+                labelaRazinaDva.setTextColor(Color.BLACK);
+                break;
+        }
+
+        if (!(velicina==0))
+        labelaRazinaDva.setTextSize(TypedValue.COMPLEX_UNIT_SP, velicina);
+
+        if (!(labelaRazinaDva.getText().equals("Labela")) && !(labelaRazinaDva.getCurrentTextColor()==Color.BLACK))
+        {
+            gumbGoRazina2.setVisibility(View.VISIBLE);
+        }
+
     }
 }
