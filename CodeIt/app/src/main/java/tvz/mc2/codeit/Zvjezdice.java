@@ -96,8 +96,7 @@ public class Zvjezdice extends Activity {
             if (sljedeciEkran == false) {
                 mjenjanjeEkrana();
             } else {
-                Intent intent = new Intent(Zvjezdice.this, Razine.class);
-                startActivity(intent);
+                Zvjezdice.this.finish();
             }
         }
 
