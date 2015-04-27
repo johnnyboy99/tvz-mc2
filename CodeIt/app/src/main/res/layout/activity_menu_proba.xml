@@ -27,13 +27,14 @@
                 <ImageButton
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:src="@drawable/ic_drawer"
+                    android:src="@drawable/menu36"
                     android:layout_gravity="center_vertical"
-                    android:background="@drawable/border"
+                    android:background="@color/crvenaPozadina"
                     android:paddingLeft="5dp"
                     android:paddingRight="0dp"
                     android:layout_weight="1.5"
                     android:id="@+id/drawerGumb"/>
+                <!--@drawable/border-->
 
                 <RelativeLayout
                     android:layout_width="0dp"

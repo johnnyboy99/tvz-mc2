@@ -26,8 +26,8 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1.5"
-                    android:background="@drawable/border"
-                    android:src="@drawable/ic_drawer" />
+                    android:background="@color/crvenaPozadina"
+                    android:src="@drawable/menu36" />
 
                 <RelativeLayout
                     android:id="@+id/menuElementiRazinaJedan"
