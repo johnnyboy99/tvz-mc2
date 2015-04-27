@@ -12,12 +12,19 @@
     <string name="title_activity_tutorial">Tutorial</string>
     <string name="zadatakDva">        U izborniku se nalazi labela. Ona služi za ispisivanje željenog teksta na ekran.
         Povuci labelu na radnu plohu, te joj promjeni tekst i boju</string>
+    <string name="zad">Povuci gumb na radnu plohu.</string>
+    <string name="zad2">Pritiskom na gumb promijeni mu boju.</string>
+    <string name="mess">mijenjati boju gumba</string>
+    <string name="poz">Ok</string>
+    <string name="neg">Natrag</string>
+    <string name="nas1">Upute</string>
+    <string name="nas2">Odaberi boju</string>
 
     <string-array name="podrazine1">
         <item>Podrazina 1</item>
         <item>Podrazina 2</item>
-        <item>Podrazina 3</item>
-        <item>Test</item>
+        <!--<item>Podrazina 3</item>
+        <item>Test</item>-->
     </string-array>
     <string-array name="podrazine2">
         <item>Podrazina 1</item>
@@ -31,8 +38,8 @@
     </string-array>
     <string-array name="razine">
         <item>Razina 1</item>
-        <item>Razina 2</item>
-        <item>Razina 3</item>
+        <!--<item>Razina 2</item>
+        <item>Razina 3</item>-->
     </string-array>
     <string-array name="racunskeOperacije">
         <item>+</item>

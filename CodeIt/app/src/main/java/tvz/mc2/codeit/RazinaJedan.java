@@ -210,7 +210,7 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
                     slikaGumbRazinaJedan.setLayoutParams(layoutParams);
                     slikaGumbRazinaJedan.requestLayout();
                     //dragLayoutRazinaJedan.invalidate();
-
+                    prikazDrugePoruke();
                     return unutarOkvira;
             }
             return true;
@@ -259,14 +259,14 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
     //dovde
 
     /**
-     * Pozivanje dijaloga s tekstom zadatka.
+     * Pozivanje dijaloga s prvim tekstom zadatka.
      */
     public void pozivZadatka() {
         AlertDialog.Builder builder = new AlertDialog.Builder(RazinaJedan.this);
         AlertDialog dialog =
-        builder.setTitle("Upute")
-                .setMessage("Povuci gumb na radnu plohu te ga nakon toga pritisni")
-                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+        builder.setTitle(R.string.nas1)
+                .setMessage(R.string.zad)
+                .setPositiveButton(R.string.poz, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
                     }
@@ -274,7 +274,27 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
                 .show();
         dialog.findViewById(dialog.getContext().getResources()
                 .getIdentifier("android:id/titleDivider", null, null))
-                .setBackgroundColor(getResources().getColor(R.color.bijela));
+                .setBackgroundColor(bijela);
+
+    }
+
+    /**
+     * Pozivanje dijaloga s drugim tekstom zadatka.
+     */
+    public void prikazDrugePoruke() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(RazinaJedan.this);
+        AlertDialog dialog =
+                builder.setTitle(R.string.nas1)
+                        .setMessage(R.string.zad2)
+                        .setPositiveButton(R.string.poz, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                            }
+                        })
+                        .show();
+        dialog.findViewById(dialog.getContext().getResources()
+                .getIdentifier("android:id/titleDivider", null, null))
+                .setBackgroundColor(bijela);
 
     }
 
@@ -285,7 +305,7 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
     public void klikNaGumbRazinaJedan() {
         AlertDialog.Builder builder = new AlertDialog.Builder(RazinaJedan.this);
         AlertDialog dialog =
-        builder.setTitle("Odaberi boju")
+        builder.setTitle(R.string.nas2)
                 .setItems(R.array.dialog_boje, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which) {
@@ -309,7 +329,7 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
                         gumb_go.setVisibility(View.VISIBLE);
                     }
                 })
-                .setNegativeButton("Natrag", new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.neg, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
 
@@ -318,16 +338,18 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
                 .show();
         dialog.findViewById(dialog.getContext().getResources()
                 .getIdentifier("android:id/titleDivider", null, null))
-                .setBackgroundColor(getResources().getColor(R.color.bijela));
+                .setBackgroundColor(bijela);
     }
+
     @OnClick(R.id.gumb_go)
     public void onGoClick() {
         Intent intent = new Intent(RazinaJedan.this, Zvjezdice.class);
-        intent.putExtra("poruka", "mijenjati boju gumba");
+        intent.putExtra("poruka", getResources().getString(R.string.mess));
+        RazinaJedan.this.finish();
         startActivity(intent);
     }
 
-    // .setView(input)
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

@@ -45,7 +45,7 @@
             android:name="tvz.mc2.codeit.RazinaJedan"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_razina_jedan"
-            android:parentActivityName="tvz.mc2.codeit.GlavniIzbornik"
+            android:parentActivityName="tvz.mc2.codeit.Razine"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -75,7 +75,11 @@
             android:name="tvz.mc2.codeit.Zvjezdice"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_zvjezdice"
+            android:parentActivityName="tvz.mc2.codeit.Razine"
             android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="tvz.mc2.codeit.Razine" />
         </activity>
         <activity
             android:name="tvz.mc2.codeit.RazinaTest"
@@ -96,10 +100,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tvz.mc2.codeit.Razine" />
-        </activity>
-        <activity
-            android:name="tvz.mc2.codeit.Podrazina3"
-            android:label="@string/title_activity_podrazina3" >
         </activity>
     </application>
 

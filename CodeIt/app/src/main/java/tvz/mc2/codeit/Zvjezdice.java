@@ -41,6 +41,10 @@ public class Zvjezdice extends Activity {
      */
     private String poruka = "";
     /**
+     * Preusmjeravanje na sljedecu razinu.
+     */
+    private boolean sljedeciEkran = false;
+    /**
      * Handler za timeout ovog ekrana.
      */
     private Handler splashHandler = new Handler() {
@@ -81,15 +85,22 @@ public class Zvjezdice extends Activity {
             zvijezda1.setVisibility(View.VISIBLE);
             zvijezda2.setVisibility(View.VISIBLE);
             zvijezda3.setVisibility(View.VISIBLE);
-            //Intent intent = new Intent(Zvjezdice.this, Zvjezdice.class);
-            //startActivity(intent);
             flag = true;
+            sljedeciEkran = true;
         }
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        mjenjanjeEkrana();
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            if (sljedeciEkran == false) {
+                mjenjanjeEkrana();
+            } else {
+                Intent intent = new Intent(Zvjezdice.this, Razine.class);
+                startActivity(intent);
+            }
+        }
+
         return super.onTouchEvent(event);
     }
 

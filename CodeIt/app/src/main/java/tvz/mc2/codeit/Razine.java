@@ -33,6 +33,8 @@ public class Razine extends Activity {
     List<String> listaRazina;
     /** Lista podrazina. */
     List<List<String>> listaPodrazina;
+    /** */
+    Class[][] razine = { {RazinaJedan.class, RazinaDva.class} };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,7 @@ public class Razine extends Activity {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition,
                                         int childPosition, long id) {
-                Intent intent = new Intent(Razine.this, RazinaJedan.class);
+                Intent intent = new Intent(Razine.this, razine[groupPosition][childPosition]);
                 startActivity(intent);
                 return false;
             }
@@ -62,8 +64,8 @@ public class Razine extends Activity {
         listaRazina = Arrays.asList(getResources().getStringArray(R.array.razine));
         listaPodrazina = new ArrayList<>();
         listaPodrazina.add(Arrays.asList(getResources().getStringArray(R.array.podrazine1)));
-        listaPodrazina.add(Arrays.asList(getResources().getStringArray(R.array.podrazine2)));
-        listaPodrazina.add(Arrays.asList(getResources().getStringArray(R.array.podrazine3)));
+        //listaPodrazina.add(Arrays.asList(getResources().getStringArray(R.array.podrazine2)));
+        //listaPodrazina.add(Arrays.asList(getResources().getStringArray(R.array.podrazine3)));
     }
 
     @Override
