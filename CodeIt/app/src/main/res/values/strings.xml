@@ -23,6 +23,7 @@
     <string-array name="podrazine1">
         <item>Podrazina 1</item>
         <item>Podrazina 2</item>
+        <item>Test</item>
         <!--<item>Podrazina 3</item>
         <item>Test</item>-->
     </string-array>

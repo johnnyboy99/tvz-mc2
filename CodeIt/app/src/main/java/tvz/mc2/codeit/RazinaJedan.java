@@ -379,49 +379,8 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
 
         maxScrollX = hsv.getChildAt(0).getMeasuredWidth()-hsv.getMeasuredWidth();
 
-        //TODO promjenit da ne prikazuje!!!
-
         arrowl.setVisibility(View.VISIBLE);
         arrowr.setVisibility(View.VISIBLE);
-
-        /*
-        if (hsv.getScrollX() == 0) {
-            arrowl.setVisibility(View.GONE);
-            arrowr.setVisibility(View.GONE);
-        }
-
-        if (hsv.getScrollX() == maxScrollX)
-        {
-            arrowr.setVisibility(View.GONE);
-        }
-        */
-
-        /*
-        hsv.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (v.getScrollX() != 0)
-                {
-                    arrowl.setVisibility(View.VISIBLE);
-                }
-
-                else
-                {
-                    arrowl.setVisibility(View.GONE);
-                }
-
-                if (v.getScrollX() == maxScrollX)
-                {
-                    arrowr.setVisibility(View.GONE);
-                }
-                else
-                {
-                    arrowr.setVisibility(View.VISIBLE);
-                }
-                return false;
-            }
-        });
-        */
     }
 
     @Override
@@ -729,7 +688,7 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
                 });
                 colorAnimationSvjetloSivaUSivuPozadinu.start();
 
-                opisniTekstUzAnimaciju.setText(getResources().getString(R.string.tekstKreni));
+                opisniTekstUzAnimaciju.setText("");
                 opisniTekstUzAnimaciju.setAnimation(fadeIn);
 
                 krugZaRadnuPlohuRazinaJedan.setVisibility(View.GONE);

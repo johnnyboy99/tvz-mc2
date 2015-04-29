@@ -34,7 +34,7 @@ public class Razine extends Activity {
     /** Lista podrazina. */
     List<List<String>> listaPodrazina;
     /** */
-    Class[][] razine = { {RazinaJedan.class, RazinaDva.class} };
+    Class[][] razine = { {RazinaJedan.class, RazinaDva.class, RazinaTest.class } };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

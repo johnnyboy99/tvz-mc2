@@ -128,8 +128,9 @@
                 android:layout_marginTop="40dp"
                 android:layout_centerHorizontal="true"
                 android:gravity="center_horizontal"
+                android:textColor="@android:color/white"
                 android:id="@+id/opisniTekstUzAnimaciju"
-                android:textSize="30sp" />
+                android:textSize="25sp" />
 
                 <View
                     android:id="@+id/krugZaRadnuPlohuRazinaJedan"

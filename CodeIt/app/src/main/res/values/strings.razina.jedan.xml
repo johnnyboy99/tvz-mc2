@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="tekstZaDrawerMenu">Ovdje je meni</string>
+    <string name="tekstZaIzbornikElemenata">Ovo su elementi koje možeš koristiti</string>
+    <string name="tekstZaRadnuPlohu">Ovo je tvoja radna ploha</string>
+
+</resources>
