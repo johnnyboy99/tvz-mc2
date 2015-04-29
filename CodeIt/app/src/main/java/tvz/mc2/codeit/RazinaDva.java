@@ -45,10 +45,10 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
     String zadatak;
     static TextView labelaRazinaDva;
     static ImageButton gumbGoRazina2;
+    static boolean zastavica;
 
     @InjectView(R.id.slikaLabelaRazinaDva) ImageView slikaLabelaRazinaDva;
     @InjectView(R.id.okvirLabelaRazinaDva) View okvirLabelaRazinaDva;
-    //@InjectView(R.id.labelaRazinaDva) static TextView labelaRazinaDva;
     @InjectView(R.id.arrowLRazinaDva) ImageView arrowl;
     @InjectView(R.id.arrowRRazinaDva) ImageView arrowr;
     @InjectView(R.id.horizontalScrollViewRazinaDva) HorizontalScrollView hsv;
@@ -59,7 +59,6 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
     @InjectView(R.id.radnaPlohaRazinaDva) LinearLayout radnaPlohaRazinaDva;
     @InjectView(R.id.menuRazinaDva) LinearLayout menuRazinaDva;
     @InjectView(R.id.drawerGumbRazinaDva) ImageButton drawerGumbRazinaDva;
-    //@InjectView(R.id.gumb_go_razina2) ImageButton gumbGoRazina2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +82,8 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         slikaLabelaRazinaDva.setOnTouchListener(touchListener);
         okvirLabelaRazinaDva.setOnDragListener(dragListener);
 
+        zastavica = false;
+
         zadatak = getResources().getString(R.string.zadatakDva);
         dialogZadatak();
     }
@@ -96,7 +97,8 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
     public void klikZaDalje(View view)
     {
         Intent intent = new Intent(RazinaDva.this, Zvjezdice.class);
-        intent.putExtra("poruka", "Sve o labeli");
+        intent.putExtra("poruka", "sve o labeli");
+        finish();
         startActivity(intent);
     }
 
@@ -423,9 +425,12 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         }
 
         if (!(velicina==0))
-        labelaRazinaDva.setTextSize(TypedValue.COMPLEX_UNIT_SP, velicina);
+        {
+            labelaRazinaDva.setTextSize(TypedValue.COMPLEX_UNIT_SP, velicina);
+            zastavica = true;
+        }
 
-        if (!(labelaRazinaDva.getText().equals("Labela")) && !(labelaRazinaDva.getCurrentTextColor()==Color.BLACK))
+        if (!(labelaRazinaDva.getText().equals("Labela")) && !(labelaRazinaDva.getCurrentTextColor()==Color.BLACK) && (zastavica))
         {
             gumbGoRazina2.setVisibility(View.VISIBLE);
         }

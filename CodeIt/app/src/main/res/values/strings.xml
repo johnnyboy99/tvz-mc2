@@ -10,8 +10,9 @@
     <string name="title_activity_razina_jedan">RazinaJedan</string>
     <string name="title_activity_razine">Razine</string>
     <string name="title_activity_tutorial">Tutorial</string>
-    <string name="zadatakDva">        U izborniku se nalazi labela. Ona služi za ispisivanje željenog teksta na ekran.
-        Povuci labelu na radnu plohu, te joj promjeni tekst i boju</string>
+    <string name="zadatakDva"> U izborniku se nalazi labela. Ona služi za ispisivanje željenog teksta na ekran.\nPovuci labelu na radnu plohu, te joj promjeni tekst, veličinu i boju</string>
+    <string name="zadatakTri"> U izborniku se nalaze 2 checkboxa. Pomoću njih možemo uključiti ili isključiti neku funkciju.\nPovuci checkboxe na radnu plohu.</string>
+    <string name="zadatakTri2">Bravo! Sada pomocu spinnera, promjeni boju labele.</string>
     <string name="zad">Povuci gumb na radnu plohu.</string>
     <string name="zad2">Pritiskom na gumb promijeni mu boju.</string>
     <string name="mess">mijenjati boju gumba</string>
@@ -19,6 +20,7 @@
     <string name="neg">Natrag</string>
     <string name="nas1">Upute</string>
     <string name="nas2">Odaberi boju</string>
+    <string name="podnaslovRazinaTri"><u>Boje:</u></string>
 
     <string-array name="podrazine1">
         <item>Podrazina 1</item>
@@ -77,6 +79,17 @@
         <item>Ljubičasta</item>
     </string-array>
 
+    <string-array name="bojeSpinner3">
+        <item>Boja:</item>
+        <item>Crna</item>
+        <item>Crvena</item>
+        <item>Plava</item>
+        <item>Zelena</item>
+        <item>Žuta</item>
+        <item>Ljubičasta</item>
+    </string-array>
+
     <string name="title_activity_podrazina3">Podrazina3</string>
+    <string name="title_activity_razina_tri">RazinaTri</string>
 
 </resources>

@@ -80,7 +80,7 @@ public class Zvjezdice extends Activity {
      */
     private void mjenjanjeEkrana(){
         if (flag == false) {
-            textView2.setText("Naučio si: "+ poruka);
+            textView2.setText("Naučio si "+ poruka);
             textView.setVisibility(View.VISIBLE);
             zvijezda1.setVisibility(View.VISIBLE);
             zvijezda2.setVisibility(View.VISIBLE);

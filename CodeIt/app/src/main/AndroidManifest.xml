@@ -8,24 +8,24 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="tvz.mc2.codeit.GlavniIzbornik"
+            android:name=".GlavniIzbornik"
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
-            android:parentActivityName="tvz.mc2.codeit.Splash"
+            android:parentActivityName=".Splash"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="tvz.mc2.codeit.DragDropProba"
+            android:name=".DragDropProba"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_drag_drop_proba"
-            android:parentActivityName="tvz.mc2.codeit.GlavniIzbornik"
+            android:parentActivityName=".GlavniIzbornik"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tvz.mc2.codeit.GlavniIzbornik" />
         </activity>
         <activity
-            android:name="tvz.mc2.codeit.Splash"
+            android:name=".Splash"
             android:configChanges="orientation|screenSize"
             android:noHistory="true"
             android:screenOrientation="portrait" >
@@ -36,70 +36,74 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="tvz.mc2.codeit.MenuProba"
+            android:name=".MenuProba"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_menu_proba"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="tvz.mc2.codeit.RazinaJedan"
+            android:name=".RazinaJedan"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_razina_jedan"
-            android:parentActivityName="tvz.mc2.codeit.Razine"
+            android:parentActivityName=".Razine"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tvz.mc2.codeit.GlavniIzbornik" />
         </activity>
         <activity
-            android:name="tvz.mc2.codeit.Razine"
+            android:name=".Razine"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_razine"
-            android:parentActivityName="tvz.mc2.codeit.GlavniIzbornik"
+            android:parentActivityName=".GlavniIzbornik"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tvz.mc2.codeit.GlavniIzbornik" />
         </activity>
         <activity
-            android:name="tvz.mc2.codeit.Tutorial"
+            android:name=".Tutorial"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_tutorial"
-            android:parentActivityName="tvz.mc2.codeit.GlavniIzbornik"
+            android:parentActivityName=".GlavniIzbornik"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tvz.mc2.codeit.GlavniIzbornik" />
         </activity>
         <activity
-            android:name="tvz.mc2.codeit.Zvjezdice"
+            android:name=".Zvjezdice"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_zvjezdice"
-            android:parentActivityName="tvz.mc2.codeit.Razine"
+            android:parentActivityName=".Razine"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tvz.mc2.codeit.Razine" />
         </activity>
         <activity
-            android:name="tvz.mc2.codeit.RazinaTest"
+            android:name=".RazinaTest"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_razina_test"
-            android:parentActivityName="tvz.mc2.codeit.Razine"
+            android:parentActivityName=".Razine"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tvz.mc2.codeit.Razine" />
         </activity>
         <activity
-            android:name="tvz.mc2.codeit.RazinaDva"
+            android:name=".RazinaDva"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_razina_dva"
-            android:parentActivityName="tvz.mc2.codeit.Razine"
+            android:parentActivityName=".Razine"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="tvz.mc2.codeit.Razine" />
+        </activity>
+        <activity
+            android:name=".RazinaTri"
+            android:label="@string/title_activity_razina_tri" >
         </activity>
     </application>
 
