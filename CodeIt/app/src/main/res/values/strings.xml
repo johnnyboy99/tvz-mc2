@@ -3,30 +3,34 @@
 
     <string name="app_name">CodeIt</string>
     <string name="hello_world">Hello world!</string>
-    <string name="pozdrav">Pozdrav Kika i Bok!!!i!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_drag_drop_proba">DragDropProba</string>
     <string name="title_activity_menu_proba">MenuProba</string>
     <string name="title_activity_razina_jedan">RazinaJedan</string>
     <string name="title_activity_razine">Razine</string>
     <string name="title_activity_tutorial">Tutorial</string>
-    <string name="zadatakDva"> U izborniku se nalazi labela. Ona služi za ispisivanje željenog teksta na ekran.\nPovuci labelu na radnu plohu, te joj promjeni tekst, veličinu i boju</string>
-    <string name="zadatakTri"> U izborniku se nalaze 2 checkboxa. Pomoću njih možemo uključiti ili isključiti neku funkciju.\nPovuci checkboxe na radnu plohu.</string>
-    <string name="zadatakTri2">Bravo! Sada pomocu spinnera, promjeni boju labele.</string>
+    <string name="zadatakDva"> U izborniku se nalazi labela. Ona služi za ispisivanje željenog
+        teksta na ekran.\nPovuci labelu na radnu plohu te joj promijeni tekst, veličinu i boju.</string>
+    <string name="zadatakTri"> U izborniku se nalaze 2 checkboxa. Pomoću njih možemo uključiti
+        ili isključiti neku funkciju.\nPovuci checkboxe na radnu plohu.</string>
+    <string name="zadatakTri2">Sada pomoću spinnera promijeni boju labele.</string>
     <string name="zad">Povuci gumb na radnu plohu.</string>
     <string name="zad2">Pritiskom na gumb promijeni mu boju.</string>
     <string name="mess">mijenjati boju gumba.</string>
     <string name="mess2">prvu podrazinu!</string>
+    <string name="mess3">sve o labeli.</string>
+    <string name="mess4">koristiti spinner i checkbox.</string>
+    <string name="mess5">gumb, labelu, spinner i checkbox.</string>
     <string name="poz">Ok</string>
     <string name="neg">Natrag</string>
-    <string name="nas1">Upute</string>
+    <string name="nas1">Zadatak</string>
     <string name="nas2">Odaberi boju</string>
     <string name="podnaslovRazinaTri"><u>Boje:</u></string>
 
     <string-array name="podrazine1">
-        <item>Podrazina 1</item>
-        <item>Podrazina 2</item>
-        <item>Podrazina 3</item>
+        <item>Gumb</item>
+        <item>Labela</item>
+        <item>Spinner i checkbox</item>
         <item>Test</item>
         <!--<item>Podrazina 3</item>
         <item>Test</item>-->
@@ -42,7 +46,7 @@
         <item>Podrazina 3</item>
     </string-array>
     <string-array name="razine">
-        <item>Razina 1</item>
+        <item>Osnove</item>
         <!--<item>Razina 2</item>
         <item>Razina 3</item>-->
     </string-array>
@@ -72,7 +76,7 @@
     </string-array>
 
     <string-array name="labela_boje">
-        <item>------</item>
+        <!--<item> _______ </item>-->
         <item>Crna</item>
         <item>Crvena</item>
         <item>Plava</item>

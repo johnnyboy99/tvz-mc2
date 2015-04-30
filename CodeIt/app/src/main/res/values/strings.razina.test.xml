@@ -5,10 +5,10 @@
     <string name="labelPrviBroj">Prvi broj</string>
     <string name="labelDrugiBroj">Drugi broj</string>
     <string name="labelRezultat">Rezultat</string>
-    <string name="tekstZadatkaTestRazina">Povuci sve elemente na svoju poziciju!
-                (Imaš 2 EditTexta, Spinner, Gumb i Labelu!)</string>
-    <string name="tektsZadatkaTestaRazinaRacOperacija">Čestitam, uspješno si povukao sve elemente!
-                Sada napravi neku računsku operaciju</string>
+    <string name="tekstZadatkaTestRazina">Povuci sve elemente na radnu plohu.
+                Imaš dva editTexta, spinner, gumb i labelu.</string>
+    <string name="tektsZadatkaTestaRazinaRacOperacija">Uspješno si povukao sve elemente.
+                Probaj nešto izračunati.</string>
 
 
 </resources>

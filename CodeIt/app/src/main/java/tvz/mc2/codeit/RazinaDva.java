@@ -97,8 +97,9 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
     public void klikZaDalje(View view)
     {
         Intent intent = new Intent(RazinaDva.this, Zvjezdice.class);
-        intent.putExtra("poruka", "sve o labeli");
-        finish();
+        intent.putExtra("poruka", getResources().getString(R.string.mess3));
+        intent.putExtra("razina", getResources().getString(R.string.mess2));
+        RazinaDva.this.finish();
         startActivity(intent);
     }
 
@@ -219,13 +220,13 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         builder.setTitle("Ponovno pokretanje");
         builder.setMessage("Želiš li ponovno pokrenuti razinu?");
 
-        builder.setPositiveButton("Da", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.poz, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 restart();
             }
         })
-                .setNegativeButton("Ne", new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.neg, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id)
                     {
@@ -260,10 +261,10 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
     public void dialogZadatak()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Zadatak:");
+        builder.setTitle(R.string.nas1);
         builder.setMessage(zadatak);
 
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 //ništa
@@ -404,19 +405,19 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
                 break;
 
             case "Plava":
-                labelaRazinaDva.setTextColor(Color.BLUE);
+                labelaRazinaDva.setTextColor(Color.parseColor("#1E88E5"));
                 break;
 
             case "Zelena":
-                labelaRazinaDva.setTextColor(Color.GREEN);
+                labelaRazinaDva.setTextColor(Color.parseColor("#43A047"));
                 break;
 
             case "Žuta":
-                labelaRazinaDva.setTextColor(Color.YELLOW);
+                labelaRazinaDva.setTextColor(Color.parseColor("#FF5252"));
                 break;
 
             case "Ljubičasta":
-                labelaRazinaDva.setTextColor(Color.parseColor("#E040FB"));
+                labelaRazinaDva.setTextColor(Color.parseColor("#5E35B1"));
                 break;
 
             default:

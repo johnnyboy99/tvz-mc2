@@ -218,10 +218,10 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
     public void dialogZadatak()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Zadatak:");
+        builder.setTitle(R.string.nas1);
         builder.setMessage(zadatak);
 
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.neg, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 //ništa
@@ -494,23 +494,23 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
                 break;
 
             case 2:
-                labelaRazinaTri.setTextColor(Color.RED);
+                labelaRazinaTri.setTextColor(Color.parseColor("#FF5252"));
                 break;
 
             case 3:
-                labelaRazinaTri.setTextColor(Color.BLUE);
+                labelaRazinaTri.setTextColor(Color.parseColor("#1E88E5"));
                 break;
 
             case 4:
-                labelaRazinaTri.setTextColor(Color.GREEN);
+                labelaRazinaTri.setTextColor(Color.parseColor("#43A047"));
                 break;
 
             case 5:
-                labelaRazinaTri.setTextColor(Color.YELLOW);
+                labelaRazinaTri.setTextColor(Color.parseColor("#FF5252"));
                 break;
 
             case 6:
-                labelaRazinaTri.setTextColor(Color.parseColor("#E040FB"));
+                labelaRazinaTri.setTextColor(Color.parseColor("#5E35B1"));
                 break;
 
             default:
@@ -545,7 +545,8 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
     public void klikZaDalje(View view)
     {
         Intent intent = new Intent(RazinaTri.this, Zvjezdice.class);
-        intent.putExtra("poruka", "koristiti spinner i checkbox");
+        intent.putExtra("poruka", getResources().getString(R.string.mess4));
+        intent.putExtra("razina", getResources().getString(R.string.mess2));
         finish();
         startActivity(intent);
     }
