@@ -546,7 +546,7 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
     {
         Intent intent = new Intent(RazinaTri.this, Zvjezdice.class);
         intent.putExtra("poruka", getResources().getString(R.string.mess4));
-        intent.putExtra("razina", getResources().getString(R.string.mess2));
+        intent.putExtra("razina", getResources().getString(R.string.mess7));
         finish();
         startActivity(intent);
     }

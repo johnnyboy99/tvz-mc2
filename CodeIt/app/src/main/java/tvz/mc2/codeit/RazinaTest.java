@@ -176,7 +176,7 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
     public void klikNaGumbGoRazinaTest(View view){
         Intent intent = new Intent(RazinaTest.this, Zvjezdice.class);
         intent.putExtra("poruka", getResources().getString(R.string.mess5));
-        intent.putExtra("razina", getResources().getString(R.string.mess2));
+        intent.putExtra("razina", getResources().getString(R.string.mess8));
         RazinaTest.this.finish();
         startActivity(intent);
     }
