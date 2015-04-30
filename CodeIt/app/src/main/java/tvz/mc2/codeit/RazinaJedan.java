@@ -54,6 +54,7 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
 
     int maxScrollX;
     private String [] izborArray;
+    boolean zastavica;
 
     @InjectView(R.id.slikaGumbRazinaJedan) ImageView slikaGumbRazinaJedan;
     @InjectView(R.id.okvirGumbRazinaJedan) View okvirGumbRazinaJedan;
@@ -113,6 +114,8 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         okvirGradientGumbaJedan.setStroke(visinaRuba, Color.BLACK);
 
         izborArray = getResources().getStringArray(R.array.izbor);
+        View header = View.inflate(this, R.layout.list_header, null);
+        drawerListRazinaJedan.addHeaderView(header, "Header", false);
         drawerListRazinaJedan.setAdapter(new ArrayAdapter<>(this, R.layout.unsimple_list_item, izborArray));
         drawerListRazinaJedan.setOnItemClickListener(this);
 
@@ -128,6 +131,7 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         ljubicasta = getResources().getColor(R.color.ljubicasta);
         bijela = getResources().getColor(R.color.bijela);
 
+        zastavica = false;
 
         //start animacija
         prvaAnimacijaSveUSivo();
@@ -196,6 +200,7 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
                     slikaGumbRazinaJedan.setLayoutParams(layoutParams);
                     slikaGumbRazinaJedan.requestLayout();
                     //dragLayoutRazinaJedan.invalidate();
+                    zastavica = true;
                     prikazDrugePoruke();
                     return unutarOkvira;
             }
@@ -285,6 +290,56 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
     }
 
     /**
+     * Pozivanje dialoga za ponovno pokretanje zadatka.
+     */
+    public void dialogRestart()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Ponovno pokretanje");
+        builder.setMessage("Želiš li ponovno pokrenuti razinu?");
+
+        builder.setPositiveButton("Da", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                restart();
+            }
+        })
+                .setNegativeButton("Ne", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id)
+                    {
+                        //ništa
+                    }
+                });
+        builder.create().show();
+    }
+
+    /**
+     * Pozivanje dialoga za izlazak iz zadatka.
+     */
+    public void dialogIzlaz()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Izlaz");
+        builder.setMessage("Želiš li izaći na glavni izbornik?");
+
+        builder.setPositiveButton("Da", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                izlaz();
+            }
+        })
+                .setNegativeButton("Ne", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id)
+                    {
+                        //ništa
+                    }
+                });
+        builder.create().show();
+    }
+
+    /**
      * Pozivanje dijaloga za promjenu boje teksta. Odabirom elementa liste mijenja se boja.
      */
     @OnClick(R.id.gumbRazinaJedan)
@@ -351,14 +406,15 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (position)
         {
-            case 0:
-                Toast.makeText(this, "Ovdje bude popup za tekst zadatka", Toast.LENGTH_SHORT).show();
-                break;
             case 1:
-                restart();
+                if (!zastavica) pozivZadatka();
+                else prikazDrugePoruke();
                 break;
             case 2:
-                izlaz();
+                dialogRestart();
+                break;
+            case 3:
+                dialogIzlaz();
                 break;
             default:
                 break;

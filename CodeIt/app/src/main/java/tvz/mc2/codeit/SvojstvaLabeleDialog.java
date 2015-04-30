@@ -31,7 +31,7 @@ public class SvojstvaLabeleDialog extends DialogFragment {
         final View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_svojstva_labele, null);
 
         spinner = (Spinner) view.findViewById(R.id.spinnerSvojstvaLabeleR2);
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(), R.array.labela_boje, android.R.layout.simple_spinner_item);
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(), R.array.labela_boje, R.layout.unsimple_spinner_item);
         spinner.setAdapter(adapter);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
