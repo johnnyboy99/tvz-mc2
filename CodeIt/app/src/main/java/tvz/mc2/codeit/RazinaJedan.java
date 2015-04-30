@@ -345,6 +345,7 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
     public void onGoClick() {
         Intent intent = new Intent(RazinaJedan.this, Zvjezdice.class);
         intent.putExtra("poruka", getResources().getString(R.string.mess));
+        intent.putExtra("razina", getResources().getString(R.string.mess2));
         RazinaJedan.this.finish();
         startActivity(intent);
     }

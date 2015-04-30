@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Završio si razinu 1 !"
+            android:text="Završio si podrazinu."
             android:id="@+id/textView"
             android:textColor="#FFFFFF"
             android:textSize="25dip"

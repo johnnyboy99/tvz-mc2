@@ -41,6 +41,10 @@ public class Zvjezdice extends Activity {
      */
     private String poruka = "";
     /**
+     * Poruka korisniku o tome koju je razinu zavrsio.
+     */
+    private String razina = "";
+    /**
      * Preusmjeravanje na sljedecu razinu.
      */
     private boolean sljedeciEkran = false;
@@ -71,6 +75,7 @@ public class Zvjezdice extends Activity {
         zvijezda2.setImageResource(R.drawable.star);
         zvijezda3.setImageResource(R.drawable.star);
         poruka = getIntent().getExtras().getString("poruka");
+        razina = getIntent().getExtras().getString("razina");
     }
 
     /**
@@ -80,6 +85,7 @@ public class Zvjezdice extends Activity {
      */
     private void mjenjanjeEkrana(){
         if (flag == false) {
+            textView.setText("Završio si " + razina);
             textView2.setText("Naučio si "+ poruka);
             textView.setVisibility(View.VISIBLE);
             zvijezda1.setVisibility(View.VISIBLE);
