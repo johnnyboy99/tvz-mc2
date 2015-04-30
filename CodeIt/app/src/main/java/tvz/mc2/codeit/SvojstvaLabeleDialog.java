@@ -52,6 +52,9 @@ public class SvojstvaLabeleDialog extends DialogFragment {
                         else
                         {
                             velicina = Integer.valueOf(velicinaLabele.getText().toString());
+
+                            if (velicina < 10) velicina = 10;
+                            else if (velicina > 150) velicina = 150;
                         }
 
                         boja = (String) spinner.getSelectedItem();
