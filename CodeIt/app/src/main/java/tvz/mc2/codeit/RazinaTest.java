@@ -3,6 +3,7 @@ package tvz.mc2.codeit;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ClipData;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Canvas;
@@ -11,15 +12,20 @@ import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.inputmethodservice.InputMethodService;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.DragEvent;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -157,7 +163,13 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
 
         zadatak = getResources().getString(R.string.tekstZadatkaTestRazina);
         tekstZadatka();
+    }
 
+    @OnClick(R.id.frameLayoutRazinaTest)
+    public void klikNaPozadinu(View view){
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(editTextPrviBrojRazinaTest.getWindowToken(), 0);
+        imm.hideSoftInputFromWindow(editTextDrugiBrojRazinaTest.getWindowToken(), 0);
     }
 
     @OnClick(R.id.gumbGoRazinaTest)
@@ -582,11 +594,11 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
     }
 
     private void svePostavljenoZadatakDialog() {
+        zadatak = getResources().getString(R.string.tektsZadatkaTestaRazinaRacOperacija);
         AlertDialog.Builder builder = new AlertDialog.Builder(RazinaTest.this);
         AlertDialog dialog =
                 builder.setTitle("Zadatak")
-                        .setMessage("Čestitam, uspješno si povukao sve elemente!\n"
-                                    + "Sada napravi neku računsku operaciju")
+                        .setMessage(zadatak)
                         .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int id) {

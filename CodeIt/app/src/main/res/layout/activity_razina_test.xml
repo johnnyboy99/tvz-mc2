@@ -35,7 +35,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_weight="2"
                         android:background="@drawable/border"
-                        android:src="@drawable/ic_drawer" />
+                        android:src="@drawable/menu36" />
 
                     <RelativeLayout
                         android:id="@+id/menuElementiRazinaTest"

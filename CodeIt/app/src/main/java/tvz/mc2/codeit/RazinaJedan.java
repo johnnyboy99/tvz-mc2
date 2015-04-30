@@ -91,6 +91,8 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
     //boje
     Integer tamnoSiva;
     Integer svjetloSiva;
+    Integer tamnoSivaAnimacija;
+    Integer svjetloSivaAnimacija;
     Integer sivaPozadina;
     Integer crvenaPozadina;
     Integer crvenaPozadinaSvjetlije;
@@ -116,6 +118,8 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
 
         tamnoSiva = getResources().getColor(R.color.tamnoSiva);
         svjetloSiva = getResources().getColor(R.color.svjetloSiva);
+        tamnoSivaAnimacija = getResources().getColor(R.color.tamnoSivaAnimacija);
+        svjetloSivaAnimacija = getResources().getColor(R.color.svjetloSivaAnimacija);
         sivaPozadina = getResources().getColor(R.color.sivaPozadina);
         crvenaPozadina = getResources().getColor(R.color.crvenaPozadina);
         crvenaPozadinaSvjetlije = getResources().getColor(R.color.crvenaPozadinaSvjetlije);
@@ -129,27 +133,9 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         prvaAnimacijaSveUSivo();
     }
 
-    @OnClick(R.id.drawerGumbRazinaJedan)
-    public void onKlikNaDrawerMenu (View v)
-    {
-        drawerLayoutRazinaJedan.openDrawer(drawerListRazinaJedan);
-    }
-
     //Drag odavde
-
     View.OnTouchListener touchListener = new View.OnTouchListener() {
         public boolean onTouch(View view, MotionEvent motionEvent) {
-
-            /*
-            //TODO koristit ovo za pretvaranje px u dp
-            int height2 = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics());
-
-
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(height2, height2);
-            slikaGumbRazinaJedan.setLayoutParams(layoutParams);
-            slikaGumbRazinaJedan.requestLayout();
-            dragLayoutRazinaJedan.invalidate();
-            */
 
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
 
@@ -350,29 +336,6 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         startActivity(intent);
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_razina_jedan, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         // TODO Auto-generated method stub
@@ -433,10 +396,10 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
 
                 fadeIn.setDuration(1000);
 
-                menuElementiRazinaJedan.setBackgroundColor(tamnoSiva);
-                drawerGumbRazinaJedan.setBackgroundColor(tamnoSiva);
-                menuRazinaJedan.setBackgroundColor(tamnoSiva);
-                radnaPlohaRazinaJedan.setBackgroundColor(svjetloSiva);
+                menuElementiRazinaJedan.setBackgroundColor(tamnoSivaAnimacija);
+                drawerGumbRazinaJedan.setBackgroundColor(tamnoSivaAnimacija);
+                menuRazinaJedan.setBackgroundColor(tamnoSivaAnimacija);
+                radnaPlohaRazinaJedan.setBackgroundColor(svjetloSivaAnimacija);
                 GradientDrawable bgRectangle = (GradientDrawable)okvirGumbRazinaJedan.getBackground();
                 bgRectangle.setStroke(2, Color.WHITE);
 
@@ -523,7 +486,7 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
                 fadeInDuzi.setDuration(VRIJEME_ANIMACIJE_DUZE);
                 fadeOut.setDuration(CEKANJE_NA_ANIMACIJU_KRATKO);
 
-                ValueAnimator colorAnimationTamnoSivaUCrvenu = ValueAnimator.ofObject(new ArgbEvaluator(), tamnoSiva, crvenaPozadina);
+                ValueAnimator colorAnimationTamnoSivaUCrvenu = ValueAnimator.ofObject(new ArgbEvaluator(), tamnoSivaAnimacija, crvenaPozadina);
                 colorAnimationTamnoSivaUCrvenu.setDuration(VRIJEME_MJENJANJA_BOJA);
                 colorAnimationTamnoSivaUCrvenu.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 
@@ -534,7 +497,7 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
                 });
                 colorAnimationTamnoSivaUCrvenu.start();
 
-                ValueAnimator colorAnimationCrvenaUTamnoSivu = ValueAnimator.ofObject(new ArgbEvaluator(), crvenaPozadina, tamnoSiva);
+                ValueAnimator colorAnimationCrvenaUTamnoSivu = ValueAnimator.ofObject(new ArgbEvaluator(), crvenaPozadina, tamnoSivaAnimacija);
                 colorAnimationCrvenaUTamnoSivu.setDuration(VRIJEME_MJENJANJA_BOJA);
                 colorAnimationCrvenaUTamnoSivu.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 
@@ -598,7 +561,7 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
                 GradientDrawable okvirGradientPrividniGumb = (GradientDrawable) okvirPrividniGumbRazinaJedan.getBackground();
                 okvirGradientPrividniGumb.setStroke(visinaRuba, Color.WHITE);
 
-                ValueAnimator colorAnimationCrvenaUTamnoSivu = ValueAnimator.ofObject(new ArgbEvaluator(), crvenaPozadina, tamnoSiva);
+                ValueAnimator colorAnimationCrvenaUTamnoSivu = ValueAnimator.ofObject(new ArgbEvaluator(), crvenaPozadina, tamnoSivaAnimacija);
                 colorAnimationCrvenaUTamnoSivu.setDuration(VRIJEME_MJENJANJA_BOJA);
                 colorAnimationCrvenaUTamnoSivu.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 
@@ -609,7 +572,7 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
                 });
                 colorAnimationCrvenaUTamnoSivu.start();
 
-                ValueAnimator colorAnimationTamnoSivaUSivuPozadinu = ValueAnimator.ofObject(new ArgbEvaluator(), svjetloSiva, sivaPozadina);
+                ValueAnimator colorAnimationTamnoSivaUSivuPozadinu = ValueAnimator.ofObject(new ArgbEvaluator(), svjetloSivaAnimacija, sivaPozadina);
                 colorAnimationTamnoSivaUSivuPozadinu.setDuration(VRIJEME_MJENJANJA_BOJA);
                 colorAnimationTamnoSivaUSivuPozadinu.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 
@@ -663,7 +626,7 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
 
                 fadeOut.setDuration(CEKANJE_NA_ANIMACIJU_KRATKO);
 
-                ValueAnimator colorAnimationTamnoSivaUCrvenuPozadinu = ValueAnimator.ofObject(new ArgbEvaluator(), tamnoSiva, crvenaPozadina);
+                ValueAnimator colorAnimationTamnoSivaUCrvenuPozadinu = ValueAnimator.ofObject(new ArgbEvaluator(), tamnoSivaAnimacija, crvenaPozadina);
                 colorAnimationTamnoSivaUCrvenuPozadinu.setDuration(VRIJEME_MJENJANJA_BOJA);
                 colorAnimationTamnoSivaUCrvenuPozadinu.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 
@@ -677,7 +640,7 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
                 });
                 colorAnimationTamnoSivaUCrvenuPozadinu.start();
 
-                ValueAnimator colorAnimationSvjetloSivaUSivuPozadinu = ValueAnimator.ofObject(new ArgbEvaluator(), svjetloSiva, sivaPozadina);
+                ValueAnimator colorAnimationSvjetloSivaUSivuPozadinu = ValueAnimator.ofObject(new ArgbEvaluator(), svjetloSivaAnimacija, sivaPozadina);
                 colorAnimationSvjetloSivaUSivuPozadinu.setDuration(VRIJEME_MJENJANJA_BOJA);
                 colorAnimationSvjetloSivaUSivuPozadinu.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 
@@ -716,6 +679,14 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
             public void onAnimationEnd(Animation animation) {
                 slikaGumbRazinaJedan.setOnTouchListener(touchListener);
                 okvirGumbRazinaJedan.setOnDragListener(dragListener);
+
+                drawerGumbRazinaJedan.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        drawerLayoutRazinaJedan.openDrawer(drawerListRazinaJedan);
+                    }
+                });
+
                 pozivZadatka();
             }
         });

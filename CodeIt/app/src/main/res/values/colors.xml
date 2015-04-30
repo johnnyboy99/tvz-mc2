@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="tamnoSiva">#424242</color>
-    <color name="svjetloSiva">#757575</color>
+    <color name="tamnoSiva">#616161</color>
+    <color name="svjetloSiva">#9e9e9e</color>
+    <color name="tamnoSivaAnimacija">#424242</color>
+    <color name="svjetloSivaAnimacija">#757575</color>
     <color name="ss">#757575</color>
     <color name="sivaPozadina">#BDBDBD</color>
     <color name="crvenaPozadina">#FF5252</color>
