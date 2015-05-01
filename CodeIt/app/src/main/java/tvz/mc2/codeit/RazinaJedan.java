@@ -108,16 +108,25 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         setContentView(R.layout.activity_razina_jedan);
         ButterKnife.inject(this);
 
+        /**
+         * Inicijalno postavljanje boje na okvire.
+         */
         int visinaRuba = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
         GradientDrawable okvirGradientGumbaJedan = (GradientDrawable) okvirGumbRazinaJedan.getBackground();
         okvirGradientGumbaJedan.setStroke(visinaRuba, Color.BLACK);
 
+        /**
+         * Inicijalizacija drawer menu-a.
+         */
         izborArray = getResources().getStringArray(R.array.izbor);
         View header = View.inflate(this, R.layout.list_header, null);
         drawerListRazinaJedan.addHeaderView(header, "Header", false);
         drawerListRazinaJedan.setAdapter(new ArrayAdapter<>(this, R.layout.unsimple_list_item, izborArray));
         drawerListRazinaJedan.setOnItemClickListener(this);
 
+        /**
+         * Postavljanje boja.
+         */
         tamnoSiva = getResources().getColor(R.color.tamnoSiva);
         svjetloSiva = getResources().getColor(R.color.svjetloSiva);
         tamnoSivaAnimacija = getResources().getColor(R.color.tamnoSivaAnimacija);
@@ -130,15 +139,23 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         ljubicasta = getResources().getColor(R.color.ljubicasta);
         bijela = getResources().getColor(R.color.bijela);
 
+        /**
+         * Postavljanje vidljivosti strelica.
+         */
         arrowl.setVisibility(View.VISIBLE);
         arrowr.setVisibility(View.VISIBLE);
 
         zastavica = false;
 
-        //start animacija
+        /**
+         * Start prve animacije.
+         */
         prvaAnimacijaSveUSivo();
     }
 
+    /**
+     * Touch listener za slike iz izbornika.
+     */
     View.OnTouchListener touchListener = new View.OnTouchListener() {
         public boolean onTouch(View view, MotionEvent motionEvent) {
 
@@ -153,6 +170,9 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         }
     };
 
+    /**
+     * Drag listener za slike iz izbornika.
+     */
     View.OnDragListener dragListener = new View.OnDragListener() {
         private boolean unutarOkvira = false;
 
@@ -206,6 +226,9 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         }
     };
 
+    /**
+     * Rezultat da li je slika stavljena u odgovarajući okvir.
+     */
     private void reportResult(final boolean result) {
         if(!result){
             GradientDrawable okvirGradientGumbaJedan = (GradientDrawable) okvirGumbRazinaJedan.getBackground();
@@ -220,6 +243,9 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         }
     }
 
+    /**
+     * Metoda za izradu sjene za sliku koja se povlači.
+     */
     private class MyShadowBuilder extends View.DragShadowBuilder {
         private Drawable shadow;
 
@@ -379,6 +405,9 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
                 .setBackgroundColor(bijela);
     }
 
+    /**
+     * OnClick metoda na gumbu za zavrsetak razine.
+     */
     @OnClick(R.id.gumb_go)
     public void onGoClick() {
         Intent intent = new Intent(RazinaJedan.this, Zvjezdice.class);
@@ -388,6 +417,9 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         startActivity(intent);
     }
 
+    /**
+     * OnClik metoda za opcije iz drawera.
+     */
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (position)
@@ -408,10 +440,16 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         selectItem(position);
     }
 
+    /**
+     * Metoda koja govori koja je opcija iz drawera odabrana.
+     */
     public void selectItem(int position) {
         drawerListRazinaJedan.setItemChecked(position, true);
     }
 
+    /**
+     * Metoda za ponovno pokretanje zadatka.
+     */
     public void restart()
     {
         Intent intent = getIntent();
@@ -419,6 +457,9 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         startActivity(intent);
     }
 
+    /**
+     * Metoda za izlaz iz zadatka i povratak na glavni izbornik.
+     */
     public void izlaz()
     {
         Intent intent = new Intent(RazinaJedan.this, GlavniIzbornik.class);
@@ -426,6 +467,9 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         startActivity(intent);
     }
 
+    /**
+     * Pokretanje prve animacije, postavljanje svih elemenata u sivo.
+     */
     private void prvaAnimacijaSveUSivo(){
 
         fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
@@ -470,6 +514,9 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         });
     }
 
+    /**
+     * Pokretanje druge animacije, prikazivanje drawer menu-a.
+     */
     private void drugaAnimacijaDrawerMenu(){
 
         fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
@@ -512,6 +559,9 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         });
     }
 
+    /**
+     * Pokretanje druge animacije, prikazivanje izbornika elemenata.
+     */
     private void trecaAnimacijaMenuElementi(){
 
         fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
@@ -584,6 +634,9 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         });
     }
 
+    /**
+     * Pokretanje treće animacije, prikazivanje radne plohe.
+     */
     private void cetvrtaAnimacijaRadnaPovrsina() {
 
         fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
@@ -656,6 +709,9 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         });
     }
 
+    /**
+     * Pokretanje četvrte animacije, vraćanje boja i pokretanje zadatka.
+     */
     private void petaAnimacijaStartAplikacije() {
 
         fadeOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
