@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,42 +15,14 @@ import android.widget.ImageButton;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-
 public class GlavniIzbornik extends Activity {
-
-    //ImageButton zastavaBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_glavni_izbornik);
         ButterKnife.inject(this);
-
-       // zastavaBtn = (ImageButton)findViewById(R.id.zastava);
-        //zastavaBtn.setTag("eng");
-        //zastavaBtn.setOnClickListener(imgButtonHandler);
-
     }
-
-
-    /*View.OnClickListener imgButtonHandler = new View.OnClickListener()
-    {
-        public void onClick(View v)
-        {
-            if (zastavaBtn.getTag() == "eng")
-            {
-                zastavaBtn.setImageResource(R.drawable.cro);
-                zastavaBtn.setTag("cro");
-            }
-
-            else
-            {
-                zastavaBtn.setImageResource(R.drawable.eng);
-                zastavaBtn.setTag("eng");
-            }
-        }
-    };
-    }*/
 
     @OnClick(R.id.btnPomoc)
     public void klikNaMenu(View v){
@@ -57,10 +30,16 @@ public class GlavniIzbornik extends Activity {
         startActivity(intent);
     }
 
+    /**
+     *  Pozivanje web stranice.
+     */
     @OnClick(R.id.btnNauciVise)
-    public void klikNaRazinaJedan(View v){
-        Intent intent = new Intent(GlavniIzbornik.this, RazinaTest.class);
-        startActivity(intent);
+    public void web(){
+        String url = "http://developer.android.com/training/index.html/";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        i.setData(Uri.parse(url));
+        startActivity(i);
     }
 
     @OnClick(R.id.btnKreni)

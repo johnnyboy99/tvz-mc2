@@ -16,7 +16,11 @@ import android.widget.TextView;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
-
+/**
+ * Prikazuje zvjezdice na kraju svake podrazine.
+ * @author Kristina Marinić
+ * @date 2015-05-01
+ */
 public class Zvjezdice extends Activity {
 
     @InjectView(R.id.textView2) TextView textView2;
@@ -63,6 +67,7 @@ public class Zvjezdice extends Activity {
             super.handleMessage(msg);
         }
     };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
