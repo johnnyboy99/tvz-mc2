@@ -73,12 +73,18 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         GradientDrawable okvirGradientLabelaDva = (GradientDrawable) okvirLabelaRazinaDva.getBackground();
         okvirGradientLabelaDva.setStroke(visinaRuba, Color.BLACK);
 
+        /**
+         * Inicijalizacija drawer menu-a.
+         */
         izborArray = getResources().getStringArray(R.array.izbor);
         View header = View.inflate(this, R.layout.list_header, null);
         drawerListRazinaDva.addHeaderView(header, "Header", false);
         drawerListRazinaDva.setAdapter(new ArrayAdapter<>(this, R.layout.unsimple_list_item, izborArray));
         drawerListRazinaDva.setOnItemClickListener(this);
 
+        /**
+         * Postavljanje touch i drag listenera.
+         */
         slikaLabelaRazinaDva.setOnTouchListener(touchListener);
         okvirLabelaRazinaDva.setOnDragListener(dragListener);
 
@@ -88,12 +94,19 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         dialogZadatak();
     }
 
+    /**
+     * OnClick metoda za drawer menu.
+     */
     @OnClick(R.id.drawerGumbRazinaDva)
     public void onKlikNaDrawerMenu (View v)
     {
         drawerLayoutRazinaDva.openDrawer(drawerListRazinaDva);
     }
 
+    /**
+     * OnClick metoda na gumbu za zavrsetak razine.
+     */
+    @OnClick(R.id.gumb_go_razina2)
     public void klikZaDalje(View view)
     {
         Intent intent = new Intent(RazinaDva.this, Zvjezdice.class);
@@ -103,35 +116,18 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         startActivity(intent);
     }
 
+    /**
+     * OnClick metoda na labeli za promjenu svojstva.
+     */
     @OnClick(R.id.labelaRazinaDva)
     public void onKlikNaLabelu (View v)
     {
         dialogSvojstvaLabele();
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_razina_dva, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
+    /**
+     * Metoda za prikazivanje strelica u izborniku.
+     */
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         // TODO Auto-generated method stub
@@ -174,6 +170,9 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         });
     }
 
+    /**
+     * OnClik metoda za opcije iz drawera.
+     */
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -196,10 +195,16 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
 
     }
 
+    /**
+     * Metoda koja govori koja je opcija iz drawera odabrana.
+     */
     public void selectItem(int position) {
         drawerListRazinaDva.setItemChecked(position, true);
     }
 
+    /**
+     * Metoda za ponovno pokretanje zadatka.
+     */
     public void restart()
     {
         Intent intent = getIntent();
@@ -207,6 +212,9 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         startActivity(intent);
     }
 
+    /**
+     * Metoda za izlaz iz zadatka i povratak na glavni izbornik.
+     */
     public void izlaz()
     {
         Intent intent = new Intent(RazinaDva.this, GlavniIzbornik.class);
@@ -214,6 +222,9 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         startActivity(intent);
     }
 
+    /**
+     * Dialog za ponovno pokretanje zadatka.
+     */
     public void dialogRestart()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -236,6 +247,9 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         builder.create().show();
     }
 
+    /**
+     * Dialog za izlaz na glavni izbornik.
+     */
     public void dialogIzlaz()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -258,6 +272,9 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         builder.create().show();
     }
 
+    /**
+     * Dialog za tekst zadatka.
+     */
     public void dialogZadatak()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -273,16 +290,20 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         builder.create().show();
     }
 
+    /**
+     * Dialog za promjenu svojstva labele.
+     */
     public void dialogSvojstvaLabele()
     {
         SvojstvaLabeleDialog dialog = new SvojstvaLabeleDialog();
         dialog.show(getFragmentManager(), "Svojstva labele");
     }
 
+    /**
+     * Touch listener za slike iz izbornika.
+     */
     View.OnTouchListener touchListener = new View.OnTouchListener() {
         public boolean onTouch(View view, MotionEvent motionEvent) {
-
-            //TODO koristit ovo za pretvaranje px u dp
 
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
 
@@ -295,6 +316,9 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         }
     };
 
+    /**
+     * Drag listener za slike iz izbornika.
+     */
     View.OnDragListener dragListener = new View.OnDragListener() {
         private boolean unutarOkvira = false;
 
@@ -350,6 +374,9 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         }
     };
 
+    /**
+     * Rezultat da li je slika stavljena u odgovarajući okvir.
+     */
     private void reportResult(final boolean result) {
         if(!result){
             GradientDrawable okvirGradientLabelaDva = (GradientDrawable) okvirLabelaRazinaDva.getBackground();
@@ -364,6 +391,9 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         }
     }
 
+    /**
+     * Metoda za izradu sjene za sliku koja se povlači.
+     */
     private class MyShadowBuilder extends View.DragShadowBuilder {
         private Drawable shadow;
 
@@ -389,6 +419,9 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         }
     }
 
+    /**
+     * Metoda za promjenu svojstva labele.
+     */
     public static void promjeniSvojstva(String text, String boja, int velicina) {
 
         if (!(text.equals("")))
