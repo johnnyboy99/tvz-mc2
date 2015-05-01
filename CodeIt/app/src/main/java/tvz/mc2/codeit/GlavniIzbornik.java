@@ -51,13 +51,13 @@ public class GlavniIzbornik extends Activity {
 
     @OnClick(R.id.btnPomoc)
     public void klikNaMenu(View v){
-        Intent intent = new Intent(GlavniIzbornik.this, MenuProba.class);
+        Intent intent = new Intent(GlavniIzbornik.this, Pomoc.class);
         startActivity(intent);
     }
 
     @OnClick(R.id.btnNauciVise)
     public void klikNaRazinaJedan(View v){
-        Intent intent = new Intent(GlavniIzbornik.this, RazinaJedan.class);
+        Intent intent = new Intent(GlavniIzbornik.this, RazinaTest.class);
         startActivity(intent);
     }
 
@@ -67,8 +67,8 @@ public class GlavniIzbornik extends Activity {
         startActivity(intent);
     }
 
-    @OnClick(R.id.btnPostavke)
-    public void klikNaPostavke(View v) {
+    @OnClick(R.id.btnIzlaz)
+    public void klikNaIzlaz(View v) {
         Intent intent = new Intent(GlavniIzbornik.this, RazinaTest.class);
         startActivity(intent);
     }

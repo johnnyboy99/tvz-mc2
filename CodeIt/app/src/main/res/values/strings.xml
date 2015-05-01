@@ -100,5 +100,6 @@
 
     <string name="title_activity_podrazina3">Podrazina3</string>
     <string name="title_activity_razina_tri">RazinaTri</string>
+    <string name="title_activity_nauci_vise">NauciVise</string>
 
 </resources>

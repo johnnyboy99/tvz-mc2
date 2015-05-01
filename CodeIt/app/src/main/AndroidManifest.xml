@@ -105,6 +105,16 @@
             android:name=".RazinaTri"
             android:label="@string/title_activity_razina_tri" >
         </activity>
+        <activity
+            android:name=".Pomoc"
+            android:label="@string/title_activity_nauci_vise"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".GlavniIzbornik" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="tvz.mc2.codeit.GlavniIzbornik" />
+        </activity>
     </application>
 
 </manifest>

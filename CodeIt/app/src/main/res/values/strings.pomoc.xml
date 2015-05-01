@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="labelElementi">Elementi</string>
+
+    <string name="labelGumbNaziv">Gumb</string>
+    <string name="labelGumbOpis">Opis gumba</string>
+
+    <string name="labelLabelNaziv">Label</string>
+    <string name="labelLabelOpis">Opis labele</string>
+
+    <string name="labelEditTextNaziv">EditText</string>
+    <string name="labelEditTextOpis">Opis editTexta</string>
+
+    <string name="labelCheckboxNaziv">Checkbox</string>
+    <string name="labelCheckboxOpis">Opis checkboxa</string>
+
+    <string name="labelSpinnerNaziv">Spinner</string>
+    <string name="labelSpinnerOpis">Opis spinnera</string>
+
+</resources>
