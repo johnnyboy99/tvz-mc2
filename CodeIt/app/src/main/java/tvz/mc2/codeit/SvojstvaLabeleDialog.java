@@ -25,6 +25,7 @@ public class SvojstvaLabeleDialog extends DialogFragment {
     Spinner spinner;
     String boja;
     int velicina;
+    EditText tekstLabele, velicinaLabele;
 
     @Override
     public Dialog onCreateDialog(android.os.Bundle savedInstanceState) {
@@ -41,8 +42,8 @@ public class SvojstvaLabeleDialog extends DialogFragment {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        EditText tekstLabele = (EditText) view.findViewById(R.id.editTextSvojstvaLabeleR2);
-                        EditText velicinaLabele = (EditText) view.findViewById(R.id.editTextVelicinaLabeleR2);
+                        tekstLabele = (EditText) view.findViewById(R.id.editTextSvojstvaLabeleR2);
+                        velicinaLabele = (EditText) view.findViewById(R.id.editTextVelicinaLabeleR2);
 
                         if (velicinaLabele.getText().toString().equals(""))
                         {
