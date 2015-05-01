@@ -126,7 +126,9 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         setContentView(R.layout.activity_razina_test);
         ButterKnife.inject(this);
 
-        //drawer menu
+        /**
+         * Inicijalizacija drawer menu-a.
+         */
         izborArrayRazinaTest = getResources().getStringArray(R.array.izbor);
         View v = View.inflate(this, R.layout.list_header, null);
         drawerListRazinaTest.addHeaderView(v, "Header", false);
@@ -135,7 +137,9 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
 
         int visinaRuba = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
 
-        //inicijalno postavljanje boje na okvire
+        /**
+         * Inicijalno postavljanje boje na okvire.
+         */
         GradientDrawable okvirGradientEditTextPrviBrojRazinaTest = (GradientDrawable) okvirEditTextPrviBrojRazinaTest.getBackground();
         okvirGradientEditTextPrviBrojRazinaTest.setStroke(visinaRuba, Color.BLACK);
         GradientDrawable okvirGradientEditTextDrugiBrojRazinaTest = (GradientDrawable) okvirEditTextDrugiBrojRazinaTest.getBackground();
@@ -147,14 +151,18 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         GradientDrawable okvirGradientSpinnerRazinaTest = (GradientDrawable) okvirSpinnerRazinaTest.getBackground();
         okvirGradientSpinnerRazinaTest.setStroke(visinaRuba, Color.BLACK);
 
-        //touch listeneri za slike
+        /**
+         * Postavljanje touch listenera za slike.
+         */
         slikaGumbPrviBrojRazinaTest.setOnTouchListener(touchListener);
         slikaGumbDrugiBrojRazinaTest.setOnTouchListener(touchListener);
         slikaGumbRacOperacijeRazinaTest.setOnTouchListener(touchListener);
         slikaGumbJednakoRazinaTest.setOnTouchListener(touchListener);
         slikaGumbRezultatRazinaTest.setOnTouchListener(touchListener);
 
-        //drag listeneri
+        /**
+         * Postavljanje drag listenera na okvire.
+         */
         okvirEditTextPrviBrojRazinaTest.setOnDragListener(dragListener);
         okvirEditTextDrugiBrojRazinaTest.setOnDragListener(dragListener);
         okvirSpinnerRazinaTest.setOnDragListener(dragListener);
@@ -165,6 +173,9 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         tekstZadatka();
     }
 
+    /**
+     * OnClick metoda na pozadini da se ukloni tipkovnica.
+     */
     @OnClick(R.id.frameLayoutRazinaTest)
     public void klikNaPozadinu(View view){
         InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -172,6 +183,9 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         imm.hideSoftInputFromWindow(editTextDrugiBrojRazinaTest.getWindowToken(), 0);
     }
 
+    /**
+     * OnClick metoda na gumbu za zavrsetak razine.
+     */
     @OnClick(R.id.gumbGoRazinaTest)
     public void klikNaGumbGoRazinaTest(View view){
         Intent intent = new Intent(RazinaTest.this, Zvjezdice.class);
@@ -181,11 +195,17 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         startActivity(intent);
     }
 
+    /**
+     * OnClick metoda za drawer menu.
+     */
     @OnClick(R.id.drawerGumbRazinaTest)
     public void onClick(View v) {
         drawerLayoutRazinaTest.openDrawer(drawerListRazinaTest);
     }
 
+    /**
+     * Touch listener za slike iz izbornika.
+     */
     View.OnTouchListener touchListener = new View.OnTouchListener() {
         public boolean onTouch(View view, MotionEvent motionEvent) {
 
@@ -200,10 +220,15 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         }
     };
 
+    /**
+     * OnClick metoda za gumb jednako, izračunavanje zadatka.
+     */
     @OnClick(R.id.btnJednakoRazinaTest)
     public void klikNaBtnJednako(View view) {
 
-        //provjeri dal su je neki GONE
+        /**
+         * Provjera da li su svi elementi GONE
+         */
         if ((editTextPrviBrojRazinaTest.getVisibility() == View.GONE) || (editTextDrugiBrojRazinaTest.getVisibility() == View.GONE)
                 || (spinnerRacunskeOperacijeRazinaTest.getVisibility() == View.GONE) && (btnJednakoRazinaTest.getVisibility() == View.GONE)
                 || (textViewRezultatRazinaTest.getVisibility() == View.GONE)) {
@@ -224,8 +249,9 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
                     .setBackgroundColor(getResources().getColor(R.color.bijela));
         }
 
-
-        //provjeri dal je unesen prvi broj
+        /**
+         * Provjera da li je unesen prvi broj.
+         */
         else if (editTextPrviBrojRazinaTest.getText().toString().equals("Prvi broj") || editTextPrviBrojRazinaTest.getText().toString().equals("")){
             AlertDialog.Builder builder = new AlertDialog.Builder(RazinaTest.this);
             AlertDialog dialog =
@@ -243,7 +269,9 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
                     .setBackgroundColor(getResources().getColor(R.color.bijela));
         }
 
-        //provjeri dal je unesen drugi broj
+        /**
+         * Provjera da li je unesen drugi broj.
+         */
         else if(editTextDrugiBrojRazinaTest.getText().toString().equals("Drugi broj") || editTextDrugiBrojRazinaTest.getText().toString().equals("")){
             AlertDialog.Builder builder = new AlertDialog.Builder(RazinaTest.this);
             AlertDialog dialog =
@@ -261,7 +289,9 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
                     .setBackgroundColor(getResources().getColor(R.color.bijela));
         }
 
-        //ako sve izracunaj i zapisi rezultat
+        /**
+         * Sve je uneseno, izračunava se rezultat.
+         */
         else {
 
             String racunskaOperacijaString = spinnerRacunskeOperacijeRazinaTest.getSelectedItem().toString();
@@ -312,8 +342,9 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         }
     }
 
-
-
+    /**
+     * Drag listener za slike iz izbornika.
+     */
     View.OnDragListener dragListener = new View.OnDragListener() {
 
         private boolean unutarOkvira = false;
@@ -497,6 +528,9 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
     };
 
 
+    /**
+     * Rezultat da li je slika stavljena u odgovarajući okvir.
+     */
     private void reportResult(final boolean result, String viewOkvirTag, String viewGumbTag) {
         if(!result){
             zacrniSveOkvire();
@@ -536,7 +570,9 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         }
     }
 
-
+    /**
+     * Metoda za izradu sjene za sliku koja se povlači.
+     */
     private class MyShadowBuilder extends View.DragShadowBuilder {
         private Drawable shadow;
 
@@ -555,12 +591,14 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         public void onProvideShadowMetrics(Point shadowSize, Point shadowTouchPoint) {
 
             shadow.setBounds(0, 0, 10000, 10000);
-
             shadowSize.set(10000, 10000);
             shadowTouchPoint.set(10000, 10000);
         }
     }
 
+    /**
+     * Metoda koja svim okvirima postavlja boju u crnu.
+     */
     private void zacrniSveOkvire() {
 
         int visinaRuba = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
@@ -577,6 +615,9 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         okvirGradientSpinnerRazinaTest.setStroke(visinaRuba, Color.BLACK);
     }
 
+    /**
+     * Pozivanje popup-a s tekstom zadatka.
+     */
     private void tekstZadatka(){
         AlertDialog.Builder builder = new AlertDialog.Builder(RazinaTest.this);
         AlertDialog dialog =
@@ -594,6 +635,9 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
                 .setBackgroundColor(getResources().getColor(R.color.bijela));
     }
 
+    /**
+     * Pozivanje teksta zadatka kada su povučeni svi elementi.
+     */
     private void svePostavljenoZadatakDialog() {
         zadatak = getResources().getString(R.string.tektsZadatkaTestaRazinaRacOperacija);
         AlertDialog.Builder builder = new AlertDialog.Builder(RazinaTest.this);
@@ -612,9 +656,12 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
                 .setBackgroundColor(getResources().getColor(R.color.bijela));
     }
 
+    /**
+     * Metoda za prikazivanje strelica u izborniku.
+     */
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
-        // TODO Auto-generated method stub
+        
         super.onWindowFocusChanged(hasFocus);
 
         maxScrollX = hsv.getChildAt(0).getMeasuredWidth()-hsv.getMeasuredWidth();
@@ -658,6 +705,9 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         });
     }
 
+    /**
+     * OnClik metoda za opcije iz drawera.
+     */
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (position)
@@ -679,10 +729,16 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
 
     }
 
+    /**
+     * Metoda koja govori koja je opcija iz drawera odabrana.
+     */
     public void selectItem(int position) {
         drawerListRazinaTest.setItemChecked(position, true);
     }
 
+    /**
+     * Metoda za ponovno pokretanje zadatka.
+     */
     public void restart()
     {
         Intent intent = getIntent();
@@ -690,6 +746,9 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         startActivity(intent);
     }
 
+    /**
+     * Metoda za izlaz iz zadatka i povratak na glavni izbornik.
+     */
     public void izlaz()
     {
         Intent intent = new Intent(RazinaTest.this, GlavniIzbornik.class);
@@ -697,6 +756,9 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         startActivity(intent);
     }
 
+    /**
+     * Dialog za ponovno pokretanje zadatka.
+     */
     public void dialogRestart()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -719,6 +781,9 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         builder.create().show();
     }
 
+    /**
+     * Dialog za izlaz na glavni izbornik.
+     */
     public void dialogIzlaz()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -741,6 +806,9 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         builder.create().show();
     }
 
+    /**
+     * Dialog za tekst zadatka.
+     */
     public void dialogZadatak()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

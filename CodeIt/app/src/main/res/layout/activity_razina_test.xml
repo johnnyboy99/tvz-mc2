@@ -66,18 +66,18 @@
 
                                     <ImageView
                                         android:id="@+id/slikaGumbPrviBrojRazinaTest"
-                                        android:layout_width="50dp"
-                                        android:layout_height="50dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="25dp"
                                         android:layout_marginRight="10dp"
-                                        android:src="@drawable/gumb1"
+                                        android:src="@drawable/gumb_edit_text"
                                         android:tag="slikaGumbPrviBrojRazinaTest" />
 
                                     <ImageView
                                         android:id="@+id/slikaGumbDrugiBrojRazinaTest"
-                                        android:layout_width="50dp"
-                                        android:layout_height="50dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="25dp"
                                         android:layout_marginRight="10dp"
-                                        android:src="@drawable/gumb1"
+                                        android:src="@drawable/gumb_edit_text"
                                         android:tag="slikaGumbDrugiBrojRazinaTest" />
 
                                     <ImageView
