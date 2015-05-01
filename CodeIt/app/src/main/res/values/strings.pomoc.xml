@@ -4,18 +4,21 @@
     <string name="labelElementi">Elementi</string>
 
     <string name="labelGumbNaziv">Gumb</string>
-    <string name="labelGumbOpis">Opis gumba</string>
+    <string name="labelGumbOpis">Klikom na ovaj element događaju se akcije.</string>
 
     <string name="labelLabelNaziv">Label</string>
-    <string name="labelLabelOpis">Opis labele</string>
+    <string name="labelLabelOpis">Prikazuje tekst i možeš ga programski
+        mijenjati.</string>
 
     <string name="labelEditTextNaziv">EditText</string>
-    <string name="labelEditTextOpis">Opis editTexta</string>
+    <string name="labelEditTextOpis">Također prikazuje tekst, ali ga korisnik
+        može samostalno mijenjati.</string>
 
     <string name="labelCheckboxNaziv">Checkbox</string>
-    <string name="labelCheckboxOpis">Opis checkboxa</string>
+    <string name="labelCheckboxOpis">Služi za biranje ponuđenih vrijednosti.</string>
 
     <string name="labelSpinnerNaziv">Spinner</string>
-    <string name="labelSpinnerOpis">Opis spinnera</string>
+    <string name="labelSpinnerOpis">Služi za biranje iz predefiniranog skupa
+        vrijednosti.</string>
 
 </resources>
