@@ -334,7 +334,10 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
                         //ništa
                     }
                 });
-        builder.create().show();
+        AlertDialog dialog = builder.show();
+        dialog.findViewById(dialog.getContext().getResources()
+                .getIdentifier("android:id/titleDivider", null, null))
+                .setBackgroundColor(bijela);
     }
 
     /**
@@ -359,7 +362,10 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
                         //ništa
                     }
                 });
-        builder.create().show();
+        AlertDialog dialog = builder.show();
+        dialog.findViewById(dialog.getContext().getResources()
+                .getIdentifier("android:id/titleDivider", null, null))
+                .setBackgroundColor(bijela);
     }
 
     /**

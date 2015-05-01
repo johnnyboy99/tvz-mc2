@@ -66,7 +66,7 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:layout_height="wrap_content"
                         android:textSize="18sp"
                         android:layout_weight="1.5"
                         android:text="@string/labelGumbNaziv"
@@ -74,7 +74,7 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:layout_height="wrap_content"
                         android:textSize="16sp"
                         android:layout_weight="2.5"
                         android:text="@string/labelGumbOpis"
@@ -114,7 +114,7 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1.5"
                         android:textSize="18sp"
                         android:text="@string/labelLabelNaziv"
@@ -122,7 +122,7 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="2.5"
                         android:textSize="16sp"
                         android:text="@string/labelLabelOpis"
@@ -164,7 +164,7 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:layout_height="wrap_content"
                         android:textSize="18sp"
                         android:layout_weight="1.5"
                         android:text="@string/labelEditTextNaziv"
@@ -172,7 +172,7 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:layout_height="wrap_content"
                         android:textSize="16sp"
                         android:layout_weight="2.5"
                         android:text="@string/labelEditTextOpis"
@@ -213,7 +213,7 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1.5"
                         android:textSize="18sp"
                         android:text="@string/labelCheckboxNaziv"
@@ -221,7 +221,7 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:layout_height="wrap_content"
                         android:textSize="16sp"
                         android:layout_weight="2.5"
                         android:text="@string/labelCheckboxOpis"
@@ -263,7 +263,7 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1.5"
                         android:textSize="18sp"
                         android:text="@string/labelSpinnerNaziv"
@@ -271,7 +271,7 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="2.5"
                         android:textSize="16sp"
                         android:text="@string/labelSpinnerOpis"

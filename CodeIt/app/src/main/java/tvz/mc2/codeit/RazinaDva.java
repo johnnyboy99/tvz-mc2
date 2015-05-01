@@ -46,6 +46,7 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
     static TextView labelaRazinaDva;
     static ImageButton gumbGoRazina2;
     static boolean zastavica;
+    Integer bijela;
 
     @InjectView(R.id.slikaLabelaRazinaDva) ImageView slikaLabelaRazinaDva;
     @InjectView(R.id.okvirLabelaRazinaDva) View okvirLabelaRazinaDva;
@@ -66,6 +67,7 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         setContentView(R.layout.activity_razina_dva);
         ButterKnife.inject(this);
 
+        bijela = getResources().getColor(R.color.bijela);
         labelaRazinaDva = (TextView) findViewById(R.id.labelaRazinaDva);
         gumbGoRazina2 = (ImageButton) findViewById(R.id.gumb_go_razina2);
 
@@ -244,7 +246,10 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
                         //ništa
                     }
                 });
-        builder.create().show();
+        AlertDialog dialog = builder.show();
+        dialog.findViewById(dialog.getContext().getResources()
+                .getIdentifier("android:id/titleDivider", null, null))
+                .setBackgroundColor(bijela);
     }
 
     /**
@@ -269,7 +274,10 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
                         //ništa
                     }
                 });
-        builder.create().show();
+        AlertDialog dialog = builder.show();
+        dialog.findViewById(dialog.getContext().getResources()
+                .getIdentifier("android:id/titleDivider", null, null))
+                .setBackgroundColor(bijela);
     }
 
     /**
@@ -287,7 +295,10 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
                 //ništa
             }
         });
-        builder.create().show();
+        AlertDialog dialog = builder.show();
+        dialog.findViewById(dialog.getContext().getResources()
+                .getIdentifier("android:id/titleDivider", null, null))
+                .setBackgroundColor(bijela);
     }
 
     /**

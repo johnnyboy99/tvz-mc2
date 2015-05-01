@@ -26,9 +26,11 @@ public class SvojstvaLabeleDialog extends DialogFragment {
     String boja;
     int velicina;
     EditText tekstLabele, velicinaLabele;
+    Integer bijela;
 
     @Override
     public Dialog onCreateDialog(android.os.Bundle savedInstanceState) {
+        bijela = getResources().getColor(R.color.bijela);
         final View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_svojstva_labele, null);
 
         spinner = (Spinner) view.findViewById(R.id.spinnerSvojstvaLabeleR2);
@@ -64,6 +66,10 @@ public class SvojstvaLabeleDialog extends DialogFragment {
                     }
                 })
                 .setNegativeButton(R.string.neg, null);
+        AlertDialog dialog = builder.show();
+        dialog.findViewById(dialog.getContext().getResources()
+                .getIdentifier("android:id/titleDivider", null, null))
+                .setBackgroundColor(bijela);
         return builder.create();
 
     }

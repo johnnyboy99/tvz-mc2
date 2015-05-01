@@ -48,6 +48,7 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
     int maxScrollX;
     String zadatak;
     String [] sveBojeSpinnera;
+    Integer bijela;
 
     boolean zastavicaCheckBox1, zastavicaCheckBox2;
 
@@ -79,6 +80,8 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_razina_tri);
         ButterKnife.inject(this);
+
+        bijela = getResources().getColor(R.color.bijela);
 
         int visinaRuba = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
 
@@ -217,7 +220,10 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
                         //ništa
                     }
                 });
-        builder.create().show();
+        AlertDialog dialog = builder.show();
+        dialog.findViewById(dialog.getContext().getResources()
+                .getIdentifier("android:id/titleDivider", null, null))
+                .setBackgroundColor(bijela);
     }
 
     /**
@@ -242,7 +248,10 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
                         //ništa
                     }
                 });
-        builder.create().show();
+        AlertDialog dialog = builder.show();
+        dialog.findViewById(dialog.getContext().getResources()
+                .getIdentifier("android:id/titleDivider", null, null))
+                .setBackgroundColor(bijela);
     }
 
     /**
@@ -260,7 +269,10 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
                 //ništa
             }
         });
-        builder.create().show();
+        AlertDialog dialog = builder.show();
+        dialog.findViewById(dialog.getContext().getResources()
+                .getIdentifier("android:id/titleDivider", null, null))
+                .setBackgroundColor(bijela);
     }
 
     /**

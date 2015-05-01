@@ -53,6 +53,7 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
     int maxScrollX;
     private String[] izborArrayRazinaTest;
     String zadatak;
+    Integer bijela;
 
     @InjectView(R.id.horizontalScrollViewRazinaTest)
     HorizontalScrollView hsv;
@@ -125,6 +126,8 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_razina_test);
         ButterKnife.inject(this);
+
+        bijela = getResources().getColor(R.color.bijela);
 
         /**
          * Inicijalizacija drawer menu-a.
@@ -803,7 +806,10 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
                         //ništa
                     }
                 });
-        builder.create().show();
+        AlertDialog dialog = builder.show();
+        dialog.findViewById(dialog.getContext().getResources()
+                .getIdentifier("android:id/titleDivider", null, null))
+                .setBackgroundColor(bijela);
     }
 
     /**
@@ -821,7 +827,10 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
                 //ništa
             }
         });
-        builder.create().show();
+        AlertDialog dialog = builder.show();
+        dialog.findViewById(dialog.getContext().getResources()
+                .getIdentifier("android:id/titleDivider", null, null))
+                .setBackgroundColor(bijela);
     }
 
 }
