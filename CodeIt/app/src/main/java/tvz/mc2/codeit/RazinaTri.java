@@ -12,30 +12,20 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.DragEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.GridLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -58,13 +48,8 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
     @InjectView(R.id.arrowLRazinaTri) ImageView arrowl;
     @InjectView(R.id.arrowRRazinaTri) ImageView arrowr;
     @InjectView(R.id.horizontalScrollViewRazinaTri) HorizontalScrollView hsv3;
-    @InjectView(R.id.frameLayoutRazinaTri) FrameLayout frameLayoutRazinaTri;
     @InjectView(R.id.drawerListRazinaTri) ListView drawerListRazinaTri;
     @InjectView(R.id.drawerLayoutRazinaTri) DrawerLayout drawerLayoutRazinaTri;
-    @InjectView(R.id.menuElementiRazinaTri) RelativeLayout menuElementiRazinaTri;
-    @InjectView(R.id.radnaPlohaRazinaTri) GridLayout radnaPlohaRazinaTri;
-    @InjectView(R.id.menuRazinaTri) LinearLayout menuRazinaTri;
-    @InjectView(R.id.drawerGumbRazinaTri) ImageButton drawerGumbRazinaTri;
     @InjectView(R.id.labelaRazinaTri) TextView labelaRazinaTri;
     @InjectView(R.id.gumb_go_razina3) ImageButton gumbGoRazina3;
     @InjectView(R.id.spinnerRazinaTri) Spinner spinnerRazinaTri;
@@ -74,6 +59,12 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
     @InjectView(R.id.slikaCheckBox2RazinaTri) ImageView slikaCheckBox2RazinaTri;
 
     ArrayAdapter adapter;
+
+    Integer crvenaPozadina;
+    Integer plava;
+    Integer zelena;
+    Integer zuta;
+    Integer ljubicasta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,6 +110,15 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
         slikaCheckBox2RazinaTri.setOnTouchListener(touchListener);
         okvirCheckBox1Razina3.setOnDragListener(dragListener);
         okvirCheckBox2Razina3.setOnDragListener(dragListener);
+
+        /**
+         * Postavljanje boja
+         */
+        crvenaPozadina = getResources().getColor(R.color.crvenaPozadina);
+        plava = getResources().getColor(R.color.plava);
+        zelena = getResources().getColor(R.color.zelena);
+        zuta = getResources().getColor(R.color.zuta);
+        ljubicasta = getResources().getColor(R.color.ljubicasta);
 
         zadatak = getResources().getString(R.string.zadatakTri);
         dialogZadatak();
@@ -274,6 +274,28 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
                 .getIdentifier("android:id/titleDivider", null, null))
                 .setBackgroundColor(bijela);
     }
+
+    /**
+     * Dialog za grešku.
+     */
+    public void dialogGreska()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(RazinaTri.this);
+        AlertDialog dialog =
+                builder.setTitle("Greška")
+                        .setMessage("Prvo povuci sve checkboxe na radnu plohu.")
+                        .setNegativeButton("Natrag", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+
+                            }
+                        })
+                        .show();
+        dialog.findViewById(dialog.getContext().getResources()
+                .getIdentifier("android:id/titleDivider", null, null))
+                .setBackgroundColor(getResources().getColor(R.color.bijela));
+    }
+
 
     /**
      * OnClik metoda za opcije iz drawera.
@@ -535,30 +557,59 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-        switch (position)
-        {
+        switch (position) {
             case 1:
-                labelaRazinaTri.setTextColor(Color.BLACK);
+                if (zastavicaCheckBox1) labelaRazinaTri.setTextColor(Color.BLACK);
+                else
+                {
+                    dialogGreska();
+                    spinnerRazinaTri.setSelection(0);
+                }
                 break;
 
             case 2:
-                labelaRazinaTri.setTextColor(Color.parseColor("#FF5252"));
+                if (zastavicaCheckBox1) labelaRazinaTri.setTextColor(crvenaPozadina);
+                else
+                {
+                    dialogGreska();
+                    spinnerRazinaTri.setSelection(0);
+                }
                 break;
 
             case 3:
-                labelaRazinaTri.setTextColor(Color.parseColor("#1E88E5"));
+                if (zastavicaCheckBox1) labelaRazinaTri.setTextColor(plava);
+                else
+                {
+                    dialogGreska();
+                    spinnerRazinaTri.setSelection(0);
+                }
                 break;
 
             case 4:
-                labelaRazinaTri.setTextColor(Color.parseColor("#43A047"));
+                if (zastavicaCheckBox1) labelaRazinaTri.setTextColor(zelena);
+                else
+                {
+                    dialogGreska();
+                    spinnerRazinaTri.setSelection(0);
+                }
                 break;
 
             case 5:
-                labelaRazinaTri.setTextColor(Color.parseColor("#FF5252"));
+                if (zastavicaCheckBox1) labelaRazinaTri.setTextColor(zuta);
+                else
+                {
+                    dialogGreska();
+                    spinnerRazinaTri.setSelection(0);
+                }
                 break;
 
             case 6:
-                labelaRazinaTri.setTextColor(Color.parseColor("#5E35B1"));
+                if (zastavicaCheckBox1) labelaRazinaTri.setTextColor(ljubicasta);
+                else
+                {
+                    dialogGreska();
+                    spinnerRazinaTri.setSelection(0);
+                }
                 break;
 
             default:
@@ -566,11 +617,12 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
                 break;
         }
 
-            if ((labelaRazinaTri.getCurrentTextColor() != Color.BLACK) && checkBox1Razina3.isChecked() && checkBox2Razina3.isChecked())
-            {
-                gumbGoRazina3.setVisibility(View.VISIBLE);
-            }
+
+        if ((labelaRazinaTri.getCurrentTextColor() != Color.BLACK) && checkBox1Razina3.isChecked() && checkBox2Razina3.isChecked()) {
+            gumbGoRazina3.setVisibility(View.VISIBLE);
+        }
     }
+
 
     /**
      * Metoda kada ništa nije odabrano.

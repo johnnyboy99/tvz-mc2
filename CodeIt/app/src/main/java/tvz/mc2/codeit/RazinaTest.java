@@ -674,7 +674,6 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
 
         if (hsv.getScrollX() == 0) {
             arrowl.setVisibility(View.GONE);
-            arrowr.setVisibility(View.GONE);
         }
 
         if (hsv.getScrollX() == maxScrollX)
