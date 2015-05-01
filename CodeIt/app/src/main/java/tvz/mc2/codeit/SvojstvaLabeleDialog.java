@@ -66,10 +66,7 @@ public class SvojstvaLabeleDialog extends DialogFragment {
                     }
                 })
                 .setNegativeButton(R.string.neg, null);
-        AlertDialog dialog = builder.show();
-        dialog.findViewById(dialog.getContext().getResources()
-                .getIdentifier("android:id/titleDivider", null, null))
-                .setBackgroundColor(bijela);
+
         return builder.create();
 
     }
