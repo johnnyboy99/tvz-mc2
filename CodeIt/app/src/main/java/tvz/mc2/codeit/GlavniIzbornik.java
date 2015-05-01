@@ -1,6 +1,8 @@
 package tvz.mc2.codeit;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -69,8 +71,25 @@ public class GlavniIzbornik extends Activity {
 
     @OnClick(R.id.btnIzlaz)
     public void klikNaIzlaz(View v) {
-        Intent intent = new Intent(GlavniIzbornik.this, RazinaTest.class);
-        startActivity(intent);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Izlaz");
+        builder.setMessage("Želiš li izaći iz aplikacije?");
+
+        builder.setPositiveButton("Da", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                finish();
+                System.exit(0);
+            }
+        })
+                .setNegativeButton("Ne", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id)
+                    {
+                        
+                    }
+                });
+        builder.create().show();
     }
 
     @Override
