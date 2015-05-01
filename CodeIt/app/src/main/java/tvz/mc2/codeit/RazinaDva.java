@@ -446,7 +446,7 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
                 break;
 
             case "Žuta":
-                labelaRazinaDva.setTextColor(Color.parseColor("#FF5252"));
+                labelaRazinaDva.setTextColor(Color.parseColor("#FFB300"));
                 break;
 
             case "Ljubičasta":
