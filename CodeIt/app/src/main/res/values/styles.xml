@@ -5,7 +5,6 @@
         <!-- Customize your theme here. -->
         <item name="android:alertDialogTheme">@style/customAD</item>
         <item name="android:alertDialogStyle">@style/customADStyle</item>
-
     </style>
     <style name="customAD">
         <item name="android:textColorPrimary">@color/bijela</item>
