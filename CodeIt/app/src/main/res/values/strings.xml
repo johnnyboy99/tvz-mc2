@@ -14,6 +14,7 @@
     <string name="zadatakTri"> U izborniku se nalaze 2 checkboxa. Pomoću njih možemo uključiti
         ili isključiti neku funkciju.\nPovuci checkboxe na radnu plohu.</string>
     <string name="zadatakTri2">Sada pomoću spinnera promijeni boju labele.</string>
+
     <string name="zad">Povuci gumb na radnu plohu.</string>
     <string name="zad2">Pritiskom na gumb promijeni mu boju.</string>
     <string name="mess">mijenjati boju gumba.</string>
@@ -24,8 +25,14 @@
     <string name="mess6">drugu podrazinu!</string>
     <string name="mess7">treću podrazinu!</string>
     <string name="mess8">test!</string>
+
     <string name="poz">Ok</string>
+    <string name="poz2">Da</string>
     <string name="neg">Natrag</string>
+    <string name="neg2">Ne</string>
+
+    <string name="poveznica">http://developer.android.com/training/index.html</string>
+
     <string name="nas1">Zadatak</string>
     <string name="nas2">Odaberi boju</string>
     <string name="podnaslovRazinaTri"><u>Boje:</u></string>
@@ -38,16 +45,19 @@
         <!--<item>Podrazina 3</item>
         <item>Test</item>-->
     </string-array>
+
     <string-array name="podrazine2">
         <item>Podrazina 1</item>
         <item>Podrazina 2</item>
         <item>Podrazina 3</item>
     </string-array>
+
     <string-array name="podrazine3">
         <item>Podrazina 1</item>
         <item>Podrazina 2</item>
         <item>Podrazina 3</item>
     </string-array>
+
     <string-array name="razine">
         <item>Osnove</item>
         <!--<item>Razina 2</item>

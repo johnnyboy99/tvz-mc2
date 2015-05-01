@@ -55,6 +55,7 @@ public class Razine extends Activity {
         ExpandableListAdapter adapter = new ExpandableListAdapter(this.getApplicationContext(),
                 listaRazina, listaPodrazina);
         expListView.setAdapter(adapter);
+        expListView.expandGroup(0);
     }
 
     /**

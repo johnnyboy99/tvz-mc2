@@ -38,7 +38,7 @@ public class SvojstvaLabeleDialog extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         builder.setView(view)
-                .setPositiveButton("Potvrdi", new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.poz, new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -63,7 +63,7 @@ public class SvojstvaLabeleDialog extends DialogFragment {
 
                     }
                 })
-                .setNegativeButton("Odustani", null);
+                .setNegativeButton(R.string.neg, null);
         return builder.create();
 
     }

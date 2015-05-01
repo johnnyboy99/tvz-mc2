@@ -321,13 +321,13 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         builder.setTitle("Ponovno pokretanje");
         builder.setMessage("Želiš li ponovno pokrenuti razinu?");
 
-        builder.setPositiveButton("Da", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.poz2, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 restart();
             }
         })
-                .setNegativeButton("Ne", new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.neg2, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id)
                     {
@@ -346,13 +346,13 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         builder.setTitle("Izlaz");
         builder.setMessage("Želiš li izaći na glavni izbornik?");
 
-        builder.setPositiveButton("Da", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.poz2, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 izlaz();
             }
         })
-                .setNegativeButton("Ne", new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.neg2, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id)
                     {

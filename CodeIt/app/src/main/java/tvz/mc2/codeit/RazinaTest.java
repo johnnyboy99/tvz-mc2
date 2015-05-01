@@ -237,7 +237,7 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
             AlertDialog dialog =
                     builder.setTitle("Greška")
                             .setMessage("Nisi još povukao sve elemente, povuci sve elemente, pa onda probaj izračunati.")
-                            .setNegativeButton("Natrag", new DialogInterface.OnClickListener() {
+                            .setNegativeButton(R.string.neg, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int id) {
 
@@ -257,7 +257,7 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
             AlertDialog dialog =
                     builder.setTitle("Greška kod unosa prvog broja")
                             .setMessage("Nisi unio dobar prvi broj, unesi ga ponovo pa onda probaj izračunati.")
-                            .setNegativeButton("Natrag", new DialogInterface.OnClickListener() {
+                            .setNegativeButton(R.string.neg, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int id) {
 
@@ -277,7 +277,7 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
             AlertDialog dialog =
                     builder.setTitle("Greška kod unosa drugog broja")
                             .setMessage("Nisi unio dobar drugi broj, unesi ga ponovo pa onda probaj izračunati.")
-                            .setNegativeButton("Natrag", new DialogInterface.OnClickListener() {
+                            .setNegativeButton(R.string.neg, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int id) {
 
@@ -623,7 +623,7 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         AlertDialog dialog =
                 builder.setTitle(R.string.nas1)
                         .setMessage(zadatak)
-                        .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(R.string.poz, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int id) {
 
@@ -644,7 +644,7 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         AlertDialog dialog =
                 builder.setTitle(R.string.nas1)
                         .setMessage(zadatak)
-                        .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(R.string.poz, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int id) {
 
@@ -765,13 +765,13 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         builder.setTitle("Ponovno pokretanje");
         builder.setMessage("Želiš li ponovno pokrenuti razinu?");
 
-        builder.setPositiveButton("Da", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.poz2, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 restart();
             }
         })
-                .setNegativeButton("Ne", new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.neg2, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id)
                     {

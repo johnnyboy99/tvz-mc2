@@ -231,13 +231,13 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         builder.setTitle("Ponovno pokretanje");
         builder.setMessage("Želiš li ponovno pokrenuti razinu?");
 
-        builder.setPositiveButton(R.string.poz, new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.poz2, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 restart();
             }
         })
-                .setNegativeButton(R.string.neg, new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.neg2, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id)
                     {
@@ -256,13 +256,13 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         builder.setTitle("Izlaz");
         builder.setMessage("Želiš li izaći na glavni izbornik?");
 
-        builder.setPositiveButton("Da", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.poz2, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 izlaz();
             }
         })
-                .setNegativeButton("Ne", new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.neg2, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id)
                     {
@@ -281,7 +281,7 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
         builder.setTitle(R.string.nas1);
         builder.setMessage(zadatak);
 
-        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.poz, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 //ništa

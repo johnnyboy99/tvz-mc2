@@ -35,7 +35,7 @@ public class GlavniIzbornik extends Activity {
      */
     @OnClick(R.id.btnNauciVise)
     public void web(){
-        String url = "http://developer.android.com/training/index.html/";
+        String url = getResources().getString(R.string.poveznica);
         Intent i = new Intent(Intent.ACTION_VIEW);
         i.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         i.setData(Uri.parse(url));
