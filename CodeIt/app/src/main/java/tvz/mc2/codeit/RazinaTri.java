@@ -82,6 +82,9 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
 
         int visinaRuba = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
 
+        /**
+         * Inicijalno postavljanje boje na okvire.
+         */
         GradientDrawable okvirGradientLabelaTri = (GradientDrawable) okvirLabelaRazinaTri.getBackground();
         okvirGradientLabelaTri.setStroke(visinaRuba, Color.BLACK);
         GradientDrawable okvirGradientCheckBox1RazinaTri = (GradientDrawable) okvirCheckBox1Razina3.getBackground();
@@ -89,17 +92,26 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
         GradientDrawable okvirGradientCheckBox2Razina3 = (GradientDrawable) okvirCheckBox2Razina3.getBackground();
         okvirGradientCheckBox2Razina3.setStroke(visinaRuba, Color.BLACK);
 
+        /**
+         * Inicijalizacija drawer menu-a.
+         */
         izborArray = getResources().getStringArray(R.array.izbor);
         View header = View.inflate(this, R.layout.list_header, null);
         drawerListRazinaTri.addHeaderView(header, "Header", false);
         drawerListRazinaTri.setAdapter(new ArrayAdapter<>(this, R.layout.unsimple_list_item, izborArray));
         drawerListRazinaTri.setOnItemClickListener(this);
 
+        /**
+         * Postavljanje boje u spinner.
+         */
         sveBojeSpinnera = getResources().getStringArray(R.array.bojeSpinner3);
         adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, sveBojeSpinnera);
         spinnerRazinaTri.setAdapter(adapter);
         spinnerRazinaTri.setOnItemSelectedListener(this);
 
+        /**
+         * Postavljanje touch i drag listenera.
+         */
         slikaCheckBox1RazinaTri.setOnTouchListener(touchListener);
         slikaCheckBox2RazinaTri.setOnTouchListener(touchListener);
         okvirCheckBox1Razina3.setOnDragListener(dragListener);
@@ -109,12 +121,18 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
         dialogZadatak();
     }
 
+    /**
+     * OnClick metoda za drawer menu.
+     */
     @OnClick(R.id.drawerGumbRazinaTri)
     public void onKlikNaDrawerMenu (View v)
     {
         drawerLayoutRazinaTri.openDrawer(drawerListRazinaTri);
     }
 
+    /**
+     * Metoda za prikazivanje strelica u izborniku.
+     */
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         // TODO Auto-generated method stub
@@ -157,6 +175,9 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
         });
     }
 
+    /**
+     * Metoda za ponovno pokretanje zadatka.
+     */
     public void restart()
     {
         Intent intent = getIntent();
@@ -164,6 +185,9 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
         startActivity(intent);
     }
 
+    /**
+     * Metoda za izlaz iz zadatka i povratak na glavni izbornik.
+     */
     public void izlaz()
     {
         Intent intent = new Intent(RazinaTri.this, GlavniIzbornik.class);
@@ -171,6 +195,9 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
         startActivity(intent);
     }
 
+    /**
+     * Dialog za ponovno pokretanje zadatka.
+     */
     public void dialogRestart()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -193,6 +220,9 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
         builder.create().show();
     }
 
+    /**
+     * Dialog za izlaz na glavni izbornik.
+     */
     public void dialogIzlaz()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -215,6 +245,9 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
         builder.create().show();
     }
 
+    /**
+     * Dialog za tekst zadatka.
+     */
     public void dialogZadatak()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -230,29 +263,9 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
         builder.create().show();
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_razina_tri, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
+    /**
+     * OnClik metoda za opcije iz drawera.
+     */
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -274,10 +287,16 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
         selectItem(position);
     }
 
+    /**
+     * Metoda koja govori koja je opcija iz drawera odabrana.
+     */
     public void selectItem(int position) {
         drawerListRazinaTri.setItemChecked(position, true);
     }
 
+    /**
+     * Touch listener za slike iz izbornika.
+     */
     View.OnTouchListener touchListener = new View.OnTouchListener() {
         public boolean onTouch(View view, MotionEvent motionEvent) {
 
@@ -294,6 +313,9 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
         }
     };
 
+    /**
+     * Drag listener za slike iz izbornika.
+     */
     View.OnDragListener dragListener = new View.OnDragListener() {
         private boolean unutarOkvira = false;
 
@@ -406,6 +428,9 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
         }
     };
 
+    /**
+     * Rezultat da li je slika stavljena u odgovarajući okvir.
+     */
     private void reportResult(final boolean result, String viewOkvirTag, String viewGumbTag) {
         if(!result)
         {
@@ -430,6 +455,9 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
         }
     }
 
+    /**
+     * Metoda za izradu sjene za sliku koja se povlači.
+     */
     private class MyShadowBuilder extends View.DragShadowBuilder {
         private Drawable shadow;
 
@@ -455,7 +483,9 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
         }
     }
 
-
+    /**
+     * OnClick metoda za checkbox koji prikazuje labelu.
+     */
     @OnClick(R.id.checkBox1RazinaTri)
     public void klikNaCB1 (View v)
     {
@@ -470,6 +500,9 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
         }
     }
 
+    /**
+     * OnClick metoda za checkbox koji prikazuje boje za labelu.
+     */
     @OnClick(R.id.checkBox2RazinaTri)
     public void klikNaCB2 (View v)
     {
@@ -484,6 +517,9 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
         }
     }
 
+    /**
+     * OnClik metoda za opcije iz drawera.
+     */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
@@ -522,14 +558,19 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
             {
                 gumbGoRazina3.setVisibility(View.VISIBLE);
             }
-
     }
 
+    /**
+     * Metoda kada ništa nije odabrano.
+     */
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
 
+    /**
+     * Metoda koja svim okvirima postavlja boju u crnu.
+     */
     private void zacrniSveOkvire() {
 
         int visinaRuba = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
@@ -541,6 +582,9 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
 
     }
 
+    /**
+     * OnClick metoda na gumbu za zavrsetak razine.
+     */
     @OnClick(R.id.gumb_go_razina3)
     public void klikZaDalje(View view)
     {
