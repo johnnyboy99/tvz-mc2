@@ -82,10 +82,10 @@
 
                                     <ImageView
                                         android:id="@+id/slikaGumbRacOperacijeRazinaTest"
-                                        android:layout_width="50dp"
-                                        android:layout_height="50dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="25dp"
                                         android:layout_marginRight="10dp"
-                                        android:src="@drawable/gumb1"
+                                        android:src="@drawable/gumb_spinner"
                                         android:tag="slikaGumbRacOperacijeRazinaTest" />
 
                                     <ImageView
@@ -93,7 +93,7 @@
                                         android:layout_width="50dp"
                                         android:layout_height="50dp"
                                         android:layout_marginRight="10dp"
-                                        android:src="@drawable/gumb_jednako"
+                                        android:src="@drawable/gumb1"
                                         android:tag="slikaGumbJednakoRazinaTest" />
 
                                     <ImageView
@@ -232,7 +232,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.5" />
-
 
                     <View
                         android:id="@+id/okvirEditTextRezultatRazinaTest"

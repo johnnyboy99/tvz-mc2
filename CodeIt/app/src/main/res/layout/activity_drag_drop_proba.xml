@@ -20,7 +20,7 @@
             android:layout_width="100dp"
             android:tag="gumb1"
             android:layout_height="100dp"
-            android:src="@drawable/btn_proba" />
+            android:src="@drawable/gumb1" />
 
         <Space
             android:layout_width="40dp"
@@ -31,7 +31,7 @@
             android:layout_width="100dp"
             android:tag="gumb2"
             android:layout_height="100dp"
-            android:src="@drawable/btn_proba" />
+            android:src="@drawable/gumb1" />
 
     </LinearLayout>
 

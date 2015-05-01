@@ -52,7 +52,6 @@ import butterknife.OnClick;
 
 public class RazinaJedan extends Activity implements AdapterView.OnItemClickListener {
 
-    int maxScrollX;
     private String [] izborArray;
     boolean zastavica;
 
@@ -131,13 +130,15 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         ljubicasta = getResources().getColor(R.color.ljubicasta);
         bijela = getResources().getColor(R.color.bijela);
 
+        arrowl.setVisibility(View.VISIBLE);
+        arrowr.setVisibility(View.VISIBLE);
+
         zastavica = false;
 
         //start animacija
         prvaAnimacijaSveUSivo();
     }
 
-    //Drag odavde
     View.OnTouchListener touchListener = new View.OnTouchListener() {
         public boolean onTouch(View view, MotionEvent motionEvent) {
 
@@ -196,10 +197,7 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
 
                     okvirGumbRazinaJedan.setVisibility(View.GONE);
                     gumbRazinaJedan.setVisibility(View.VISIBLE);
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(visinaSlike, visinaSlike);
-                    slikaGumbRazinaJedan.setLayoutParams(layoutParams);
-                    slikaGumbRazinaJedan.requestLayout();
-                    //dragLayoutRazinaJedan.invalidate();
+                    slikaGumbRazinaJedan.setVisibility(View.GONE);
                     zastavica = true;
                     prikazDrugePoruke();
                     return unutarOkvira;
@@ -238,21 +236,19 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
 
         @Override
         public void onProvideShadowMetrics(Point shadowSize, Point shadowTouchPoint) {
-            int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics());
-
             shadow.setBounds(0, 0, 10000, 10000);
-
             shadowSize.set(10000, 10000);
             shadowTouchPoint.set(10000, 10000);
         }
     }
 
-    //dovde
-
     /**
      * Pozivanje dijaloga s prvim tekstom zadatka.
      */
     public void pozivZadatka() {
+        arrowl.setVisibility(View.GONE);
+        arrowr.setVisibility(View.GONE);
+
         AlertDialog.Builder builder = new AlertDialog.Builder(RazinaJedan.this);
         AlertDialog dialog =
         builder.setTitle(R.string.nas1)
@@ -260,13 +256,13 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
                 .setPositiveButton(R.string.poz, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
+
                     }
                 })
                 .show();
         dialog.findViewById(dialog.getContext().getResources()
                 .getIdentifier("android:id/titleDivider", null, null))
                 .setBackgroundColor(bijela);
-
     }
 
     /**
@@ -280,6 +276,7 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
                         .setPositiveButton(R.string.poz, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int id) {
+                                
                             }
                         })
                         .show();
@@ -389,17 +386,6 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
         intent.putExtra("razina", getResources().getString(R.string.mess2));
         RazinaJedan.this.finish();
         startActivity(intent);
-    }
-
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        // TODO Auto-generated method stub
-        super.onWindowFocusChanged(hasFocus);
-
-        maxScrollX = hsv.getChildAt(0).getMeasuredWidth()-hsv.getMeasuredWidth();
-
-        arrowl.setVisibility(View.VISIBLE);
-        arrowr.setVisibility(View.VISIBLE);
     }
 
     @Override
