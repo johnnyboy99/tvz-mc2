@@ -6,8 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 
 import butterknife.ButterKnife;
@@ -22,6 +20,9 @@ public class GlavniIzbornik extends Activity {
         ButterKnife.inject(this);
     }
 
+    /**
+     * OnClick metoda za otvaranje pomoći.
+     */
     @OnClick(R.id.btnPomoc)
     public void klikNaMenu(View v){
         Intent intent = new Intent(GlavniIzbornik.this, Pomoc.class);
@@ -40,12 +41,18 @@ public class GlavniIzbornik extends Activity {
         startActivity(i);
     }
 
+    /**
+     * OnClick metoda za liste razina.
+     */
     @OnClick(R.id.btnKreni)
     public void klikNaRazine(View v){
         Intent intent = new Intent(GlavniIzbornik.this, Razine.class);
         startActivity(intent);
     }
 
+    /**
+     * OnClick metoda za izlazak iz aplikacije.
+     */
     @OnClick(R.id.btnIzlaz)
     public void klikNaIzlaz(View v) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -67,27 +74,5 @@ public class GlavniIzbornik extends Activity {
                     }
                 });
         builder.create().show();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_glavni_izbornik, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }

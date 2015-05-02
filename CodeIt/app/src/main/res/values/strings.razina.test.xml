@@ -9,6 +9,13 @@
                 Imaš dva editTexta, spinner, gumb i labelu.</string>
     <string name="tektsZadatkaTestaRazinaRacOperacija">Uspješno si povukao sve elemente.
                 Probaj nešto izračunati.</string>
+    <string name="labelGreska">Greška</string>
+    <string name="labelNisiPovukaoSveElemente">Nisi još povukao sve elemente, povuci sve elemente, pa onda probaj izračunati.</string>
+    <string name="labelGreskaKodUnosaPrvogBroja">Greška kod unosa prvog broja</string>
+    <string name="labelNisiDobroPrviBroj">Nisi unio dobar prvi broj, unesi ga ponovo pa onda probaj izračunati.</string>
+    <string name="labelGreskaKodUnosaDrugogBroja">Greška kod unosa drugog broja</string>
+    <string name="labelNisiDobroDrugiBroj">Nisi unio dobar drugi broj, unesi ga ponovo pa onda probaj izračunati.</string>
+    <string name="labelNeMozesDjelitiSNulom">Ne možeš dijeliti s nulom, unesi brojeve ponovo pa onda probaj izračunati</string>
 
 
 </resources>

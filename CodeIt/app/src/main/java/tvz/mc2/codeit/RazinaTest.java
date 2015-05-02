@@ -238,8 +238,8 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
 
             AlertDialog.Builder builder = new AlertDialog.Builder(RazinaTest.this);
             AlertDialog dialog =
-                    builder.setTitle("Greška")
-                            .setMessage("Nisi još povukao sve elemente, povuci sve elemente, pa onda probaj izračunati.")
+                    builder.setTitle(getResources().getString(R.string.labelGreska))
+                            .setMessage(getResources().getString(R.string.labelNisiPovukaoSveElemente))
                             .setNegativeButton(R.string.neg, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int id) {
@@ -255,11 +255,15 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         /**
          * Provjera da li je unesen prvi broj.
          */
-        else if (editTextPrviBrojRazinaTest.getText().toString().equals("Prvi broj") || editTextPrviBrojRazinaTest.getText().toString().equals("")){
+        else if (editTextPrviBrojRazinaTest.getText().toString().equals("Prvi broj") || editTextPrviBrojRazinaTest.getText().toString().equals("")
+                || editTextPrviBrojRazinaTest.getText().toString().equals(".") || editTextPrviBrojRazinaTest.getText().toString().equals("-")
+                || editTextPrviBrojRazinaTest.getText().toString().equals("-.") || editTextPrviBrojRazinaTest.getText().toString().equals("+")
+                || editTextPrviBrojRazinaTest.getText().toString().equals("+.")){
+
             AlertDialog.Builder builder = new AlertDialog.Builder(RazinaTest.this);
             AlertDialog dialog =
-                    builder.setTitle("Greška kod unosa prvog broja")
-                            .setMessage("Nisi unio dobar prvi broj, unesi ga ponovo pa onda probaj izračunati.")
+                    builder.setTitle(getResources().getString(R.string.labelGreskaKodUnosaPrvogBroja))
+                            .setMessage(getResources().getString(R.string.labelPrviBroj))
                             .setNegativeButton(R.string.neg, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int id) {
@@ -275,11 +279,15 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
         /**
          * Provjera da li je unesen drugi broj.
          */
-        else if(editTextDrugiBrojRazinaTest.getText().toString().equals("Drugi broj") || editTextDrugiBrojRazinaTest.getText().toString().equals("")){
+        else if(editTextDrugiBrojRazinaTest.getText().toString().equals("Drugi broj") || editTextDrugiBrojRazinaTest.getText().toString().equals("")
+                || editTextDrugiBrojRazinaTest.getText().toString().equals(".") || editTextDrugiBrojRazinaTest.getText().toString().equals("-")
+                || editTextDrugiBrojRazinaTest.getText().toString().equals("-.") || editTextDrugiBrojRazinaTest.getText().toString().equals("+")
+                || editTextDrugiBrojRazinaTest.getText().toString().equals("+.")){
+
             AlertDialog.Builder builder = new AlertDialog.Builder(RazinaTest.this);
             AlertDialog dialog =
-                    builder.setTitle("Greška kod unosa drugog broja")
-                            .setMessage("Nisi unio dobar drugi broj, unesi ga ponovo pa onda probaj izračunati.")
+                    builder.setTitle(getResources().getString(R.string.labelGreskaKodUnosaDrugogBroja))
+                            .setMessage(getResources().getString(R.string.labelNisiDobroDrugiBroj))
                             .setNegativeButton(R.string.neg, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int id) {
@@ -323,9 +331,9 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
                 if (drugiBrojFloat == 0) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(RazinaTest.this);
                     AlertDialog dialog =
-                            builder.setTitle("Greška kod unosa drugog broja")
-                                    .setMessage("Ne možeš dijeliti s nulom, unesi brojeve ponovo pa onda probaj izračunati")
-                                    .setNegativeButton("Natrag", new DialogInterface.OnClickListener() {
+                            builder.setTitle(getResources().getString(R.string.labelGreskaKodUnosaDrugogBroja))
+                                    .setMessage(getResources().getString(R.string.labelNeMozesDjelitiSNulom))
+                                    .setNegativeButton(R.string.neg, new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int id) {
 
@@ -469,11 +477,11 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
 
                 case DragEvent.ACTION_DROP:
 
-
                     if(viewGumbTag.equals("slikaGumbPrviBrojRazinaTest") && viewOkvirTag.equals("okvirEditTextPrviBrojRazinaTest")){
                         okvirEditTextPrviBrojRazinaTest.setVisibility(View.GONE);
                         editTextPrviBrojRazinaTest.setVisibility(View.VISIBLE);
                         slikaGumbPrviBrojRazinaTest.setVisibility(View.GONE);
+                        drawerLayoutRazinaTest.invalidate();
                         booleanEditTextPrviBroj = true;
                         kolkoIhJePostavljeno += 1;
                         if(kolkoIhJePostavljeno == 5) {
@@ -485,6 +493,7 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
                         okvirEditTextDrugiBrojRazinaTest.setVisibility(View.GONE);
                         editTextDrugiBrojRazinaTest.setVisibility(View.VISIBLE);
                         slikaGumbDrugiBrojRazinaTest.setVisibility(View.GONE);
+                        drawerLayoutRazinaTest.invalidate();
                         booleanEditTextDrugiBroj = true;
                         kolkoIhJePostavljeno += 1;
                         if(kolkoIhJePostavljeno == 5) {
@@ -496,6 +505,7 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
                         okvirBtnJednakoRazinaTest.setVisibility(View.GONE);
                         btnJednakoRazinaTest.setVisibility(View.VISIBLE);
                         slikaGumbJednakoRazinaTest.setVisibility(View.GONE);
+                        drawerLayoutRazinaTest.invalidate();
                         booleanJednako = true;
                         kolkoIhJePostavljeno += 1;
                         if(kolkoIhJePostavljeno == 5) {
@@ -507,6 +517,7 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
                         okvirEditTextRezultatRazinaTest.setVisibility(View.GONE);
                         textViewRezultatRazinaTest.setVisibility(View.VISIBLE);
                         slikaGumbRezultatRazinaTest.setVisibility(View.GONE);
+                        drawerLayoutRazinaTest.invalidate();
                         booleanRezultat = true;
                         kolkoIhJePostavljeno += 1;
                         if(kolkoIhJePostavljeno == 5) {
@@ -518,6 +529,7 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
                         okvirSpinnerRazinaTest.setVisibility(View.GONE);
                         spinnerRacunskeOperacijeRazinaTest.setVisibility(View.VISIBLE);
                         slikaGumbRacOperacijeRazinaTest.setVisibility(View.GONE);
+                        drawerLayoutRazinaTest.invalidate();
                         booleanSpinner = true;
                         kolkoIhJePostavljeno += 1;
                         if(kolkoIhJePostavljeno == 5) {
@@ -544,31 +556,35 @@ public class RazinaTest extends Activity implements AdapterView.OnItemClickListe
                 okvirEditTextPrviBrojRazinaTest.setVisibility(View.GONE);
                 editTextPrviBrojRazinaTest.setVisibility(View.VISIBLE);
                 slikaGumbPrviBrojRazinaTest.setVisibility(View.GONE);
+                drawerLayoutRazinaTest.invalidate();
             }
 
             else if(viewGumbTag.equals("slikaGumbDrugiBrojRazinaTest") && viewOkvirTag.equals("okvirEditTextDrugiBrojRazinaTest")){
                 okvirEditTextDrugiBrojRazinaTest.setVisibility(View.GONE);
                 editTextDrugiBrojRazinaTest.setVisibility(View.VISIBLE);
                 slikaGumbDrugiBrojRazinaTest.setVisibility(View.GONE);
+                drawerLayoutRazinaTest.invalidate();
             }
 
             else if(viewGumbTag.equals("slikaGumbJednakoRazinaTest") && viewOkvirTag.equals("okvirBtnJednakoRazinaTest")){
                 okvirBtnJednakoRazinaTest.setVisibility(View.GONE);
                 btnJednakoRazinaTest.setVisibility(View.VISIBLE);
                 slikaGumbJednakoRazinaTest.setVisibility(View.GONE);
+                drawerLayoutRazinaTest.invalidate();
             }
 
             else if(viewGumbTag.equals("slikaGumbRezultatRazinaTest") && viewOkvirTag.equals("okvirEditTextRezultatRazinaTest")){
                 okvirEditTextRezultatRazinaTest.setVisibility(View.GONE);
                 textViewRezultatRazinaTest.setVisibility(View.VISIBLE);
                 slikaGumbRezultatRazinaTest.setVisibility(View.GONE);
-                booleanRezultat = true;
+                drawerLayoutRazinaTest.invalidate();
             }
 
             else if(viewGumbTag.equals("slikaGumbRacOperacijeRazinaTest") && viewOkvirTag.equals("okvirSpinnerRazinaTest")){
                 okvirSpinnerRazinaTest.setVisibility(View.GONE);
                 spinnerRacunskeOperacijeRazinaTest.setVisibility(View.VISIBLE);
                 slikaGumbRacOperacijeRazinaTest.setVisibility(View.GONE);
+                drawerLayoutRazinaTest.invalidate();
             }
         }
     }

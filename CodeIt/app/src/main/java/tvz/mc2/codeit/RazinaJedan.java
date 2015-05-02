@@ -25,8 +25,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -38,8 +36,6 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 
-
-//TODO da promjeni velicinu sjene
 
 public class RazinaJedan extends Activity implements AdapterView.OnItemClickListener {
 
@@ -66,7 +62,6 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
 
     Handler handler = new Handler();
 
-    //cekanja na animacije
     private static int VRIJEME_ANIMACIJE = 3000;
     private static int VRIJEME_ANIMACIJE_DUZE = 4000;
     private static int VRIJEME_MJENJANJA_BOJA = 2000;
@@ -77,7 +72,6 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
     Animation fadeOut;
     Animation fadeInDuzi;
 
-    //boje
     Integer tamnoSiva;
     Integer svjetloSiva;
     Integer tamnoSivaAnimacija;
