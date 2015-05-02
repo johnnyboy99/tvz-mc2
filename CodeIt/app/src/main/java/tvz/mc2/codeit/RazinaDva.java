@@ -428,7 +428,7 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
 
         switch (boja)
         {
-            case "------":
+            case "Boja:":
                 labelaRazinaDva.setTextColor(labelaRazinaDva.getCurrentTextColor());
                 break;
 
