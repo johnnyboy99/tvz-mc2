@@ -1,10 +1,8 @@
 package tvz.mc2.codeit;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;

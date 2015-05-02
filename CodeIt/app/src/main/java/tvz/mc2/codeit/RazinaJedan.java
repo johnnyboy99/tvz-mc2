@@ -14,25 +14,17 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Handler;
-import android.preference.DialogPreference;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.text.Editable;
 import android.util.TypedValue;
-import android.view.ContextThemeWrapper;
 import android.view.DragEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
@@ -41,7 +33,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -60,8 +51,6 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
     @InjectView(R.id.gumbRazinaJedan) Button gumbRazinaJedan;
     @InjectView(R.id.arrowLRazinaJedan) ImageView arrowl;
     @InjectView(R.id.arrowRRazinaJedan) ImageView arrowr;
-    @InjectView(R.id.horizontalScrollViewRazinaJedan) HorizontalScrollView hsv;
-    @InjectView(R.id.frameLayoutRazinaJedan) FrameLayout frameLayoutRazinaJedan;
     @InjectView(R.id.drawerListRazinaJedan) ListView drawerListRazinaJedan;
     @InjectView(R.id.drawerLayoutRazinaJedan) DrawerLayout drawerLayoutRazinaJedan;
     @InjectView(R.id.menuElementiRazinaJedan) RelativeLayout menuElementiRazinaJedan;
@@ -444,6 +433,7 @@ public class RazinaJedan extends Activity implements AdapterView.OnItemClickList
                 break;
         }
         selectItem(position);
+        drawerLayoutRazinaJedan.closeDrawer(drawerListRazinaJedan);
     }
 
     /**

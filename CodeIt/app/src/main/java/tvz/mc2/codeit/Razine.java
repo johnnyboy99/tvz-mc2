@@ -2,15 +2,11 @@ package tvz.mc2.codeit;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -65,8 +61,6 @@ public class Razine extends Activity {
         listaRazina = Arrays.asList(getResources().getStringArray(R.array.razine));
         listaPodrazina = new ArrayList<>();
         listaPodrazina.add(Arrays.asList(getResources().getStringArray(R.array.podrazine1)));
-        //listaPodrazina.add(Arrays.asList(getResources().getStringArray(R.array.podrazine2)));
-        //listaPodrazina.add(Arrays.asList(getResources().getStringArray(R.array.podrazine3)));
     }
 
     @Override

@@ -362,7 +362,6 @@ public class RazinaTri extends Activity implements AdapterView.OnItemClickListen
             View viewGumb = (View) event.getLocalState();
             String viewGumbTag = viewGumb.getTag().toString();
 
-           // GradientDrawable okvirGradientLabelaTri = (GradientDrawable) okvirLabelaRazinaTri.getBackground();
             int visinaRuba = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics());
             int visinaSlike = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50, getResources().getDisplayMetrics());
 

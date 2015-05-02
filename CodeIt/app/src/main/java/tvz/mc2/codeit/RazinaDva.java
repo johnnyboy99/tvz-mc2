@@ -12,26 +12,19 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.DragEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -53,13 +46,8 @@ public class RazinaDva extends Activity implements AdapterView.OnItemClickListen
     @InjectView(R.id.arrowLRazinaDva) ImageView arrowl;
     @InjectView(R.id.arrowRRazinaDva) ImageView arrowr;
     @InjectView(R.id.horizontalScrollViewRazinaDva) HorizontalScrollView hsv;
-    @InjectView(R.id.frameLayoutRazinaDva) FrameLayout frameLayoutRazinaDva;
     @InjectView(R.id.drawerListRazinaDva) ListView drawerListRazinaDva;
     @InjectView(R.id.drawerLayoutRazinaDva) DrawerLayout drawerLayoutRazinaDva;
-    @InjectView(R.id.menuElementiRazinaDva) RelativeLayout menuElementiRazinaDva;
-    @InjectView(R.id.radnaPlohaRazinaDva) LinearLayout radnaPlohaRazinaDva;
-    @InjectView(R.id.menuRazinaDva) LinearLayout menuRazinaDva;
-    @InjectView(R.id.drawerGumbRazinaDva) ImageButton drawerGumbRazinaDva;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

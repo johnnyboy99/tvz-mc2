@@ -1,6 +1,5 @@
 package tvz.mc2.codeit;
 
-import java.util.HashMap;
 import java.util.List;
 
 import android.content.Context;
