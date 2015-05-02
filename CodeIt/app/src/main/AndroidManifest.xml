@@ -15,16 +15,6 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".DragDropProba"
-            android:configChanges="orientation|screenSize"
-            android:label="@string/title_activity_drag_drop_proba"
-            android:parentActivityName=".GlavniIzbornik"
-            android:screenOrientation="portrait" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="tvz.mc2.codeit.GlavniIzbornik" />
-        </activity>
-        <activity
             android:name=".Splash"
             android:configChanges="orientation|screenSize"
             android:noHistory="true"
@@ -34,12 +24,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".MenuProba"
-            android:configChanges="orientation|screenSize"
-            android:label="@string/title_activity_menu_proba"
-            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".RazinaJedan"
@@ -55,16 +39,6 @@
             android:name=".Razine"
             android:configChanges="orientation|screenSize"
             android:label="@string/title_activity_razine"
-            android:parentActivityName=".GlavniIzbornik"
-            android:screenOrientation="portrait" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="tvz.mc2.codeit.GlavniIzbornik" />
-        </activity>
-        <activity
-            android:name=".Tutorial"
-            android:configChanges="orientation|screenSize"
-            android:label="@string/title_activity_tutorial"
             android:parentActivityName=".GlavniIzbornik"
             android:screenOrientation="portrait" >
             <meta-data
